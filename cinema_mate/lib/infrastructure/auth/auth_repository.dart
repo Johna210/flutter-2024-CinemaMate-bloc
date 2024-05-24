@@ -1,8 +1,8 @@
-import 'package:cinema_mate/domain/auth/auth_failure.dart';
-import 'package:cinema_mate/domain/auth/i_auth_repository.dart';
-import 'package:cinema_mate/domain/auth/user.dart';
-import 'package:cinema_mate/domain/auth/user_token.dart';
-import 'package:cinema_mate/domain/auth/value_objects.dart';
+import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
+import 'package:cinema_mate/domain/auth/user/i_auth_repository.dart';
+import 'package:cinema_mate/domain/auth/user/user.dart';
+import 'package:cinema_mate/domain/auth/user/user_token.dart';
+import 'package:cinema_mate/domain/auth/user/value_objects.dart';
 import 'package:cinema_mate/infrastructure/auth/auth_dtos.dart';
 import 'package:cinema_mate/infrastructure/auth/data_sources/auth_api.dart';
 import 'package:dartz/dartz.dart';
@@ -42,7 +42,12 @@ class AuthRepository implements IAuthRepository {
 
     return result.fold(
       (failure) => left(failure),
-      (userTokenDto) => right(userTokenDto.toDomain()),
+      (userTokenDto) async {
+        await secureStorage.write(key: "usertoken", value: userTokenDto.token);
+        print(await secureStorage.read(key: 'usertoken'));
+        print("token found");
+        return right(userTokenDto.toDomain());
+      },
     );
   }
 
@@ -62,6 +67,11 @@ class AuthRepository implements IAuthRepository {
     } else {
       return left(const AuthFailure.notSignedIn());
     }
+  }
+
+  @override
+  Future<void> signOut() async {
+    await secureStorage.delete(key: 'usertoken');
   }
 
   @override
@@ -88,12 +98,6 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<void> deleteAccount() {
     // TODO: implement deleteAccount
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> signOut() {
-    // TODO: implement signOut
     throw UnimplementedError();
   }
 }

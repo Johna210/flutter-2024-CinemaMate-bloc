@@ -1,4 +1,4 @@
-import 'package:cinema_mate/domain/auth/value_objects.dart';
+import 'package:cinema_mate/domain/auth/user/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';

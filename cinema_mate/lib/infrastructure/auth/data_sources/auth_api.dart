@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cinema_mate/domain/auth/auth_failure.dart';
+import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
 import 'package:cinema_mate/infrastructure/auth/auth_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -18,7 +18,7 @@ class AuthApiImplementations {
 // api endpoint - POST BASE_URL/users/signup
   Future<Either<AuthFailure, Unit>> userRegistration(
       UserRegistrationDto user) async {
-    final registrationUrl = Uri.parse('http://10.0.2.2:3000/users/signup');
+    final registrationUrl = Uri.parse('$baseUrl/users/signup');
     try {
       final http.Response response = await client.post(
         registrationUrl,
@@ -53,7 +53,7 @@ class AuthApiImplementations {
 // api endpoint - POST BASE_URL/users/sigin
   Future<Either<AuthFailure, UserTokenDto>> userSignIn(
       UserSignInDto user) async {
-    final signInUrl = Uri.parse('$baseUrl/users/signup');
+    final signInUrl = Uri.parse('$baseUrl/users/signin');
 
     try {
       final http.Response response = await client.post(
@@ -61,15 +61,22 @@ class AuthApiImplementations {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body: user.toJson(),
+        body: jsonEncode(user.toJson()),
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         Map<String, dynamic> responseBody = jsonDecode(response.body);
         String userToken = responseBody['usertoken'];
         return right(UserTokenDto(token: userToken));
       } else if (response.statusCode == 400) {
-        return left(const AuthFailure.invalidEmailOrPassword());
+        Map<String, dynamic> responseBody = jsonDecode(response.body);
+        String message = responseBody['message'];
+
+        if (message == 'user not found') {
+          return left(const AuthFailure.userNotFound());
+        } else {
+          return left(const AuthFailure.invalidEmailOrPassword());
+        }
       } else {
         return left(const AuthFailure.serverError());
       }

@@ -1,7 +1,7 @@
-import 'package:cinema_mate/domain/auth/auth_failure.dart';
-import 'package:cinema_mate/domain/auth/user.dart';
-import 'package:cinema_mate/domain/auth/user_token.dart';
-import 'package:cinema_mate/domain/auth/value_objects.dart';
+import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
+import 'package:cinema_mate/domain/auth/user/user.dart';
+import 'package:cinema_mate/domain/auth/user/user_token.dart';
+import 'package:cinema_mate/domain/auth/user/value_objects.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IAuthRepository {

@@ -1,8 +1,8 @@
 // ignore_for_file: invalid_annotation_target
 
-import 'package:cinema_mate/domain/auth/user.dart';
-import 'package:cinema_mate/domain/auth/user_token.dart';
-import 'package:cinema_mate/domain/auth/value_objects.dart';
+import 'package:cinema_mate/domain/auth/user/user.dart';
+import 'package:cinema_mate/domain/auth/user/user_token.dart';
+import 'package:cinema_mate/domain/auth/user/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'auth_dtos.freezed.dart';

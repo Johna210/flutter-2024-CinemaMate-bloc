@@ -14,4 +14,12 @@ class LocalSecureStorage {
   Future<String?> getUserToke() async {
     return await secureStorage.read(key: 'userToken');
   }
+
+  Future<void> removeToken() async {
+    await secureStorage.delete(key: 'userToken');
+  }
+
+  Future<void> updateToken(String newToken) async {
+    await secureStorage.write(key: 'userToken', value: newToken);
+  }
 }

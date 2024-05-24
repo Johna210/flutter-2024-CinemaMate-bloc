@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:cinema_mate/domain/auth/auth_failure.dart';
-import 'package:cinema_mate/domain/auth/i_auth_repository.dart';
-import 'package:cinema_mate/domain/auth/value_objects.dart';
+import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
+import 'package:cinema_mate/domain/auth/user/i_auth_repository.dart';
+import 'package:cinema_mate/domain/auth/user/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

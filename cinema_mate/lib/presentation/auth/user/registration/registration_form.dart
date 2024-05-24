@@ -1,4 +1,4 @@
-import 'package:cinema_mate/application/auth/register_form/register_form_bloc.dart';
+import 'package:cinema_mate/application/auth/user/register_form/register_form_bloc.dart';
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,150 +42,153 @@ class RegistrationForm extends StatelessWidget {
           autovalidateMode: state.showErrorMessages
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 100, bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      AppButton(
-                        title: "As a user",
-                        width: 180,
-                        onPressed: () {},
-                      ),
-                      AppButton(
-                        title: "As a cinema",
-                        width: 180,
-                        onPressed: () {},
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextFormField(
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.email,
-                      color: Colors.grey,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 100, bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        AppButton(
+                          title: "As a user",
+                          width: 180,
+                          onPressed: () {},
+                        ),
+                        AppButton(
+                          title: "As a cinema",
+                          width: 180,
+                          onPressed: () {},
+                        )
+                      ],
                     ),
-                    labelStyle: TextStyle(color: Colors.grey),
-                    labelText: 'Email',
                   ),
-                  autocorrect: false,
-                  onChanged: (value) => context
-                      .read<RegisterFormBloc>()
-                      .add(RegisterFormEvent.emailChanged(value)),
-                  validator: (_) => context
-                      .read<RegisterFormBloc>()
-                      .state
-                      .emailAddress
-                      .value
-                      .fold(
-                          (failure) => failure.maybeMap(
-                                invalidEmail: (_) => 'Invalid Email',
-                                orElse: () => null,
-                              ),
-                          (r) => null),
-                ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: Colors.grey,
-                    ),
-                    labelStyle: TextStyle(color: Colors.grey),
-                    labelText: 'Password',
+                  const SizedBox(
+                    height: 30,
                   ),
-                  autocorrect: false,
-                  obscureText: true,
-                  onChanged: (value) => context.read<RegisterFormBloc>().add(
-                        RegisterFormEvent.passwordChanged(value),
+                  TextFormField(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.grey,
                       ),
-                  validator: (_) => context
-                      .read<RegisterFormBloc>()
-                      .state
-                      .password
-                      .value
-                      .fold(
-                          (failure) => failure.maybeMap(
-                                shortPassword: (_) => 'short password',
-                                orElse: () => null,
-                              ),
-                          (r) => null),
-                ),
-                TextFormField(
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: Colors.grey,
+                      labelStyle: TextStyle(color: Colors.grey),
+                      labelText: 'Email',
                     ),
-                    labelStyle: TextStyle(color: Colors.grey),
-                    labelText: 'username',
+                    autocorrect: false,
+                    onChanged: (value) => context
+                        .read<RegisterFormBloc>()
+                        .add(RegisterFormEvent.emailChanged(value)),
+                    validator: (_) => context
+                        .read<RegisterFormBloc>()
+                        .state
+                        .emailAddress
+                        .value
+                        .fold(
+                            (failure) => failure.maybeMap(
+                                  invalidEmail: (_) => 'Invalid Email',
+                                  orElse: () => null,
+                                ),
+                            (r) => null),
                   ),
-                  autocorrect: false,
-                  onChanged: (value) => context.read<RegisterFormBloc>().add(
-                        RegisterFormEvent.usernameChanged(value),
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.grey,
                       ),
-                  validator: (_) => context
-                      .read<RegisterFormBloc>()
-                      .state
-                      .username
-                      .value
-                      .fold(
-                          (failure) => failure.maybeMap(
-                                shortUsername: (_) => 'short username',
-                                orElse: () => null,
-                              ),
-                          (r) => null),
-                ),
-                TextFormField(
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: Colors.grey,
+                      labelStyle: TextStyle(color: Colors.grey),
+                      labelText: 'Password',
                     ),
-                    labelStyle: TextStyle(color: Colors.grey),
-                    labelText: 'fullname',
+                    autocorrect: false,
+                    obscureText: true,
+                    onChanged: (value) => context.read<RegisterFormBloc>().add(
+                          RegisterFormEvent.passwordChanged(value),
+                        ),
+                    validator: (_) => context
+                        .read<RegisterFormBloc>()
+                        .state
+                        .password
+                        .value
+                        .fold(
+                            (failure) => failure.maybeMap(
+                                  shortPassword: (_) => 'short password',
+                                  orElse: () => null,
+                                ),
+                            (r) => null),
                   ),
-                  autocorrect: false,
-                  onChanged: (value) => context.read<RegisterFormBloc>().add(
-                        RegisterFormEvent.fullnameChanged(value),
+                  TextFormField(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Colors.grey,
                       ),
-                  validator: (_) => context
-                      .read<RegisterFormBloc>()
-                      .state
-                      .fullname
-                      .value
-                      .fold(
-                          (failure) => failure.maybeMap(
-                                shortUsername: (_) => 'short name',
-                                orElse: () => null,
-                              ),
-                          (r) => null),
-                ),
-                const SizedBox(height: 50),
-                AppButton(
-                  title: "Sign Up",
-                  width: 200,
-                  onPressed: () {
-                    context.read<RegisterFormBloc>().add(
-                          const RegisterFormEvent
-                              .registerWithEmailAndPasswordPressed(),
-                        );
-                  },
-                  textSize: 25,
-                  height: 60,
-                )
-              ],
+                      labelStyle: TextStyle(color: Colors.grey),
+                      labelText: 'username',
+                    ),
+                    autocorrect: false,
+                    onChanged: (value) => context.read<RegisterFormBloc>().add(
+                          RegisterFormEvent.usernameChanged(value),
+                        ),
+                    validator: (_) => context
+                        .read<RegisterFormBloc>()
+                        .state
+                        .username
+                        .value
+                        .fold(
+                            (failure) => failure.maybeMap(
+                                  shortUsername: (_) => 'short username',
+                                  orElse: () => null,
+                                ),
+                            (r) => null),
+                  ),
+                  TextFormField(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Colors.grey,
+                      ),
+                      labelStyle: TextStyle(color: Colors.grey),
+                      labelText: 'fullname',
+                    ),
+                    autocorrect: false,
+                    onChanged: (value) => context.read<RegisterFormBloc>().add(
+                          RegisterFormEvent.fullnameChanged(value),
+                        ),
+                    validator: (_) => context
+                        .read<RegisterFormBloc>()
+                        .state
+                        .fullname
+                        .value
+                        .fold(
+                            (failure) => failure.maybeMap(
+                                  shortUsername: (_) => 'short name',
+                                  orElse: () => null,
+                                ),
+                            (r) => null),
+                  ),
+                  const SizedBox(height: 50),
+                  AppButton(
+                    title: "Sign Up",
+                    width: 200,
+                    onPressed: () {
+                      context.read<RegisterFormBloc>().add(
+                            const RegisterFormEvent
+                                .registerWithEmailAndPasswordPressed(),
+                          );
+                    },
+                    textSize: 25,
+                    height: 60,
+                  )
+                ],
+              ),
             ),
           ),
         );
