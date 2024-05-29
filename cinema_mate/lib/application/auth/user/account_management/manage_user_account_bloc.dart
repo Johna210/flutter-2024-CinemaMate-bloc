@@ -17,6 +17,7 @@ class ManageUserAccountBloc
 
   ManageUserAccountBloc(this.iAuthRepository)
       : super(const ManageUserAccountState.initial()) {
+    on<Started>(_started);
     on<ChangePasswordClicked>(_changePasswordClicked);
     on<ChangeUsernameClicked>(_changeUsernameClicked);
     on<CurrentUsernameChanged>(_currentUsernameChanged);
@@ -28,6 +29,10 @@ class ManageUserAccountBloc
     on<ChangeUsernameSubmitted>(_changeUsernameSubmitted);
     on<ClosedChangePassword>(_closedChangedPassword);
     on<ClosedChangeUsername>(_closedChangedUsername);
+  }
+
+  void _started(Started event, Emitter<ManageUserAccountState> emit) {
+    emit(const ManageUserAccountState.initial());
   }
 
   void _currentChanged(
@@ -45,14 +50,12 @@ class ManageUserAccountBloc
       NewPasswordChanged event, Emitter<ManageUserAccountState> emit) {
     final currentState = state;
 
-    print('Before updating state: $currentState');
     if (currentState is _ChangePassword) {
       emit(currentState.copyWith(
         newPassword: Password(event.newPassword),
         authFailureOrSuccessOption: none(),
       ));
     }
-    print('After updating state: $state');
   }
 
   void _passwordConfirmation(
@@ -69,11 +72,8 @@ class ManageUserAccountBloc
   void _currentUsernameChanged(
       CurrentUsernameChanged event, Emitter<ManageUserAccountState> emit) {
     final currentState = state;
-    print(currentState);
 
     if (currentState is _ChangeUsername) {
-      print("xxxxxxxxxxxxxxxxxxxxxxxxx");
-
       emit(currentState.copyWith(
         currentUsername: Username(event.currentUsername),
         authFailureOrSuccessOption: none(),
@@ -84,14 +84,11 @@ class ManageUserAccountBloc
   void _newUsernameChanged(
       NewUsernameChanged event, Emitter<ManageUserAccountState> emit) {
     final currentState = state;
-    print(currentState);
-    if (currentState is NewUsernameChanged) {
-      print("yyyyyyyyyyyyyyyyyyyyy");
-
-      // emit(currentState.copyWith(
-      //   newUsername: Username(event.newusername),
-      //   authFailureOrSuccessOption: none(),
-      // ));
+    if (currentState is _ChangeUsername) {
+      emit(currentState.copyWith(
+        newUsername: Username(event.newusername),
+        authFailureOrSuccessOption: none(),
+      ));
     }
   }
 
@@ -104,7 +101,7 @@ class ManageUserAccountBloc
       Emitter<ManageUserAccountState> emit) async {
     final currentState = state;
     Either<AuthFailure, Unit>? failureOrSuccess;
-
+    print(currentState);
     if (currentState is _ChangePassword) {
       final currentPassword = currentState.currentPassword;
       final newPassword = currentState.newPassword;
@@ -163,8 +160,8 @@ class ManageUserAccountBloc
     if (currentState is _ChangeUsername) {
       final currentUsername = currentState.currentUsername;
       final newUsername = currentState.newUsername;
-      print("this is current $currentUsername");
-      print("this is $newUsername");
+      print("this is current ${currentUsername.value}");
+      print("this is ${newUsername.value}");
 
       if (currentUsername.isValid() && newUsername.isValid()) {
         emit(currentState.copyWith(
