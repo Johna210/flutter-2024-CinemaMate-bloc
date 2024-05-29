@@ -34,15 +34,16 @@ class ChangeUserName extends StatelessWidget {
                 height: 20,
               ),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 224, 67, 56),
-                      minimumSize: const Size(180, 60),
-                      maximumSize: const Size(200, 90)),
-                  onPressed: () {},
-                  child: const Text(
-                    'Continue',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ))
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 224, 67, 56),
+                    minimumSize: const Size(180, 60),
+                    maximumSize: const Size(200, 90)),
+                onPressed: () {},
+                child: const Text(
+                  'Continue',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+              )
             ],
           )),
         ),

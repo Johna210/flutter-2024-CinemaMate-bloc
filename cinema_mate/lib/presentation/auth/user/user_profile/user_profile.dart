@@ -76,22 +76,8 @@ class UserProfile extends StatelessWidget {
             BlocListener<ManageUserAccountBloc, ManageUserAccountState>(
               listener: (context, state) {
                 state.maybeMap(
-                    changePassword: (_) {
-                      showChangePasswordModalSheet(context).then((_) {
-                        context.read<ManageUserAccountBloc>().add(
-                              const ManageUserAccountEvent
-                                  .closedChangePassword(),
-                            );
-                      });
-                    },
-                    changeUsername: (_) {
-                      showChangeUsernameModalSheet(context).then((_) {
-                        context.read<ManageUserAccountBloc>().add(
-                              const ManageUserAccountEvent
-                                  .closedChangeUsername(),
-                            );
-                      });
-                    },
+                    changePassword: (_) {},
+                    changeUsername: (_) {},
                     orElse: () {});
               },
             ),
