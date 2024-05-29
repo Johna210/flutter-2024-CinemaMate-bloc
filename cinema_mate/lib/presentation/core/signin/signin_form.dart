@@ -25,6 +25,8 @@ class SignInForm extends StatelessWidget {
                   invalidEmailOrPassword: (_) =>
                       const Text('Incorrect username or password'),
                   userNotFound: (_) => const Text('User not found'),
+                  accountSuspended: (_) => const Text(
+                      'Account suspended: Contact us for more info on www.cinemaMate.com'),
                   serverError: (_) => const Text('Server Error'),
                   orElse: () => const Text('Something went wrong'),
                 ),

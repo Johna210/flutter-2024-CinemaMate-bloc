@@ -44,15 +44,13 @@ class AuthRepository implements IAuthRepository {
       (failure) => left(failure),
       (userTokenDto) async {
         await secureStorage.write(key: "usertoken", value: userTokenDto.token);
-        print(await secureStorage.read(key: 'usertoken'));
-        print("token found");
         return right(userTokenDto.toDomain());
       },
     );
   }
 
   @override
-  Future<Either<AuthFailure, User>> getSignedInUser() async {
+  Future<Option<User>> getSignedInUser() async {
     final currentUserToken = await secureStorage.read(key: "usertoken");
 
     if (currentUserToken != null) {
@@ -60,12 +58,11 @@ class AuthRepository implements IAuthRepository {
         UserTokenDto(token: currentUserToken),
       );
 
-      return result.fold(
-        (failure) => left(const AuthFailure.tokenExpired()),
-        (user) => right(user.toDomain()),
-      );
+      return (result.map(
+        (userDto) => (userDto.toDomain()),
+      ));
     } else {
-      return left(const AuthFailure.notSignedIn());
+      return none();
     }
   }
 
@@ -83,21 +80,50 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> changePassword(
-      {required Password currentPassword, required Password newPassword}) {
-    // TODO: implement changePassword
-    throw UnimplementedError();
+      {required Password currentPassword,
+      required Password newPassword}) async {
+    final userToken = await secureStorage.read(key: "usertoken");
+    if (userToken == null) {
+      return left(const AuthFailure.serverError());
+    }
+
+    final result = await _apiImplementations.changePassword(
+      currentPassword: PasswordDto.fromDomain(currentPassword),
+      newPassword: PasswordDto.fromDomain(newPassword),
+      userToken: UserTokenDto(token: userToken),
+    );
+
+    return result.fold(
+      (failure) => left(failure),
+      (r) => right(unit),
+    );
   }
 
   @override
   Future<Either<AuthFailure, Unit>> changeUsername(
-      {required Username currentUsername, required Username newUsername}) {
-    // TODO: implement changeUsername
-    throw UnimplementedError();
+      {required Username currentUsername,
+      required Username newUsername}) async {
+    final userToken = await secureStorage.read(key: "usertoken");
+    if (userToken == null) {
+      return left(const AuthFailure.serverError());
+    }
+
+    final result = await _apiImplementations.changeUsername(
+      currentUsername: currentUsername.getOrCrash(),
+      newUsername: newUsername.getOrCrash(),
+      userToken: UserTokenDto(token: userToken),
+    );
+
+    return result.fold(
+      (failure) => left(failure),
+      (r) => right(unit),
+    );
   }
 
   @override
-  Future<void> deleteAccount() {
-    // TODO: implement deleteAccount
-    throw UnimplementedError();
+  Future<void> deleteAccount() async {
+    final userToken = await secureStorage.read(key: "usertoken");
+    return await _apiImplementations.deleteAccount(
+        userToken: UserTokenDto(token: userToken!));
   }
 }

@@ -5,7 +5,7 @@ import 'package:cinema_mate/domain/auth/user/value_objects.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IAuthRepository {
-  Future<Either<AuthFailure, User>> getSignedInUser();
+  Future<Option<User>> getSignedInUser();
 
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     required EmailAddress email,

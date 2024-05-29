@@ -25,6 +25,11 @@ mixin _$AuthFailure {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +41,11 @@ mixin _$AuthFailure {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +57,11 @@ mixin _$AuthFailure {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +75,11 @@ mixin _$AuthFailure {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +91,11 @@ mixin _$AuthFailure {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +107,11 @@ mixin _$AuthFailure {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +180,11 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) {
     return serverError();
   }
@@ -164,6 +199,11 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) {
     return serverError?.call();
   }
@@ -178,6 +218,11 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -197,6 +242,11 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) {
     return serverError(this);
   }
@@ -211,6 +261,11 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) {
     return serverError?.call(this);
   }
@@ -225,6 +280,11 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -283,6 +343,11 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) {
     return emailAlreadyInUse();
   }
@@ -297,6 +362,11 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -311,6 +381,11 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -330,6 +405,11 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -344,6 +424,11 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -358,6 +443,11 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -419,6 +509,11 @@ class _$InvalidEmailOrPasswordImpl implements InvalidEmailOrPassword {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) {
     return invalidEmailOrPassword();
   }
@@ -433,6 +528,11 @@ class _$InvalidEmailOrPasswordImpl implements InvalidEmailOrPassword {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) {
     return invalidEmailOrPassword?.call();
   }
@@ -447,6 +547,11 @@ class _$InvalidEmailOrPasswordImpl implements InvalidEmailOrPassword {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) {
     if (invalidEmailOrPassword != null) {
@@ -466,6 +571,11 @@ class _$InvalidEmailOrPasswordImpl implements InvalidEmailOrPassword {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) {
     return invalidEmailOrPassword(this);
   }
@@ -480,6 +590,11 @@ class _$InvalidEmailOrPasswordImpl implements InvalidEmailOrPassword {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) {
     return invalidEmailOrPassword?.call(this);
   }
@@ -494,6 +609,11 @@ class _$InvalidEmailOrPasswordImpl implements InvalidEmailOrPassword {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) {
     if (invalidEmailOrPassword != null) {
@@ -553,6 +673,11 @@ class _$UsernameAlreadyInUseImpl implements UsernameAlreadyInUse {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) {
     return usernameAlreadyInUse();
   }
@@ -567,6 +692,11 @@ class _$UsernameAlreadyInUseImpl implements UsernameAlreadyInUse {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) {
     return usernameAlreadyInUse?.call();
   }
@@ -581,6 +711,11 @@ class _$UsernameAlreadyInUseImpl implements UsernameAlreadyInUse {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) {
     if (usernameAlreadyInUse != null) {
@@ -600,6 +735,11 @@ class _$UsernameAlreadyInUseImpl implements UsernameAlreadyInUse {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) {
     return usernameAlreadyInUse(this);
   }
@@ -614,6 +754,11 @@ class _$UsernameAlreadyInUseImpl implements UsernameAlreadyInUse {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) {
     return usernameAlreadyInUse?.call(this);
   }
@@ -628,6 +773,11 @@ class _$UsernameAlreadyInUseImpl implements UsernameAlreadyInUse {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) {
     if (usernameAlreadyInUse != null) {
@@ -686,6 +836,11 @@ class _$TokenExpiredImpl implements TokenExpired {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) {
     return tokenExpired();
   }
@@ -700,6 +855,11 @@ class _$TokenExpiredImpl implements TokenExpired {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) {
     return tokenExpired?.call();
   }
@@ -714,6 +874,11 @@ class _$TokenExpiredImpl implements TokenExpired {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) {
     if (tokenExpired != null) {
@@ -733,6 +898,11 @@ class _$TokenExpiredImpl implements TokenExpired {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) {
     return tokenExpired(this);
   }
@@ -747,6 +917,11 @@ class _$TokenExpiredImpl implements TokenExpired {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) {
     return tokenExpired?.call(this);
   }
@@ -761,6 +936,11 @@ class _$TokenExpiredImpl implements TokenExpired {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) {
     if (tokenExpired != null) {
@@ -819,6 +999,11 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) {
     return userNotFound();
   }
@@ -833,6 +1018,11 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) {
     return userNotFound?.call();
   }
@@ -847,6 +1037,11 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -866,6 +1061,11 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) {
     return userNotFound(this);
   }
@@ -880,6 +1080,11 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) {
     return userNotFound?.call(this);
   }
@@ -894,6 +1099,11 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -952,6 +1162,11 @@ class _$NotSignedInImpl implements NotSignedIn {
     required TResult Function() tokenExpired,
     required TResult Function() userNotFound,
     required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
   }) {
     return notSignedIn();
   }
@@ -966,6 +1181,11 @@ class _$NotSignedInImpl implements NotSignedIn {
     TResult? Function()? tokenExpired,
     TResult? Function()? userNotFound,
     TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
   }) {
     return notSignedIn?.call();
   }
@@ -980,6 +1200,11 @@ class _$NotSignedInImpl implements NotSignedIn {
     TResult Function()? tokenExpired,
     TResult Function()? userNotFound,
     TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
     required TResult orElse(),
   }) {
     if (notSignedIn != null) {
@@ -999,6 +1224,11 @@ class _$NotSignedInImpl implements NotSignedIn {
     required TResult Function(TokenExpired value) tokenExpired,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
   }) {
     return notSignedIn(this);
   }
@@ -1013,6 +1243,11 @@ class _$NotSignedInImpl implements NotSignedIn {
     TResult? Function(TokenExpired value)? tokenExpired,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
   }) {
     return notSignedIn?.call(this);
   }
@@ -1027,6 +1262,11 @@ class _$NotSignedInImpl implements NotSignedIn {
     TResult Function(TokenExpired value)? tokenExpired,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
     required TResult orElse(),
   }) {
     if (notSignedIn != null) {
@@ -1038,4 +1278,820 @@ class _$NotSignedInImpl implements NotSignedIn {
 
 abstract class NotSignedIn implements AuthFailure {
   const factory NotSignedIn() = _$NotSignedInImpl;
+}
+
+/// @nodoc
+abstract class _$$AccountSuspendedImplCopyWith<$Res> {
+  factory _$$AccountSuspendedImplCopyWith(_$AccountSuspendedImpl value,
+          $Res Function(_$AccountSuspendedImpl) then) =
+      __$$AccountSuspendedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AccountSuspendedImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$AccountSuspendedImpl>
+    implements _$$AccountSuspendedImplCopyWith<$Res> {
+  __$$AccountSuspendedImplCopyWithImpl(_$AccountSuspendedImpl _value,
+      $Res Function(_$AccountSuspendedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AccountSuspendedImpl implements AccountSuspended {
+  const _$AccountSuspendedImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.accountSuspended()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AccountSuspendedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailOrPassword,
+    required TResult Function() usernameAlreadyInUse,
+    required TResult Function() tokenExpired,
+    required TResult Function() userNotFound,
+    required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
+  }) {
+    return accountSuspended();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailOrPassword,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? tokenExpired,
+    TResult? Function()? userNotFound,
+    TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
+  }) {
+    return accountSuspended?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailOrPassword,
+    TResult Function()? usernameAlreadyInUse,
+    TResult Function()? tokenExpired,
+    TResult Function()? userNotFound,
+    TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (accountSuspended != null) {
+      return accountSuspended();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(UsernameAlreadyInUse value) usernameAlreadyInUse,
+    required TResult Function(TokenExpired value) tokenExpired,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
+  }) {
+    return accountSuspended(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult? Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(TokenExpired value)? tokenExpired,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
+  }) {
+    return accountSuspended?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult Function(TokenExpired value)? tokenExpired,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (accountSuspended != null) {
+      return accountSuspended(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AccountSuspended implements AuthFailure {
+  const factory AccountSuspended() = _$AccountSuspendedImpl;
+}
+
+/// @nodoc
+abstract class _$$WrongPasswordImplCopyWith<$Res> {
+  factory _$$WrongPasswordImplCopyWith(
+          _$WrongPasswordImpl value, $Res Function(_$WrongPasswordImpl) then) =
+      __$$WrongPasswordImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WrongPasswordImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$WrongPasswordImpl>
+    implements _$$WrongPasswordImplCopyWith<$Res> {
+  __$$WrongPasswordImplCopyWithImpl(
+      _$WrongPasswordImpl _value, $Res Function(_$WrongPasswordImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$WrongPasswordImpl implements WrongPassword {
+  const _$WrongPasswordImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.wrongPassword()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$WrongPasswordImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailOrPassword,
+    required TResult Function() usernameAlreadyInUse,
+    required TResult Function() tokenExpired,
+    required TResult Function() userNotFound,
+    required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
+  }) {
+    return wrongPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailOrPassword,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? tokenExpired,
+    TResult? Function()? userNotFound,
+    TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
+  }) {
+    return wrongPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailOrPassword,
+    TResult Function()? usernameAlreadyInUse,
+    TResult Function()? tokenExpired,
+    TResult Function()? userNotFound,
+    TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongPassword != null) {
+      return wrongPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(UsernameAlreadyInUse value) usernameAlreadyInUse,
+    required TResult Function(TokenExpired value) tokenExpired,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
+  }) {
+    return wrongPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult? Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(TokenExpired value)? tokenExpired,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
+  }) {
+    return wrongPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult Function(TokenExpired value)? tokenExpired,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongPassword != null) {
+      return wrongPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WrongPassword implements AuthFailure {
+  const factory WrongPassword() = _$WrongPasswordImpl;
+}
+
+/// @nodoc
+abstract class _$$WrongUsernameImplCopyWith<$Res> {
+  factory _$$WrongUsernameImplCopyWith(
+          _$WrongUsernameImpl value, $Res Function(_$WrongUsernameImpl) then) =
+      __$$WrongUsernameImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WrongUsernameImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$WrongUsernameImpl>
+    implements _$$WrongUsernameImplCopyWith<$Res> {
+  __$$WrongUsernameImplCopyWithImpl(
+      _$WrongUsernameImpl _value, $Res Function(_$WrongUsernameImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$WrongUsernameImpl implements WrongUsername {
+  const _$WrongUsernameImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.wrongUsername()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$WrongUsernameImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailOrPassword,
+    required TResult Function() usernameAlreadyInUse,
+    required TResult Function() tokenExpired,
+    required TResult Function() userNotFound,
+    required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
+  }) {
+    return wrongUsername();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailOrPassword,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? tokenExpired,
+    TResult? Function()? userNotFound,
+    TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
+  }) {
+    return wrongUsername?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailOrPassword,
+    TResult Function()? usernameAlreadyInUse,
+    TResult Function()? tokenExpired,
+    TResult Function()? userNotFound,
+    TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongUsername != null) {
+      return wrongUsername();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(UsernameAlreadyInUse value) usernameAlreadyInUse,
+    required TResult Function(TokenExpired value) tokenExpired,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
+  }) {
+    return wrongUsername(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult? Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(TokenExpired value)? tokenExpired,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
+  }) {
+    return wrongUsername?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult Function(TokenExpired value)? tokenExpired,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongUsername != null) {
+      return wrongUsername(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WrongUsername implements AuthFailure {
+  const factory WrongUsername() = _$WrongUsernameImpl;
+}
+
+/// @nodoc
+abstract class _$$PasswordsDoesntMatchImplCopyWith<$Res> {
+  factory _$$PasswordsDoesntMatchImplCopyWith(_$PasswordsDoesntMatchImpl value,
+          $Res Function(_$PasswordsDoesntMatchImpl) then) =
+      __$$PasswordsDoesntMatchImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PasswordsDoesntMatchImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$PasswordsDoesntMatchImpl>
+    implements _$$PasswordsDoesntMatchImplCopyWith<$Res> {
+  __$$PasswordsDoesntMatchImplCopyWithImpl(_$PasswordsDoesntMatchImpl _value,
+      $Res Function(_$PasswordsDoesntMatchImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PasswordsDoesntMatchImpl implements PasswordsDoesntMatch {
+  const _$PasswordsDoesntMatchImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.passwordsDoesntMatch()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordsDoesntMatchImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailOrPassword,
+    required TResult Function() usernameAlreadyInUse,
+    required TResult Function() tokenExpired,
+    required TResult Function() userNotFound,
+    required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
+  }) {
+    return passwordsDoesntMatch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailOrPassword,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? tokenExpired,
+    TResult? Function()? userNotFound,
+    TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
+  }) {
+    return passwordsDoesntMatch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailOrPassword,
+    TResult Function()? usernameAlreadyInUse,
+    TResult Function()? tokenExpired,
+    TResult Function()? userNotFound,
+    TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (passwordsDoesntMatch != null) {
+      return passwordsDoesntMatch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(UsernameAlreadyInUse value) usernameAlreadyInUse,
+    required TResult Function(TokenExpired value) tokenExpired,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
+  }) {
+    return passwordsDoesntMatch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult? Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(TokenExpired value)? tokenExpired,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
+  }) {
+    return passwordsDoesntMatch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult Function(TokenExpired value)? tokenExpired,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (passwordsDoesntMatch != null) {
+      return passwordsDoesntMatch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordsDoesntMatch implements AuthFailure {
+  const factory PasswordsDoesntMatch() = _$PasswordsDoesntMatchImpl;
+}
+
+/// @nodoc
+abstract class _$$WrongEmailImplCopyWith<$Res> {
+  factory _$$WrongEmailImplCopyWith(
+          _$WrongEmailImpl value, $Res Function(_$WrongEmailImpl) then) =
+      __$$WrongEmailImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WrongEmailImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$WrongEmailImpl>
+    implements _$$WrongEmailImplCopyWith<$Res> {
+  __$$WrongEmailImplCopyWithImpl(
+      _$WrongEmailImpl _value, $Res Function(_$WrongEmailImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$WrongEmailImpl implements WrongEmail {
+  const _$WrongEmailImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.wrongEmail()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$WrongEmailImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailOrPassword,
+    required TResult Function() usernameAlreadyInUse,
+    required TResult Function() tokenExpired,
+    required TResult Function() userNotFound,
+    required TResult Function() notSignedIn,
+    required TResult Function() accountSuspended,
+    required TResult Function() wrongPassword,
+    required TResult Function() wrongUsername,
+    required TResult Function() passwordsDoesntMatch,
+    required TResult Function() wrongEmail,
+  }) {
+    return wrongEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailOrPassword,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? tokenExpired,
+    TResult? Function()? userNotFound,
+    TResult? Function()? notSignedIn,
+    TResult? Function()? accountSuspended,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? wrongUsername,
+    TResult? Function()? passwordsDoesntMatch,
+    TResult? Function()? wrongEmail,
+  }) {
+    return wrongEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailOrPassword,
+    TResult Function()? usernameAlreadyInUse,
+    TResult Function()? tokenExpired,
+    TResult Function()? userNotFound,
+    TResult Function()? notSignedIn,
+    TResult Function()? accountSuspended,
+    TResult Function()? wrongPassword,
+    TResult Function()? wrongUsername,
+    TResult Function()? passwordsDoesntMatch,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongEmail != null) {
+      return wrongEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(UsernameAlreadyInUse value) usernameAlreadyInUse,
+    required TResult Function(TokenExpired value) tokenExpired,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(NotSignedIn value) notSignedIn,
+    required TResult Function(AccountSuspended value) accountSuspended,
+    required TResult Function(WrongPassword value) wrongPassword,
+    required TResult Function(WrongUsername value) wrongUsername,
+    required TResult Function(PasswordsDoesntMatch value) passwordsDoesntMatch,
+    required TResult Function(WrongEmail value) wrongEmail,
+  }) {
+    return wrongEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult? Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(TokenExpired value)? tokenExpired,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(NotSignedIn value)? notSignedIn,
+    TResult? Function(AccountSuspended value)? accountSuspended,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(WrongUsername value)? wrongUsername,
+    TResult? Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult? Function(WrongEmail value)? wrongEmail,
+  }) {
+    return wrongEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult Function(TokenExpired value)? tokenExpired,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(NotSignedIn value)? notSignedIn,
+    TResult Function(AccountSuspended value)? accountSuspended,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(WrongUsername value)? wrongUsername,
+    TResult Function(PasswordsDoesntMatch value)? passwordsDoesntMatch,
+    TResult Function(WrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongEmail != null) {
+      return wrongEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WrongEmail implements AuthFailure {
+  const factory WrongEmail() = _$WrongEmailImpl;
 }

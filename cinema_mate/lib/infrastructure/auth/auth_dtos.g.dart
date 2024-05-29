@@ -57,3 +57,13 @@ Map<String, dynamic> _$$UserTokenDtoImplToJson(_$UserTokenDtoImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
     };
+
+_$PasswordDtoImpl _$$PasswordDtoImplFromJson(Map<String, dynamic> json) =>
+    _$PasswordDtoImpl(
+      password: json['password'] as String,
+    );
+
+Map<String, dynamic> _$$PasswordDtoImplToJson(_$PasswordDtoImpl instance) =>
+    <String, dynamic>{
+      'password': instance.password,
+    };

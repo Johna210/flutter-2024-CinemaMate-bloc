@@ -124,3 +124,23 @@ abstract class UserTokenDto implements _$UserTokenDto {
   factory UserTokenDto.fromJson(Map<String, dynamic> json) =>
       _$UserTokenDtoFromJson(json);
 }
+
+@freezed
+abstract class PasswordDto implements _$PasswordDto {
+  const PasswordDto._();
+
+  const factory PasswordDto({
+    required String password,
+  }) = _PasswordDto;
+
+  factory PasswordDto.fromDomain(Password password) {
+    return PasswordDto(password: password.getOrCrash());
+  }
+
+  Password toDomain() {
+    return Password(password);
+  }
+
+  factory PasswordDto.fromJson(Map<String, dynamic> json) =>
+      _$PasswordDtoFromJson(json);
+}

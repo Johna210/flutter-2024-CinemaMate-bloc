@@ -689,3 +689,142 @@ abstract class _UserTokenDto extends UserTokenDto {
   _$$UserTokenDtoImplCopyWith<_$UserTokenDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+PasswordDto _$PasswordDtoFromJson(Map<String, dynamic> json) {
+  return _PasswordDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PasswordDto {
+  String get password => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PasswordDtoCopyWith<PasswordDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PasswordDtoCopyWith<$Res> {
+  factory $PasswordDtoCopyWith(
+          PasswordDto value, $Res Function(PasswordDto) then) =
+      _$PasswordDtoCopyWithImpl<$Res, PasswordDto>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class _$PasswordDtoCopyWithImpl<$Res, $Val extends PasswordDto>
+    implements $PasswordDtoCopyWith<$Res> {
+  _$PasswordDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_value.copyWith(
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PasswordDtoImplCopyWith<$Res>
+    implements $PasswordDtoCopyWith<$Res> {
+  factory _$$PasswordDtoImplCopyWith(
+          _$PasswordDtoImpl value, $Res Function(_$PasswordDtoImpl) then) =
+      __$$PasswordDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$PasswordDtoImplCopyWithImpl<$Res>
+    extends _$PasswordDtoCopyWithImpl<$Res, _$PasswordDtoImpl>
+    implements _$$PasswordDtoImplCopyWith<$Res> {
+  __$$PasswordDtoImplCopyWithImpl(
+      _$PasswordDtoImpl _value, $Res Function(_$PasswordDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$PasswordDtoImpl(
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PasswordDtoImpl extends _PasswordDto {
+  const _$PasswordDtoImpl({required this.password}) : super._();
+
+  factory _$PasswordDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PasswordDtoImplFromJson(json);
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'PasswordDto(password: $password)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordDtoImpl &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PasswordDtoImplCopyWith<_$PasswordDtoImpl> get copyWith =>
+      __$$PasswordDtoImplCopyWithImpl<_$PasswordDtoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PasswordDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PasswordDto extends PasswordDto {
+  const factory _PasswordDto({required final String password}) =
+      _$PasswordDtoImpl;
+  const _PasswordDto._() : super._();
+
+  factory _PasswordDto.fromJson(Map<String, dynamic> json) =
+      _$PasswordDtoImpl.fromJson;
+
+  @override
+  String get password;
+  @override
+  @JsonKey(ignore: true)
+  _$$PasswordDtoImplCopyWith<_$PasswordDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

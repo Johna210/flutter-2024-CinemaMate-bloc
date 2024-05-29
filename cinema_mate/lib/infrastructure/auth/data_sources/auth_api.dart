@@ -77,6 +77,14 @@ class AuthApiImplementations {
         } else {
           return left(const AuthFailure.invalidEmailOrPassword());
         }
+      } else if (response.statusCode == 401) {
+        Map<String, dynamic> responseBody = jsonDecode(response.body);
+        String message = responseBody['message'];
+        if (message == 'Account suspended') {
+          return left(const AuthFailure.accountSuspended());
+        } else {
+          return left(const AuthFailure.invalidEmailOrPassword());
+        }
       } else {
         return left(const AuthFailure.serverError());
       }
@@ -87,21 +95,54 @@ class AuthApiImplementations {
 
 // api function to get the currently signed in user
 // api endpoint - POST BASE_URL/users/current
-  Future<Either<AuthFailure, UserDto>> currentUser(
-      UserTokenDto userToken) async {
+  Future<Option<UserDto>> currentUser(UserTokenDto userToken) async {
     final signInUrl = Uri.parse('$baseUrl/users/current');
 
     try {
       final http.Response response = await client.post(
         signInUrl,
         headers: <String, String>{
-          'Authorization': 'Bearer $userToken',
+          'Authorization': 'Bearer ${userToken.token}',
         },
       );
 
       if (response.statusCode == 200) {
         Map<String, dynamic> responseBody = jsonDecode(response.body);
-        return right(UserDto.fromJson(responseBody));
+        return some(UserDto.fromJson(responseBody));
+      } else {
+        return none();
+      }
+    } catch (e) {
+      return none();
+    }
+  }
+
+// api function to changepassword
+// api endpoint - POST BASE_URL/users/changepass
+  Future<Either<AuthFailure, Unit>> changePassword(
+      {required PasswordDto currentPassword,
+      required PasswordDto newPassword,
+      required UserTokenDto userToken}) async {
+    final changePasswordUrl = Uri.parse('$baseUrl/users/changepass');
+    try {
+      final http.Response response = await client.post(
+        changePasswordUrl,
+        headers: <String, String>{
+          'Authorization': 'Bearer ${userToken.token}',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        return right(unit);
+      } else if (response.statusCode >= 400) {
+        Map<String, dynamic> responseBody = jsonDecode(response.body);
+        String message = responseBody['message'];
+
+        if (message == 'Incorrect Password') {
+          return left(const AuthFailure.wrongPassword());
+        } else {
+          return left(const AuthFailure.serverError());
+        }
       } else {
         return left(const AuthFailure.serverError());
       }
@@ -110,17 +151,45 @@ class AuthApiImplementations {
     }
   }
 
-// api function to changepassword
-// api endpoint - POST BASE_URL/users/changepass
-
 // api function to change username
 // api endpoint - POST BASE_URL/users/edit
+  Future<Either<AuthFailure, Unit>> changeUsername(
+      {required String currentUsername,
+      required String newUsername,
+      required UserTokenDto userToken}) async {
+    final changeUsernameUrl = Uri.parse('$baseUrl/users/edit');
 
-// api function to change email
-// api endpoint - POST BASE_URL/users/edit
-
-// api function to sign user out
+    try {
+      final http.Response response = await client.post(
+        changeUsernameUrl,
+        headers: <String, String>{
+          'Authorization': 'Bearer ${userToken.token}',
+        },
+      );
+      if (response.statusCode == 200) {
+        return right(unit);
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    } catch (e) {
+      return left(const AuthFailure.serverError());
+    }
+  }
 
 // api function to delete account
 // api endpoint - POST BASE_URL/users/delaccount
+  Future<void> deleteAccount({required UserTokenDto userToken}) async {
+    final deleteUserUrl = Uri.parse('$baseUrl/users/delaccount');
+
+    // ignore: unused_local_variable
+    final http.Response response = await client.post(
+      deleteUserUrl,
+      headers: <String, String>{
+        'Authorization': 'Bearer ${userToken.token}',
+      },
+    );
+  }
+
+// api function to change email
+// api endpoint - POST BASE_URL/users/edit
 }

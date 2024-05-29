@@ -11,4 +11,9 @@ abstract class AuthFailure implements _$AuthFailure {
   const factory AuthFailure.tokenExpired() = TokenExpired;
   const factory AuthFailure.userNotFound() = UserNotFound;
   const factory AuthFailure.notSignedIn() = NotSignedIn;
+  const factory AuthFailure.accountSuspended() = AccountSuspended;
+  const factory AuthFailure.wrongPassword() = WrongPassword;
+  const factory AuthFailure.wrongUsername() = WrongUsername;
+  const factory AuthFailure.passwordsDoesntMatch() = PasswordsDoesntMatch;
+  const factory AuthFailure.wrongEmail() = WrongEmail;
 }
