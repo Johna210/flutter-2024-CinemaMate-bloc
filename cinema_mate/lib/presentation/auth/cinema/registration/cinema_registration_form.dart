@@ -2,6 +2,7 @@ import 'package:cinema_mate/application/auth/cinema/regsitration_form/cinema_reg
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class CinemaRegistrationForm extends StatelessWidget {
   const CinemaRegistrationForm({super.key});
@@ -177,6 +178,29 @@ class CinemaRegistrationForm extends StatelessWidget {
                                   orElse: () => null,
                                 ),
                             (r) => null),
+                  ),
+                  const SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Already have an account? ',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/cinema/login');
+                        },
+                        child: const Text(
+                          'Sign in',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 50),
                   AppButton(

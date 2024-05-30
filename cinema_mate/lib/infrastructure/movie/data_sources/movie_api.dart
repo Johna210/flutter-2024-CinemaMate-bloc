@@ -142,11 +142,12 @@ class MovieApiImplementaions {
         },
       );
 
-      print(response);
       if (response.statusCode == 200) {
         final List<dynamic> jsonResponse = json.decode(response.body);
-        final movies =
-            jsonResponse.map((json) => MovieInfoDto.fromJson(json)).toList();
+
+        final movies = jsonResponse.map((json) {
+          return MovieInfoDto.fromJson(json);
+        }).toList();
         yield right(movies);
       } else {
         yield left(const MovieFailure.databaseFailure());

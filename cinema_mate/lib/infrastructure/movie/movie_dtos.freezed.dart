@@ -20,12 +20,13 @@ MovieInfoDto _$MovieInfoDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MovieInfoDto {
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  int? get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get genre => throw _privateConstructorUsedError;
   String get day => throw _privateConstructorUsedError;
+  @JsonKey(name: 'showTime')
   String get time => throw _privateConstructorUsedError;
+  @JsonKey(name: 'imageUrl')
   String get imagePath => throw _privateConstructorUsedError;
   int get numberOfSeats => throw _privateConstructorUsedError;
 
@@ -42,12 +43,12 @@ abstract class $MovieInfoDtoCopyWith<$Res> {
       _$MovieInfoDtoCopyWithImpl<$Res, MovieInfoDto>;
   @useResult
   $Res call(
-      {@JsonKey(includeFromJson: false, includeToJson: false) int? id,
+      {int id,
       String title,
       String genre,
       String day,
-      String time,
-      String imagePath,
+      @JsonKey(name: 'showTime') String time,
+      @JsonKey(name: 'imageUrl') String imagePath,
       int numberOfSeats});
 }
 
@@ -64,7 +65,7 @@ class _$MovieInfoDtoCopyWithImpl<$Res, $Val extends MovieInfoDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? title = null,
     Object? genre = null,
     Object? day = null,
@@ -73,10 +74,10 @@ class _$MovieInfoDtoCopyWithImpl<$Res, $Val extends MovieInfoDto>
     Object? numberOfSeats = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -114,12 +115,12 @@ abstract class _$$MovieInfoDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(includeFromJson: false, includeToJson: false) int? id,
+      {int id,
       String title,
       String genre,
       String day,
-      String time,
-      String imagePath,
+      @JsonKey(name: 'showTime') String time,
+      @JsonKey(name: 'imageUrl') String imagePath,
       int numberOfSeats});
 }
 
@@ -134,7 +135,7 @@ class __$$MovieInfoDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? title = null,
     Object? genre = null,
     Object? day = null,
@@ -143,10 +144,10 @@ class __$$MovieInfoDtoImplCopyWithImpl<$Res>
     Object? numberOfSeats = null,
   }) {
     return _then(_$MovieInfoDtoImpl(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -179,12 +180,12 @@ class __$$MovieInfoDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MovieInfoDtoImpl extends _MovieInfoDto {
   const _$MovieInfoDtoImpl(
-      {@JsonKey(includeFromJson: false, includeToJson: false) this.id,
+      {required this.id,
       required this.title,
       required this.genre,
       required this.day,
-      required this.time,
-      required this.imagePath,
+      @JsonKey(name: 'showTime') required this.time,
+      @JsonKey(name: 'imageUrl') required this.imagePath,
       required this.numberOfSeats})
       : super._();
 
@@ -192,8 +193,7 @@ class _$MovieInfoDtoImpl extends _MovieInfoDto {
       _$$MovieInfoDtoImplFromJson(json);
 
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  final int? id;
+  final int id;
   @override
   final String title;
   @override
@@ -201,8 +201,10 @@ class _$MovieInfoDtoImpl extends _MovieInfoDto {
   @override
   final String day;
   @override
+  @JsonKey(name: 'showTime')
   final String time;
   @override
+  @JsonKey(name: 'imageUrl')
   final String imagePath;
   @override
   final int numberOfSeats;
@@ -249,12 +251,12 @@ class _$MovieInfoDtoImpl extends _MovieInfoDto {
 
 abstract class _MovieInfoDto extends MovieInfoDto {
   const factory _MovieInfoDto(
-      {@JsonKey(includeFromJson: false, includeToJson: false) final int? id,
+      {required final int id,
       required final String title,
       required final String genre,
       required final String day,
-      required final String time,
-      required final String imagePath,
+      @JsonKey(name: 'showTime') required final String time,
+      @JsonKey(name: 'imageUrl') required final String imagePath,
       required final int numberOfSeats}) = _$MovieInfoDtoImpl;
   const _MovieInfoDto._() : super._();
 
@@ -262,8 +264,7 @@ abstract class _MovieInfoDto extends MovieInfoDto {
       _$MovieInfoDtoImpl.fromJson;
 
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  int? get id;
+  int get id;
   @override
   String get title;
   @override
@@ -271,8 +272,10 @@ abstract class _MovieInfoDto extends MovieInfoDto {
   @override
   String get day;
   @override
+  @JsonKey(name: 'showTime')
   String get time;
   @override
+  @JsonKey(name: 'imageUrl')
   String get imagePath;
   @override
   int get numberOfSeats;

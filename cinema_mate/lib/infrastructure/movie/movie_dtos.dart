@@ -11,12 +11,12 @@ abstract class MovieInfoDto implements _$MovieInfoDto {
   const MovieInfoDto._();
 
   const factory MovieInfoDto({
-    @JsonKey(includeFromJson: false, includeToJson: false) int? id,
+    required int id,
     required String title,
     required String genre,
     required String day,
-    required String time,
-    required String imagePath,
+    @JsonKey(name: 'showTime') required String time,
+    @JsonKey(name: 'imageUrl') required String imagePath,
     required int numberOfSeats,
   }) = _MovieInfoDto;
 

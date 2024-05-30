@@ -3,6 +3,7 @@ import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 var appColor = AppColor();
@@ -33,7 +34,7 @@ class CinemaSignInForm extends StatelessWidget {
               ),
             );
           }, (right) {
-            print("It worked");
+            context.go('/cinema/home');
           });
         });
       },

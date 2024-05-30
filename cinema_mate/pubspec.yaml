@@ -50,6 +50,7 @@ dependencies:
     google_fonts: ^6.2.1
     kt_dart: ^1.1.0
     go_router: ^14.1.4
+    transparent_image: ^2.0.1
 
 dev_dependencies:
     flutter_test:
