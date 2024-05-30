@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cinema_mate/domain/watchlist/watchlist_failure.dart';
-import 'package:cinema_mate/infrastructure/auth/auth_dtos.dart';
+import 'package:cinema_mate/infrastructure/auth/user/auth_dtos.dart';
 import 'package:cinema_mate/infrastructure/user/watchlist/watch_list_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:cinema_mate/domain/watchlist/i_watch_list_repository.dart';
 import 'package:cinema_mate/domain/watchlist/watchlist.dart';
 import 'package:cinema_mate/domain/watchlist/watchlist_failure.dart';
-import 'package:cinema_mate/infrastructure/user/watchlist/watch_list_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -12,7 +12,7 @@ part 'watchlist_bloc.freezed.dart';
 
 @injectable
 class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
-  final WatchListRepository watchListRepository;
+  final IWatchListRepository watchListRepository;
 
   WatchlistBloc(this.watchListRepository) : super(const _Initial()) {
     on<WatchlistStarted>(_onWatchlistStarted);

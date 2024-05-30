@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
-import 'package:cinema_mate/infrastructure/auth/auth_dtos.dart';
+import 'package:cinema_mate/infrastructure/auth/user/auth_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
@@ -130,6 +130,10 @@ class AuthApiImplementations {
         headers: <String, String>{
           'Authorization': 'Bearer ${userToken.token}',
         },
+        body: {
+          "currentPassword": currentPassword.password,
+          "newPassword": newPassword.password,
+        },
       );
 
       if (response.statusCode == 200) {
@@ -164,6 +168,9 @@ class AuthApiImplementations {
         changeUsernameUrl,
         headers: <String, String>{
           'Authorization': 'Bearer ${userToken.token}',
+        },
+        body: {
+          "username": newUsername,
         },
       );
       if (response.statusCode == 200) {

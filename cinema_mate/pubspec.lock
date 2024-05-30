@@ -291,6 +291,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   freezed:
     dependency: "direct dev"
     description:
@@ -331,6 +336,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  go_router:
+    dependency: "direct main"
+    description:
+      name: go_router
+      sha256: abec47eb8c8c36ebf41d0a4c64dbbe7f956e39a012b3aafc530e951bdc12fe3f
+      url: "https://pub.dev"
+    source: hosted
+    version: "14.1.4"
   google_fonts:
     dependency: "direct main"
     description:
@@ -427,6 +440,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.8.0"
+  kt_dart:
+    dependency: "direct main"
+    description:
+      name: kt_dart
+      sha256: "59d7ae2841ad2c176bbb5fa7596eb29ec75a418b119b446d17c954fb8d8dd4c8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   leak_tracker:
     dependency: transitive
     description:

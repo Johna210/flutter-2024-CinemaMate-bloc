@@ -17,11 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Movie {
   MovieName get name => throw _privateConstructorUsedError;
-  MovieDate get date => throw _privateConstructorUsedError;
-  MovieTime get time => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
   MovieGenre<String> get genre => throw _privateConstructorUsedError;
-  MovieRating get rating => throw _privateConstructorUsedError;
-  MovieImageURL get image => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MovieCopyWith<Movie> get copyWith => throw _privateConstructorUsedError;
@@ -34,11 +34,11 @@ abstract class $MovieCopyWith<$Res> {
   @useResult
   $Res call(
       {MovieName name,
-      MovieDate date,
-      MovieTime time,
+      String date,
+      String time,
       MovieGenre<String> genre,
-      MovieRating rating,
-      MovieImageURL image});
+      int numberOfSeats,
+      String image});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
     Object? date = null,
     Object? time = null,
     Object? genre = null,
-    Object? rating = null,
+    Object? numberOfSeats = null,
     Object? image = null,
   }) {
     return _then(_value.copyWith(
@@ -69,23 +69,23 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as MovieDate,
+              as String,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as MovieTime,
+              as String,
       genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as MovieGenre<String>,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as MovieRating,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MovieImageURL,
+              as String,
     ) as $Val);
   }
 }
@@ -99,11 +99,11 @@ abstract class _$$MovieImplCopyWith<$Res> implements $MovieCopyWith<$Res> {
   @useResult
   $Res call(
       {MovieName name,
-      MovieDate date,
-      MovieTime time,
+      String date,
+      String time,
       MovieGenre<String> genre,
-      MovieRating rating,
-      MovieImageURL image});
+      int numberOfSeats,
+      String image});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$MovieImplCopyWithImpl<$Res>
     Object? date = null,
     Object? time = null,
     Object? genre = null,
-    Object? rating = null,
+    Object? numberOfSeats = null,
     Object? image = null,
   }) {
     return _then(_$MovieImpl(
@@ -132,68 +132,55 @@ class __$$MovieImplCopyWithImpl<$Res>
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as MovieDate,
+              as String,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as MovieTime,
+              as String,
       genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as MovieGenre<String>,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as MovieRating,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MovieImageURL,
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$MovieImpl extends _Movie with DiagnosticableTreeMixin {
+class _$MovieImpl extends _Movie {
   const _$MovieImpl(
       {required this.name,
       required this.date,
       required this.time,
       required this.genre,
-      required this.rating,
+      required this.numberOfSeats,
       required this.image})
       : super._();
 
   @override
   final MovieName name;
   @override
-  final MovieDate date;
+  final String date;
   @override
-  final MovieTime time;
+  final String time;
   @override
   final MovieGenre<String> genre;
   @override
-  final MovieRating rating;
+  final int numberOfSeats;
   @override
-  final MovieImageURL image;
+  final String image;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Movie(name: $name, date: $date, time: $time, genre: $genre, rating: $rating, image: $image)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Movie'))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('date', date))
-      ..add(DiagnosticsProperty('time', time))
-      ..add(DiagnosticsProperty('genre', genre))
-      ..add(DiagnosticsProperty('rating', rating))
-      ..add(DiagnosticsProperty('image', image));
+  String toString() {
+    return 'Movie(name: $name, date: $date, time: $time, genre: $genre, numberOfSeats: $numberOfSeats, image: $image)';
   }
 
   @override
@@ -205,13 +192,14 @@ class _$MovieImpl extends _Movie with DiagnosticableTreeMixin {
             (identical(other.date, date) || other.date == date) &&
             (identical(other.time, time) || other.time == time) &&
             (identical(other.genre, genre) || other.genre == genre) &&
-            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.numberOfSeats, numberOfSeats) ||
+                other.numberOfSeats == numberOfSeats) &&
             (identical(other.image, image) || other.image == image));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, date, time, genre, rating, image);
+      Object.hash(runtimeType, name, date, time, genre, numberOfSeats, image);
 
   @JsonKey(ignore: true)
   @override
@@ -223,27 +211,548 @@ class _$MovieImpl extends _Movie with DiagnosticableTreeMixin {
 abstract class _Movie extends Movie {
   const factory _Movie(
       {required final MovieName name,
-      required final MovieDate date,
-      required final MovieTime time,
+      required final String date,
+      required final String time,
       required final MovieGenre<String> genre,
-      required final MovieRating rating,
-      required final MovieImageURL image}) = _$MovieImpl;
+      required final int numberOfSeats,
+      required final String image}) = _$MovieImpl;
   const _Movie._() : super._();
 
   @override
   MovieName get name;
   @override
-  MovieDate get date;
+  String get date;
   @override
-  MovieTime get time;
+  String get time;
   @override
   MovieGenre<String> get genre;
   @override
-  MovieRating get rating;
+  int get numberOfSeats;
   @override
-  MovieImageURL get image;
+  String get image;
   @override
   @JsonKey(ignore: true)
   _$$MovieImplCopyWith<_$MovieImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$MovieInfo {
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
+  List<String> get genre => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $MovieInfoCopyWith<MovieInfo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieInfoCopyWith<$Res> {
+  factory $MovieInfoCopyWith(MovieInfo value, $Res Function(MovieInfo) then) =
+      _$MovieInfoCopyWithImpl<$Res, MovieInfo>;
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String date,
+      String time,
+      List<String> genre,
+      int numberOfSeats,
+      String image});
+}
+
+/// @nodoc
+class _$MovieInfoCopyWithImpl<$Res, $Val extends MovieInfo>
+    implements $MovieInfoCopyWith<$Res> {
+  _$MovieInfoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? date = null,
+    Object? time = null,
+    Object? genre = null,
+    Object? numberOfSeats = null,
+    Object? image = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieInfoImplCopyWith<$Res>
+    implements $MovieInfoCopyWith<$Res> {
+  factory _$$MovieInfoImplCopyWith(
+          _$MovieInfoImpl value, $Res Function(_$MovieInfoImpl) then) =
+      __$$MovieInfoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String date,
+      String time,
+      List<String> genre,
+      int numberOfSeats,
+      String image});
+}
+
+/// @nodoc
+class __$$MovieInfoImplCopyWithImpl<$Res>
+    extends _$MovieInfoCopyWithImpl<$Res, _$MovieInfoImpl>
+    implements _$$MovieInfoImplCopyWith<$Res> {
+  __$$MovieInfoImplCopyWithImpl(
+      _$MovieInfoImpl _value, $Res Function(_$MovieInfoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? date = null,
+    Object? time = null,
+    Object? genre = null,
+    Object? numberOfSeats = null,
+    Object? image = null,
+  }) {
+    return _then(_$MovieInfoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value._genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MovieInfoImpl extends _MovieInfo {
+  const _$MovieInfoImpl(
+      {required this.id,
+      required this.name,
+      required this.date,
+      required this.time,
+      required final List<String> genre,
+      required this.numberOfSeats,
+      required this.image})
+      : _genre = genre,
+        super._();
+
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String date;
+  @override
+  final String time;
+  final List<String> _genre;
+  @override
+  List<String> get genre {
+    if (_genre is EqualUnmodifiableListView) return _genre;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genre);
+  }
+
+  @override
+  final int numberOfSeats;
+  @override
+  final String image;
+
+  @override
+  String toString() {
+    return 'MovieInfo(id: $id, name: $name, date: $date, time: $time, genre: $genre, numberOfSeats: $numberOfSeats, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieInfoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other._genre, _genre) &&
+            (identical(other.numberOfSeats, numberOfSeats) ||
+                other.numberOfSeats == numberOfSeats) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, date, time,
+      const DeepCollectionEquality().hash(_genre), numberOfSeats, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieInfoImplCopyWith<_$MovieInfoImpl> get copyWith =>
+      __$$MovieInfoImplCopyWithImpl<_$MovieInfoImpl>(this, _$identity);
+}
+
+abstract class _MovieInfo extends MovieInfo {
+  const factory _MovieInfo(
+      {required final int id,
+      required final String name,
+      required final String date,
+      required final String time,
+      required final List<String> genre,
+      required final int numberOfSeats,
+      required final String image}) = _$MovieInfoImpl;
+  const _MovieInfo._() : super._();
+
+  @override
+  int get id;
+  @override
+  String get name;
+  @override
+  String get date;
+  @override
+  String get time;
+  @override
+  List<String> get genre;
+  @override
+  int get numberOfSeats;
+  @override
+  String get image;
+  @override
+  @JsonKey(ignore: true)
+  _$$MovieInfoImplCopyWith<_$MovieInfoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+EditMovie _$EditMovieFromJson(Map<String, dynamic> json) {
+  return _EditMovie.fromJson(json);
+}
+
+/// @nodoc
+mixin _$EditMovie {
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
+  List<String> get genre => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $EditMovieCopyWith<EditMovie> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $EditMovieCopyWith<$Res> {
+  factory $EditMovieCopyWith(EditMovie value, $Res Function(EditMovie) then) =
+      _$EditMovieCopyWithImpl<$Res, EditMovie>;
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String date,
+      String time,
+      List<String> genre,
+      int numberOfSeats,
+      String image});
+}
+
+/// @nodoc
+class _$EditMovieCopyWithImpl<$Res, $Val extends EditMovie>
+    implements $EditMovieCopyWith<$Res> {
+  _$EditMovieCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? date = null,
+    Object? time = null,
+    Object? genre = null,
+    Object? numberOfSeats = null,
+    Object? image = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$EditMovieImplCopyWith<$Res>
+    implements $EditMovieCopyWith<$Res> {
+  factory _$$EditMovieImplCopyWith(
+          _$EditMovieImpl value, $Res Function(_$EditMovieImpl) then) =
+      __$$EditMovieImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String date,
+      String time,
+      List<String> genre,
+      int numberOfSeats,
+      String image});
+}
+
+/// @nodoc
+class __$$EditMovieImplCopyWithImpl<$Res>
+    extends _$EditMovieCopyWithImpl<$Res, _$EditMovieImpl>
+    implements _$$EditMovieImplCopyWith<$Res> {
+  __$$EditMovieImplCopyWithImpl(
+      _$EditMovieImpl _value, $Res Function(_$EditMovieImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? date = null,
+    Object? time = null,
+    Object? genre = null,
+    Object? numberOfSeats = null,
+    Object? image = null,
+  }) {
+    return _then(_$EditMovieImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value._genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$EditMovieImpl extends _EditMovie {
+  const _$EditMovieImpl(
+      {required this.id,
+      required this.name,
+      required this.date,
+      required this.time,
+      required final List<String> genre,
+      required this.numberOfSeats,
+      required this.image})
+      : _genre = genre,
+        super._();
+
+  factory _$EditMovieImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EditMovieImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String date;
+  @override
+  final String time;
+  final List<String> _genre;
+  @override
+  List<String> get genre {
+    if (_genre is EqualUnmodifiableListView) return _genre;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genre);
+  }
+
+  @override
+  final int numberOfSeats;
+  @override
+  final String image;
+
+  @override
+  String toString() {
+    return 'EditMovie(id: $id, name: $name, date: $date, time: $time, genre: $genre, numberOfSeats: $numberOfSeats, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditMovieImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other._genre, _genre) &&
+            (identical(other.numberOfSeats, numberOfSeats) ||
+                other.numberOfSeats == numberOfSeats) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, date, time,
+      const DeepCollectionEquality().hash(_genre), numberOfSeats, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditMovieImplCopyWith<_$EditMovieImpl> get copyWith =>
+      __$$EditMovieImplCopyWithImpl<_$EditMovieImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$EditMovieImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _EditMovie extends EditMovie {
+  const factory _EditMovie(
+      {required final int id,
+      required final String name,
+      required final String date,
+      required final String time,
+      required final List<String> genre,
+      required final int numberOfSeats,
+      required final String image}) = _$EditMovieImpl;
+  const _EditMovie._() : super._();
+
+  factory _EditMovie.fromJson(Map<String, dynamic> json) =
+      _$EditMovieImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get name;
+  @override
+  String get date;
+  @override
+  String get time;
+  @override
+  List<String> get genre;
+  @override
+  int get numberOfSeats;
+  @override
+  String get image;
+  @override
+  @JsonKey(ignore: true)
+  _$$EditMovieImplCopyWith<_$EditMovieImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,11 +1,10 @@
 // the date and time validation?
 
 import 'package:cinema_mate/domain/core/failures.dart';
-import 'package:cinema_mate/domain/core/value_object.dart';
-import 'package:cinema_mate/domain/core/value_validator.dart';
+import 'package:cinema_mate/domain/core/value_objects.dart';
+import 'package:cinema_mate/domain/core/value_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
-
 
 class MovieName extends ValueObject<String> {
   @override
@@ -14,13 +13,15 @@ class MovieName extends ValueObject<String> {
   static const maxLength = 100;
 
   factory MovieName(String input) {
-    assert(input != null);
     return MovieName._(
       validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty),
     );
   }
 
   const MovieName._(this.value);
+
+  factory MovieName.fromJson(String json) => MovieName(json);
+  String toJson() => value.getOrElse(() => '');
 }
 
 class MovieGenre<T> extends ValueObject<KtList<T>> {
@@ -30,9 +31,8 @@ class MovieGenre<T> extends ValueObject<KtList<T>> {
   static const maxLength = 6;
 
   factory MovieGenre(KtList<T> input) {
-    assert(input != null);
     return MovieGenre._(
-      validateMaxListLength(input, maxLength),
+      right(input),
     );
   }
 
@@ -51,10 +51,7 @@ class MovieDate extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-
-
   factory MovieDate(String input) {
-    assert(input != null);
     return MovieDate._(
       validateStringNotEmpty(input),
     );
@@ -63,15 +60,11 @@ class MovieDate extends ValueObject<String> {
   const MovieDate._(this.value);
 }
 
-
 class MovieTime extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-
-
   factory MovieTime(String input) {
-    assert(input != null);
     return MovieTime._(
       validateStringNotEmpty(input),
     );
@@ -80,32 +73,12 @@ class MovieTime extends ValueObject<String> {
   const MovieTime._(this.value);
 }
 
-class MovieRating extends ValueObject<double> {
-  @override
-  final Either<ValueFailure<double>, double> value;
-
-  static const minValue = 0.0;
-  static const maxValue = 100.0;
-
-  factory MovieRating(double input) {
-    assert(input != null);
-    return MovieRating._(
-      validateDoubleRange(input, minValue, maxValue),
-    );
-  }
-
-  const MovieRating._(this.value);
-}
-
 class MovieImageURL extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
   factory MovieImageURL(String input) {
-    assert(input != null);
-    return MovieImageURL._(
-      validateStringNotEmpty(input)
-    );
+    return MovieImageURL._(validateStringNotEmpty(input));
   }
 
   const MovieImageURL._(this.value);

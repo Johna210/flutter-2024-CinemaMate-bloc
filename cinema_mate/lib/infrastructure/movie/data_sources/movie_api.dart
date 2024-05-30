@@ -1,5 +1,8 @@
-import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
+import 'dart:convert';
+
 import 'package:cinema_mate/domain/auth/user/user_token.dart';
+import 'package:cinema_mate/domain/movie/movie.dart';
+import 'package:cinema_mate/domain/movie/movieFailure.dart';
 import 'package:cinema_mate/infrastructure/movie/movie_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -16,7 +19,7 @@ class MovieApiImplementaions {
   // TODO replace authFailure with movie failure
   /// http://localhost:3000/movies/addmovie -> For adding a new Movie.
   // Add movie api implementation here
-  Future<Either<AuthFailure, Unit>> addMovie(
+  Future<Either<MovieFailure, Unit>> addMovie(
       MovieDto movie, UserToken cinemaToken) async {
     var uri = Uri.parse('$baseUrl/movies/addmovie');
     var request = http.MultipartRequest('POST', uri);
@@ -44,24 +47,25 @@ class MovieApiImplementaions {
       if (response.statusCode == 201) {
         return right(unit);
       } else {
-        return left(const AuthFailure.serverError());
+        return left(const MovieFailure.unexpectedFailure());
       }
     } catch (e) {
-      return left(const AuthFailure.serverError());
+      return left(const MovieFailure.databaseFailure());
     }
   }
 
   /// http://localhost:3000/movies/update/movieId -> To update an exisiting movies details
   // edit movie api implementation here
-  Future<Either<AuthFailure, Unit>> editMovie(
-      int movieId, UserToken cinemaToken) async {
-    final updateMovieUrl = Uri.parse('$baseUrl/movies/udate/$movieId');
+  Future<Either<MovieFailure, Unit>> editMovie(
+      EditMovie movie, UserToken cinemaToken) async {
+    final updateMovieUrl = Uri.parse('$baseUrl/movies/udate/${movie.id}');
     try {
       final http.Response response = await client.patch(
         updateMovieUrl,
         headers: <String, String>{
           'Authorization': 'Bearer ${cinemaToken.token}',
         },
+        body: jsonEncode(movie.toJson()),
       );
 
       print(response);
@@ -69,16 +73,16 @@ class MovieApiImplementaions {
       if (response.statusCode == 200) {
         return right(unit);
       } else {
-        return left(const AuthFailure.serverError());
+        return left(const MovieFailure.unexpectedFailure());
       }
     } catch (e) {
-      return left(const AuthFailure.serverError());
+      return left(const MovieFailure.databaseFailure());
     }
   }
 
   /// http://localhost:3000/movies/remove/id
   // delete movie api implementation here
-  Future<Either<AuthFailure, Unit>> deleteMovie(
+  Future<Either<MovieFailure, Unit>> deleteMovie(
       int movieId, UserToken cinemaToken) async {
     final deleteMovieUrl = Uri.parse('$baseUrl/movies/remove/$movieId');
     try {
@@ -93,15 +97,15 @@ class MovieApiImplementaions {
       if (response.statusCode == 200) {
         return right(unit);
       } else {
-        return left(const AuthFailure.serverError());
+        return left(const MovieFailure.unexpectedFailure());
       }
     } catch (e) {
-      return left(const AuthFailure.serverError());
+      return left(const MovieFailure.databaseFailure());
     }
   }
 
   // Get cinema Movies with ID
-  Stream<Either<AuthFailure, Unit>> getCinemaMoviesById(
+  Stream<Either<MovieFailure, List<MovieInfoDto>>> getCinemaMoviesById(
       int cinemaId, UserToken userToken) async* {
     final getCinemaMoviesUrl = Uri.parse('$baseUrl/movies/cinema/$cinemaId');
     try {
@@ -114,17 +118,20 @@ class MovieApiImplementaions {
 
       print(response);
       if (response.statusCode == 200) {
-        yield right(unit);
+        final List<dynamic> jsonResponse = json.decode(response.body);
+        final movies =
+            jsonResponse.map((json) => MovieInfoDto.fromJson(json)).toList();
+        yield right(movies);
       } else {
-        yield left(const AuthFailure.serverError());
+        yield left(const MovieFailure.unexpectedFailure());
       }
     } catch (e) {
-      yield left(const AuthFailure.serverError());
+      yield left(const MovieFailure.databaseFailure());
     }
   }
 
   // Get movies from cinema with token
-  Stream<Either<AuthFailure, Unit>> getCinemaMoviesWithToken(
+  Stream<Either<MovieFailure, List<MovieInfoDto>>> getCinemaMoviesWithToken(
       UserToken cinemaToken) async* {
     final getCinemaMoviesUrl = Uri.parse('$baseUrl/movies/cinema');
     try {
@@ -137,12 +144,15 @@ class MovieApiImplementaions {
 
       print(response);
       if (response.statusCode == 200) {
-        yield right(unit);
+        final List<dynamic> jsonResponse = json.decode(response.body);
+        final movies =
+            jsonResponse.map((json) => MovieInfoDto.fromJson(json)).toList();
+        yield right(movies);
       } else {
-        yield left(const AuthFailure.serverError());
+        yield left(const MovieFailure.databaseFailure());
       }
     } catch (e) {
-      yield left(const AuthFailure.serverError());
+      yield left(const MovieFailure.databaseFailure());
     }
   }
 }

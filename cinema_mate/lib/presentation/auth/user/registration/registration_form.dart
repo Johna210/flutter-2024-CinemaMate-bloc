@@ -2,9 +2,10 @@ import 'package:cinema_mate/application/auth/user/register_form/register_form_bl
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-class RegistrationForm extends StatelessWidget {
-  const RegistrationForm({super.key});
+class UserRegistrationForm extends StatelessWidget {
+  const UserRegistrationForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,7 @@ class RegistrationForm extends StatelessWidget {
               );
             },
             (right) {
-              print('Hello world');
-              print('Hello world');
-              print('Hello world');
+              context.go('/user/login');
             },
           ),
         );
@@ -47,24 +46,6 @@ class RegistrationForm extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 100, bottom: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        AppButton(
-                          title: "As a user",
-                          width: 180,
-                          onPressed: () {},
-                        ),
-                        AppButton(
-                          title: "As a cinema",
-                          width: 180,
-                          onPressed: () {},
-                        )
-                      ],
-                    ),
-                  ),
                   const SizedBox(
                     height: 30,
                   ),
@@ -72,62 +53,45 @@ class RegistrationForm extends StatelessWidget {
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
-                        Icons.email,
+                        Icons.person,
                         color: Colors.grey,
                       ),
-                      labelStyle: TextStyle(color: Colors.grey),
-                      labelText: 'Email',
-                    ),
-                    autocorrect: false,
-                    onChanged: (value) => context
-                        .read<RegisterFormBloc>()
-                        .add(RegisterFormEvent.emailChanged(value)),
-                    validator: (_) => context
-                        .read<RegisterFormBloc>()
-                        .state
-                        .emailAddress
-                        .value
-                        .fold(
-                            (failure) => failure.maybeMap(
-                                  invalidEmail: (_) => 'Invalid Email',
-                                  orElse: () => null,
-                                ),
-                            (r) => null),
-                  ),
-                  const SizedBox(height: 10),
-                  TextFormField(
-                    style: const TextStyle(color: Colors.white),
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.lock,
-                        color: Colors.grey,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
                       ),
                       labelStyle: TextStyle(color: Colors.grey),
-                      labelText: 'Password',
+                      labelText: 'fullname',
                     ),
                     autocorrect: false,
-                    obscureText: true,
                     onChanged: (value) => context.read<RegisterFormBloc>().add(
-                          RegisterFormEvent.passwordChanged(value),
+                          RegisterFormEvent.fullnameChanged(value),
                         ),
                     validator: (_) => context
                         .read<RegisterFormBloc>()
                         .state
-                        .password
+                        .fullname
                         .value
                         .fold(
                             (failure) => failure.maybeMap(
-                                  shortPassword: (_) => 'short password',
+                                  shortUsername: (_) => 'short name',
                                   orElse: () => null,
                                 ),
                             (r) => null),
                   ),
+                  const SizedBox(height: 15),
                   TextFormField(
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
                         Icons.person,
                         color: Colors.grey,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
                       ),
                       labelStyle: TextStyle(color: Colors.grey),
                       labelText: 'username',
@@ -148,28 +112,67 @@ class RegistrationForm extends StatelessWidget {
                                 ),
                             (r) => null),
                   ),
+                  const SizedBox(height: 15),
                   TextFormField(
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
-                        Icons.person,
+                        Icons.email,
                         color: Colors.grey,
                       ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                       labelStyle: TextStyle(color: Colors.grey),
-                      labelText: 'fullname',
+                      labelText: 'Email',
                     ),
                     autocorrect: false,
+                    onChanged: (value) => context
+                        .read<RegisterFormBloc>()
+                        .add(RegisterFormEvent.emailChanged(value)),
+                    validator: (_) => context
+                        .read<RegisterFormBloc>()
+                        .state
+                        .emailAddress
+                        .value
+                        .fold(
+                            (failure) => failure.maybeMap(
+                                  invalidEmail: (_) => 'Invalid Email',
+                                  orElse: () => null,
+                                ),
+                            (r) => null),
+                  ),
+                  const SizedBox(height: 15),
+                  TextFormField(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.grey,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      labelStyle: TextStyle(color: Colors.grey),
+                      labelText: 'Password',
+                    ),
+                    autocorrect: false,
+                    obscureText: true,
                     onChanged: (value) => context.read<RegisterFormBloc>().add(
-                          RegisterFormEvent.fullnameChanged(value),
+                          RegisterFormEvent.passwordChanged(value),
                         ),
                     validator: (_) => context
                         .read<RegisterFormBloc>()
                         .state
-                        .fullname
+                        .password
                         .value
                         .fold(
                             (failure) => failure.maybeMap(
-                                  shortUsername: (_) => 'short name',
+                                  shortPassword: (_) => 'short password',
                                   orElse: () => null,
                                 ),
                             (r) => null),

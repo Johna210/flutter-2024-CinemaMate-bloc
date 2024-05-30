@@ -1,7 +1,7 @@
 import 'package:cinema_mate/domain/watchlist/i_watch_list_repository.dart';
 import 'package:cinema_mate/domain/watchlist/watchlist.dart';
 import 'package:cinema_mate/domain/watchlist/watchlist_failure.dart';
-import 'package:cinema_mate/infrastructure/auth/auth_dtos.dart';
+import 'package:cinema_mate/infrastructure/auth/user/auth_dtos.dart';
 import 'package:cinema_mate/infrastructure/user/watchlist/data_source/watchlist_api.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
