@@ -7,5 +7,5 @@ abstract class CinemaFailure with _$CinemaFailure {
   const factory CinemaFailure.unexpectedFailure() = _UnexpectedFailure;
   const factory CinemaFailure.networkFailure() = _Network;
   const factory CinemaFailure.databaseFailure() = _Database;
-  const factory CinemaFailure.insufficientPermission()=_InsufficientPermission;
+
 }
