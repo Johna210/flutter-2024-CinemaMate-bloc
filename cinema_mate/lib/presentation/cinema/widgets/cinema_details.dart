@@ -41,7 +41,7 @@ class CinemaDetail extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               SizedBox(
-                height: 200,
+                height: 170,
                 width: 300,
                 child: GridView.builder(
                   itemCount: movie.genre.length,

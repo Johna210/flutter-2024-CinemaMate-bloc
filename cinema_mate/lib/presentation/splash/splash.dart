@@ -30,7 +30,7 @@ class SplashPage extends StatelessWidget {
           right: 0,
           child: Center(
             child: Text(
-              'Cinema Mate',
+              'CinemaMate',
               style: GoogleFonts.josefinSans(
                 textStyle: TextStyle(
                   color: newcolor.white,
@@ -55,6 +55,7 @@ class SplashPage extends StatelessWidget {
                   textStyle: TextStyle(
                     color: newColor.white,
                     fontSize: 28,
+                    fontWeight: FontWeight.w100,
                     decoration: TextDecoration.none,
                   ),
                 ),
