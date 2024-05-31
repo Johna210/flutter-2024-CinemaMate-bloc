@@ -37,7 +37,7 @@ abstract class MovieInfoDto implements _$MovieInfoDto {
 
   MovieInfo toDomain() {
     return MovieInfo(
-      id: id!,
+      id: id,
       name: title,
       genre: genre.split(', ').toList(), // convert string of genres to list
       date: day,

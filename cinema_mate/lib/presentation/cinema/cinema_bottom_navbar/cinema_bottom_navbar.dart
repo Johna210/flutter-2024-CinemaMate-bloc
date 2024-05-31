@@ -1,4 +1,5 @@
 import 'package:cinema_mate/application/cinema/bottom_nav_bar/bottom_nav_bar_bloc.dart';
+import 'package:cinema_mate/presentation/cinema/add_movie/add_movie_widget.dart';
 import 'package:cinema_mate/presentation/cinema/home/cinema_home_page.dart';
 import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class CinemaBottomNavbarWidget extends StatelessWidget {
           initial: () =>
               const CinemaHomePage(), // replace with your initial page
           homePage: () => const CinemaHomePage(),
-          addMoviePage: () => Container(),
+          addMoviePage: () => const AddMovieWidget(),
           cinemaProfilePage: () => Container(),
         ),
         bottomNavigationBar: BottomNavigationBar(

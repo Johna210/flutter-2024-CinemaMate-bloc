@@ -16,7 +16,6 @@ class MovieApiImplementaions {
 
   MovieApiImplementaions({required this.client});
 
-  // TODO replace authFailure with movie failure
   /// http://localhost:3000/movies/addmovie -> For adding a new Movie.
   // Add movie api implementation here
   Future<Either<MovieFailure, Unit>> addMovie(

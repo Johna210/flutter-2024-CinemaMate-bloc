@@ -1,5 +1,6 @@
 import 'package:cinema_mate/presentation/auth/cinema/signin/cinema_signin_page.dart';
 import 'package:cinema_mate/presentation/auth/user/signin/signin_page.dart';
+import 'package:cinema_mate/presentation/cinema/add_movie/add_movie_page.dart';
 import 'package:cinema_mate/presentation/cinema/cinema_bottom_navbar/cinema_bottom_navbar_page.dart';
 import 'package:cinema_mate/presentation/core/registration/registration_page.dart';
 import 'package:cinema_mate/presentation/splash/splash.dart';
@@ -40,4 +41,11 @@ GoRouter router = GoRouter(routes: [
       pageBuilder: (context, state) {
         return const MaterialPage(child: CinemaBottomNavbarPage());
       }),
+  // GoRoute(
+  //   name: 'addMovie',
+  //   path: '/cinema/addmovie',
+  //   pageBuilder: (context, state) {
+  //     return const MaterialPage(child: AddMoviePage());
+  //   },
+  // )
 ]);
