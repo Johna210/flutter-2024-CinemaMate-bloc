@@ -61,21 +61,24 @@ class AppButton extends StatelessWidget {
               side: BorderSide(color: Colors.red) // Set border color here
               ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            isLeft ? leftIcon! : Container(),
-            const SizedBox(width: 10),
-            Text(
-              title,
-              style: TextStyle(
-                  fontSize: textsSize,
-                  fontWeight: FontWeight.bold,
-                  color: textColor),
-            ),
-            const SizedBox(width: 10),
-            isRight ? rightIcon! : Container(),
-          ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              isLeft ? leftIcon! : Container(),
+              const SizedBox(width: 10),
+              Text(
+                title,
+                style: TextStyle(
+                    fontSize: textsSize,
+                    fontWeight: FontWeight.bold,
+                    color: textColor),
+              ),
+              const SizedBox(width: 10),
+              isRight ? rightIcon! : Container(),
+            ],
+          ),
         ),
       ),
     );
