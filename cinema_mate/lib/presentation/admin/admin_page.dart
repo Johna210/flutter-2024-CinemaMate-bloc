@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cinema_mate/application/admin/accounts_actor/admin_accounts_actor_bloc.dart';
 import 'package:cinema_mate/application/admin/accounts_watcher/admin_accounts_watcher_bloc.dart';
 import 'package:cinema_mate/application/auth/admin/admin_auth_bloc_bloc.dart';
@@ -143,12 +145,15 @@ class AdminPage extends StatelessWidget {
                                                   .userUnsuspended(
                                                       r[index].id.toString()),
                                             );
-                                        context
-                                            .read<AdminAccountsWatcherBloc>()
-                                            .add(
-                                              const AdminAccountsWatcherEvent
-                                                  .watchUserAccountsStarted(),
-                                            );
+                                        Timer(const Duration(milliseconds: 100),
+                                            () {
+                                          context
+                                              .read<AdminAccountsWatcherBloc>()
+                                              .add(
+                                                const AdminAccountsWatcherEvent
+                                                    .watchUserAccountsStarted(),
+                                              );
+                                        });
                                       },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor:
@@ -167,12 +172,15 @@ class AdminPage extends StatelessWidget {
                                                   .userSuspended(
                                                       r[index].id.toString()),
                                             );
-                                        context
-                                            .read<AdminAccountsWatcherBloc>()
-                                            .add(
-                                              const AdminAccountsWatcherEvent
-                                                  .watchUserAccountsStarted(),
-                                            );
+                                        Timer(const Duration(milliseconds: 100),
+                                            () {
+                                          context
+                                              .read<AdminAccountsWatcherBloc>()
+                                              .add(
+                                                const AdminAccountsWatcherEvent
+                                                    .watchUserAccountsStarted(),
+                                              );
+                                        });
                                       },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor:
@@ -187,16 +195,18 @@ class AdminPage extends StatelessWidget {
                                       context
                                           .read<AdminAccountsActorBloc>()
                                           .add(
-                                            AdminAccountsActorEvent
-                                                .cinemaSuspended(
-                                                    r[index].id.toString()),
+                                            AdminAccountsActorEvent.userDeleted(
+                                                r[index].id.toString()),
                                           );
-                                      context
-                                          .read<AdminAccountsWatcherBloc>()
-                                          .add(
-                                            const AdminAccountsWatcherEvent
-                                                .watchUserAccountsStarted(),
-                                          );
+                                      Timer(const Duration(milliseconds: 100),
+                                          () {
+                                        context
+                                            .read<AdminAccountsWatcherBloc>()
+                                            .add(
+                                              const AdminAccountsWatcherEvent
+                                                  .watchUserAccountsStarted(),
+                                            );
+                                      });
                                     },
                                     icon: const Icon(Icons.delete),
                                   )
@@ -239,12 +249,15 @@ class AdminPage extends StatelessWidget {
                                                   .cinemaUnsuspended(
                                                       r[index].id.toString()),
                                             );
-                                        context
-                                            .read<AdminAccountsWatcherBloc>()
-                                            .add(
-                                              const AdminAccountsWatcherEvent
-                                                  .watchCinemaAccountsStarted(),
-                                            );
+                                        Timer(const Duration(milliseconds: 100),
+                                            () {
+                                          context
+                                              .read<AdminAccountsWatcherBloc>()
+                                              .add(
+                                                const AdminAccountsWatcherEvent
+                                                    .watchCinemaAccountsStarted(),
+                                              );
+                                        });
                                       },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor:
@@ -263,12 +276,15 @@ class AdminPage extends StatelessWidget {
                                                   .cinemaSuspended(
                                                       r[index].id.toString()),
                                             );
-                                        context
-                                            .read<AdminAccountsWatcherBloc>()
-                                            .add(
-                                              const AdminAccountsWatcherEvent
-                                                  .watchCinemaAccountsStarted(),
-                                            );
+                                        Timer(const Duration(milliseconds: 100),
+                                            () {
+                                          context
+                                              .read<AdminAccountsWatcherBloc>()
+                                              .add(
+                                                const AdminAccountsWatcherEvent
+                                                    .watchCinemaAccountsStarted(),
+                                              );
+                                        });
                                       },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor:
@@ -279,7 +295,24 @@ class AdminPage extends StatelessWidget {
                                     ),
                                   const SizedBox(width: 10),
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      context
+                                          .read<AdminAccountsActorBloc>()
+                                          .add(
+                                            AdminAccountsActorEvent
+                                                .cinemaDeleted(
+                                                    r[index].id.toString()),
+                                          );
+                                      Timer(const Duration(milliseconds: 100),
+                                          () {
+                                        context
+                                            .read<AdminAccountsWatcherBloc>()
+                                            .add(
+                                              const AdminAccountsWatcherEvent
+                                                  .watchCinemaAccountsStarted(),
+                                            );
+                                      });
+                                    },
                                     icon: const Icon(Icons.delete),
                                   )
                                 ],

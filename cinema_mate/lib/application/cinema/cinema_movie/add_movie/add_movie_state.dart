@@ -14,12 +14,13 @@ class AddMovieState with _$AddMovieState {
   }) = _AddMovieState;
 
   factory AddMovieState.initial() => AddMovieState(
-      title: '',
-      numberOfSeats: 0,
-      showErrorMessages: false,
-      genre: '',
-      date: Date(DateTime.now()),
-      image: null,
-      time: Time(const TimeOfDay(hour: 10, minute: 30)),
-      addFailureOrSuccessOption: none());
+        title: '',
+        numberOfSeats: 0,
+        showErrorMessages: false,
+        genre: '',
+        date: Date(DateTime(2024, 1, 1, 12, 0, 0)),
+        image: null,
+        time: Time(const TimeOfDay(hour: 10, minute: 30)),
+        addFailureOrSuccessOption: none(),
+      );
 }

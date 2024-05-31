@@ -3,6 +3,7 @@ import 'package:cinema_mate/application/admin/accounts_watcher/admin_accounts_wa
 import 'package:cinema_mate/application/auth/admin/admin_auth_bloc_bloc.dart';
 import 'package:cinema_mate/application/auth/admin/sign_in_form/admin_sign_in_bloc_bloc.dart';
 import 'package:cinema_mate/application/auth/cinema/cinema_auth_bloc.dart';
+import 'package:cinema_mate/application/auth/user/user_auth_bloc.dart';
 import 'package:cinema_mate/application/cinema/cinema_profile/change_cinema_name/change_cinema_name_bloc.dart';
 import 'package:cinema_mate/application/cinema/cinema_profile/change_password/change_cinema_password_bloc.dart';
 import 'package:cinema_mate/application/user/cinema_movies_watcher/cinema_movies_watcher_bloc.dart';
@@ -40,11 +41,21 @@ GoRouter router = GoRouter(routes: [
     path: '/',
     pageBuilder: (context, state) {
       return MaterialPage(
-        child: BlocProvider<CinemaAuthBloc>(
-          create: (context) => getIt<CinemaAuthBloc>()
-            ..add(
-              const CinemaAuthEvent.authCheckRequested(),
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider<CinemaAuthBloc>(
+              create: (context) => getIt<CinemaAuthBloc>()
+                ..add(
+                  const CinemaAuthEvent.authCheckRequested(),
+                ),
             ),
+            BlocProvider(
+              create: (context) => getIt<UserAuthBloc>()
+                ..add(
+                  const UserAuthEvent.authCheckRequested(),
+                ),
+            )
+          ],
           child: const SplashPage(),
         ),
       );

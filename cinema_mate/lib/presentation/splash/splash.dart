@@ -1,4 +1,5 @@
 import 'package:cinema_mate/application/auth/cinema/cinema_auth_bloc.dart';
+import 'package:cinema_mate/application/auth/user/user_auth_bloc.dart';
 import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +13,25 @@ class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CinemaAuthBloc, CinemaAuthState>(
-      listener: (context, state) {
-        state.map(
-          initial: (_) {},
-          authenticated: (_) => context.go('/cinema/home'),
-          unauthenticated: (_) => context.go('/'),
-        );
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<CinemaAuthBloc, CinemaAuthState>(
+          listener: (context, state) {
+            state.map(
+              initial: (_) {},
+              authenticated: (_) => context.go('/cinema/home'),
+              unauthenticated: (_) => context.go('/'),
+            );
+          },
+        ),
+        BlocListener<UserAuthBloc, UserAuthState>(listener: (context, state) {
+          state.map(
+            initial: (_) {},
+            authenticated: (_) => context.go('/user/home'),
+            unauthenticated: (_) => context.go('/'),
+          );
+        })
+      ],
       child: Stack(
         children: [
           Container(

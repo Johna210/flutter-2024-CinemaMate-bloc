@@ -120,10 +120,9 @@ class AdminAuthApi {
   Future<Either<AdminAuthFailure, Unit>> deleteCinema({
     required String cinemaId,
   }) async {
-    final deleteCinemaUrl = Uri.parse('$baseUrl/admin/cinema/$cinemaId');
+    final deleteCinemaUrl = Uri.parse('$baseUrl/admin/delete/cinema/$cinemaId');
     try {
       final http.Response response = await client.delete(deleteCinemaUrl);
-
       if (response.statusCode == 200) {
         return right(unit);
       } else {
@@ -139,7 +138,7 @@ class AdminAuthApi {
   Future<Either<AdminAuthFailure, Unit>> deleteUser({
     required String userId,
   }) async {
-    final deleteUserUrl = Uri.parse('$baseUrl/admin/user/$userId');
+    final deleteUserUrl = Uri.parse('$baseUrl/admin/delete/user/$userId');
     try {
       final http.Response response = await client.delete(deleteUserUrl);
 

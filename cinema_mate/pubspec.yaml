@@ -56,6 +56,8 @@ dependencies:
     mocktail: ^1.0.3
     mockito: ^5.4.4
     carousel_slider: ^4.2.1
+    integration_test:
+        sdk: flutter
 
 dev_dependencies:
     flutter_test:

@@ -1,5 +1,4 @@
 import 'package:cinema_mate/domain/watchlist/watchlist.dart';
-import 'package:cinema_mate/infrastructure/movie/movie_dtos.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'watch_list_dtos.freezed.dart';

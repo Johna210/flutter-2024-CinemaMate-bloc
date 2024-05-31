@@ -25,6 +25,7 @@ class AdminAccountsActorBloc
   _onUserDeleted(
       _UserDeleted event, Emitter<AdminAccountsActorState> emit) async {
     emit(const AdminAccountsActorState.actionInProgress());
+    print(event.userId);
     adminRepository.deleteUser(userId: event.userId).then((failureOrSuccess) {
       failureOrSuccess.fold(
         (f) => emit(AdminAccountsActorState.deleteFailure(f)),
@@ -63,6 +64,7 @@ class AdminAccountsActorBloc
   _onCinemaDeleted(
       _CinemaDeleted event, Emitter<AdminAccountsActorState> emit) async {
     emit(const AdminAccountsActorState.actionInProgress());
+    print(event.cinemaId);
     adminRepository
         .deleteCinema(cinemaId: event.cinemaId)
         .then((failureOrSuccess) {

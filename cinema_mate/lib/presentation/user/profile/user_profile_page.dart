@@ -74,6 +74,9 @@ class UserProfilePage extends StatelessWidget {
                         leftIcon: const Icon(Icons.logout),
                         width: 200,
                         onPressed: () {
+                          context.read<UserAuthBloc>().add(
+                                const SignedOut(),
+                              );
                           context.go('/user/login');
                         },
                       ),

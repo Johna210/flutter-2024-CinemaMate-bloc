@@ -77,21 +77,12 @@ class UpdateMovieBloc extends Bloc<UpdateMovieEvent, UpdateMovieState> {
     final isTimeValid = state.time.isNotEmpty;
     final isGenreValid = state.genres.isNotEmpty;
     final movieId = state.id;
-    print(state);
 
     if (isTitleValid &&
         isNumberOfSeatsValid &&
         isDateValid &&
         isTimeValid &&
         isGenreValid) {
-      print("Sending Update");
-      print(state.id);
-      print(state.title);
-      print(state.numberOfSeats);
-      print(state.genres);
-      print(state.date);
-      print(state.time);
-
       final failureOrSuccess = await movieRepository.updateMovie(
         id: movieId,
         title: state.title,

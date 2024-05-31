@@ -1,4 +1,3 @@
-import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
 import 'package:cinema_mate/domain/auth/user/user_token.dart';
 import 'package:cinema_mate/domain/movie/movie.dart';
 import 'package:cinema_mate/domain/movie/movieFailure.dart';
