@@ -19,7 +19,6 @@ class UserProfileCheckerBloc
     on<FetchUserDetails>((event, emit) async {
       emit(const UserProfileCheckerState.loading());
       final userProfile = await iUserProfileRepository.fetchUserProfile();
-      print(userProfile);
       emit(
         userProfile.fold(
           () => const UserProfileCheckerState.loadFailure(

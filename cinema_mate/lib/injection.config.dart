@@ -51,9 +51,9 @@ import 'package:cinema_mate/application/user/cinema_movies_watcher/cinema_movies
 import 'package:cinema_mate/application/user/cinemas_watcher/cinema_watcher_bloc.dart'
     as _i50;
 import 'package:cinema_mate/application/user/current_movie/current_movie_bloc.dart'
-    as _i6;
-import 'package:cinema_mate/application/user/user_bottom_nav_bar/user_bottom_nav_bar_bloc.dart'
     as _i5;
+import 'package:cinema_mate/application/user/user_bottom_nav_bar/user_bottom_nav_bar_bloc.dart'
+    as _i6;
 import 'package:cinema_mate/application/user/user_profile/change_password/change_user_password_bloc.dart'
     as _i31;
 import 'package:cinema_mate/application/user/user_profile/change_user_name/change_user_name_bloc.dart'
@@ -86,15 +86,15 @@ import 'package:cinema_mate/domain/watchlist/i_watch_list_repository.dart'
 import 'package:cinema_mate/infrastructure/auth/admin/admin_auth_repository.dart'
     as _i15;
 import 'package:cinema_mate/infrastructure/auth/admin/data_sources/admin_auth_api.dart'
-    as _i13;
+    as _i9;
 import 'package:cinema_mate/infrastructure/auth/cinema/cinema_auth_repository.dart'
     as _i40;
 import 'package:cinema_mate/infrastructure/auth/cinema/data_sources/cinema_auth_api.dart'
-    as _i9;
+    as _i10;
 import 'package:cinema_mate/infrastructure/auth/user/auth_repository.dart'
     as _i17;
 import 'package:cinema_mate/infrastructure/auth/user/data_sources/auth_api.dart'
-    as _i10;
+    as _i11;
 import 'package:cinema_mate/infrastructure/auth/user/data_sources/local_data_source.dart'
     as _i19;
 import 'package:cinema_mate/infrastructure/cinema/cinema_add_movie_repository.dart'
@@ -104,7 +104,7 @@ import 'package:cinema_mate/infrastructure/cinema/cinema_profile_repository.dart
 import 'package:cinema_mate/infrastructure/cinema/cinema_update_movie_repository.dart'
     as _i49;
 import 'package:cinema_mate/infrastructure/cinema/data_source/cinema_api.dart'
-    as _i11;
+    as _i12;
 import 'package:cinema_mate/infrastructure/core/data_source_injectable_module.dart'
     as _i62;
 import 'package:cinema_mate/infrastructure/movie/data_sources/movie_api.dart'
@@ -115,7 +115,7 @@ import 'package:cinema_mate/infrastructure/user/cinemas/user_cinema_repository.d
 import 'package:cinema_mate/infrastructure/user/user_profile/user_profile_repository.dart'
     as _i34;
 import 'package:cinema_mate/infrastructure/user/watchlist/data_source/watchlist_api.dart'
-    as _i12;
+    as _i13;
 import 'package:cinema_mate/infrastructure/user/watchlist/watch_list_repository.dart'
     as _i21;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i8;
@@ -137,37 +137,37 @@ extension GetItInjectableX on _i1.GetIt {
     final dataSourceInjectableModule = _$DataSourceInjectableModule();
     gh.factory<_i3.BottomNavBarBloc>(() => _i3.BottomNavBarBloc());
     gh.factory<_i4.RoleBloc>(() => _i4.RoleBloc());
-    gh.factory<_i5.UserBottomNavBarBloc>(() => _i5.UserBottomNavBarBloc());
-    gh.factory<_i6.CurrentMovieBloc>(() => _i6.CurrentMovieBloc());
+    gh.factory<_i5.CurrentMovieBloc>(() => _i5.CurrentMovieBloc());
+    gh.factory<_i6.UserBottomNavBarBloc>(() => _i6.UserBottomNavBarBloc());
     gh.lazySingleton<_i7.Client>(() => dataSourceInjectableModule.client);
     gh.lazySingleton<_i8.FlutterSecureStorage>(
         () => dataSourceInjectableModule.secureStorage);
-    gh.factory<_i9.CinemaAuthApiImplementations>(
-        () => _i9.CinemaAuthApiImplementations(client: gh<_i7.Client>()));
-    gh.factory<_i10.AuthApiImplementations>(
-        () => _i10.AuthApiImplementations(client: gh<_i7.Client>()));
-    gh.factory<_i11.CinemaApiImplementations>(
-        () => _i11.CinemaApiImplementations(client: gh<_i7.Client>()));
-    gh.factory<_i12.WatchlistApiImplementations>(
-        () => _i12.WatchlistApiImplementations(client: gh<_i7.Client>()));
-    gh.factory<_i13.AdminAuthApi>(
-        () => _i13.AdminAuthApi(client: gh<_i7.Client>()));
+    gh.factory<_i9.AdminAuthApi>(
+        () => _i9.AdminAuthApi(client: gh<_i7.Client>()));
+    gh.factory<_i10.CinemaAuthApiImplementations>(
+        () => _i10.CinemaAuthApiImplementations(client: gh<_i7.Client>()));
+    gh.factory<_i11.AuthApiImplementations>(
+        () => _i11.AuthApiImplementations(client: gh<_i7.Client>()));
+    gh.factory<_i12.CinemaApiImplementations>(
+        () => _i12.CinemaApiImplementations(client: gh<_i7.Client>()));
+    gh.factory<_i13.WatchlistApiImplementations>(
+        () => _i13.WatchlistApiImplementations(client: gh<_i7.Client>()));
     gh.lazySingleton<_i14.IAuthAdminRepository>(() => _i15.AdminAuthRepository(
-          gh<_i13.AdminAuthApi>(),
+          gh<_i9.AdminAuthApi>(),
           gh<_i8.FlutterSecureStorage>(),
         ));
     gh.lazySingleton<_i16.IAuthRepository>(() => _i17.AuthRepository(
-          gh<_i10.AuthApiImplementations>(),
+          gh<_i11.AuthApiImplementations>(),
           gh<_i8.FlutterSecureStorage>(),
         ));
     gh.factory<_i18.MovieApiImplementaions>(() => _i18.MovieApiImplementaions(
           client: gh<_i7.Client>(),
-          watchlistApiImplementations: gh<_i12.WatchlistApiImplementations>(),
+          watchlistApiImplementations: gh<_i13.WatchlistApiImplementations>(),
         ));
     gh.factory<_i19.LocalSecureStorage>(() =>
         _i19.LocalSecureStorage(secureStorage: gh<_i8.FlutterSecureStorage>()));
     gh.lazySingleton<_i20.IWatchListRepository>(() => _i21.WatchListRepository(
-          gh<_i12.WatchlistApiImplementations>(),
+          gh<_i13.WatchlistApiImplementations>(),
           gh<_i8.FlutterSecureStorage>(),
         ));
     gh.factory<_i22.AdminAuthBlocBloc>(
@@ -177,7 +177,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i25.ICinemaRepository>(() => _i26.UserCinemaRepository(
           gh<_i18.MovieApiImplementaions>(),
           gh<_i8.FlutterSecureStorage>(),
-          gh<_i11.CinemaApiImplementations>(),
+          gh<_i12.CinemaApiImplementations>(),
         ));
     gh.factory<_i27.AdminAccountsActorBloc>(
         () => _i27.AdminAccountsActorBloc(gh<_i14.IAuthAdminRepository>()));
@@ -193,7 +193,7 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i32.ChangeUserNameBloc(gh<_i16.IAuthRepository>()));
     gh.lazySingleton<_i33.IUserProfileRepository>(
         () => _i34.UserProfileRepository(
-              gh<_i10.AuthApiImplementations>(),
+              gh<_i11.AuthApiImplementations>(),
               gh<_i8.FlutterSecureStorage>(),
             ));
     gh.factory<_i35.WatchlistBloc>(
@@ -202,12 +202,12 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i36.AdminSignInBlocBloc(gh<_i14.IAuthAdminRepository>()));
     gh.lazySingleton<_i37.ICinemaProfileRepository>(
         () => _i38.CinemaProfileRepository(
-              gh<_i11.CinemaApiImplementations>(),
+              gh<_i12.CinemaApiImplementations>(),
               gh<_i8.FlutterSecureStorage>(),
             ));
     gh.lazySingleton<_i39.ICinemaAuthRepository>(
         () => _i40.CinemaAuthRepository(
-              gh<_i9.CinemaAuthApiImplementations>(),
+              gh<_i10.CinemaAuthApiImplementations>(),
               gh<_i8.FlutterSecureStorage>(),
             ));
     gh.factory<_i41.ChangeCinemaNameBloc>(
