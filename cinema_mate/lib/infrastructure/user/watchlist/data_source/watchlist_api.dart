@@ -29,9 +29,17 @@ class WatchlistApiImplementations {
           'Authorization': 'Bearer ${token.token}',
         },
       );
-
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return right(unit);
+      } else if (response.statusCode == 400) {
+        Map<String, dynamic> responseBody = jsonDecode(response.body);
+        String message = responseBody['message'];
+
+        if (message == 'Movie is already the user watchList') {
+          return left(const WatchlistFailure.movieAlreadyInWatchlist());
+        } else {
+          return left(const WatchlistFailure.serverError());
+        }
       } else {
         return left(const WatchlistFailure.serverError());
       }
@@ -73,8 +81,19 @@ class WatchlistApiImplementations {
 
       if (response.statusCode == 200) {
         List<dynamic> jsonList = jsonDecode(response.body);
-        List<WatchlistDto> watchlist =
-            jsonList.map((json) => WatchlistDto.fromJson(json)).toList();
+        List<WatchlistDto> watchlist = jsonList
+            .map(
+              (json) => WatchlistDto(
+                id: json["id"],
+                title: json["title"],
+                genre: json["genre"],
+                day: json["day"],
+                showTime: json["showTime"],
+                imageUrl: json["imageUrl"],
+                numberOfSeats: json["numberOfSeats"],
+              ),
+            )
+            .toList();
         yield watchlist;
       } else {
         yield [];

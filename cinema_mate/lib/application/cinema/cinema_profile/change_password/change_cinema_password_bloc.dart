@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:cinema_mate/application/auth/user/account_management/manage_user_account_bloc.dart';
 import 'package:cinema_mate/domain/auth/cinema/cinema_auth_failure.dart';
 import 'package:cinema_mate/domain/auth/cinema/i_cinema_auth_repository.dart';
 import 'package:cinema_mate/domain/auth/cinema/value_objects.dart';

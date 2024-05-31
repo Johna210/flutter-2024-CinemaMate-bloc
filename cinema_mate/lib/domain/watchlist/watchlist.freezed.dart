@@ -17,8 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$WatchlistMovie {
   int get id => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get genre => throw _privateConstructorUsedError;
   String get day => throw _privateConstructorUsedError;
@@ -39,8 +37,6 @@ abstract class $WatchlistMovieCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String username,
-      String email,
       String title,
       String genre,
       String day,
@@ -63,8 +59,6 @@ class _$WatchlistMovieCopyWithImpl<$Res, $Val extends WatchlistMovie>
   @override
   $Res call({
     Object? id = null,
-    Object? username = null,
-    Object? email = null,
     Object? title = null,
     Object? genre = null,
     Object? day = null,
@@ -77,14 +71,6 @@ class _$WatchlistMovieCopyWithImpl<$Res, $Val extends WatchlistMovie>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -123,8 +109,6 @@ abstract class _$$WatchlistMovieImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String username,
-      String email,
       String title,
       String genre,
       String day,
@@ -145,8 +129,6 @@ class __$$WatchlistMovieImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? username = null,
-    Object? email = null,
     Object? title = null,
     Object? genre = null,
     Object? day = null,
@@ -159,14 +141,6 @@ class __$$WatchlistMovieImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -200,8 +174,6 @@ class __$$WatchlistMovieImplCopyWithImpl<$Res>
 class _$WatchlistMovieImpl extends _WatchlistMovie {
   const _$WatchlistMovieImpl(
       {required this.id,
-      required this.username,
-      required this.email,
       required this.title,
       required this.genre,
       required this.day,
@@ -212,10 +184,6 @@ class _$WatchlistMovieImpl extends _WatchlistMovie {
 
   @override
   final int id;
-  @override
-  final String username;
-  @override
-  final String email;
   @override
   final String title;
   @override
@@ -231,7 +199,7 @@ class _$WatchlistMovieImpl extends _WatchlistMovie {
 
   @override
   String toString() {
-    return 'WatchlistMovie(id: $id, username: $username, email: $email, title: $title, genre: $genre, day: $day, showTime: $showTime, imageUrl: $imageUrl, numberOfSeats: $numberOfSeats)';
+    return 'WatchlistMovie(id: $id, title: $title, genre: $genre, day: $day, showTime: $showTime, imageUrl: $imageUrl, numberOfSeats: $numberOfSeats)';
   }
 
   @override
@@ -240,9 +208,6 @@ class _$WatchlistMovieImpl extends _WatchlistMovie {
         (other.runtimeType == runtimeType &&
             other is _$WatchlistMovieImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.genre, genre) || other.genre == genre) &&
             (identical(other.day, day) || other.day == day) &&
@@ -255,8 +220,8 @@ class _$WatchlistMovieImpl extends _WatchlistMovie {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, email, title,
-      genre, day, showTime, imageUrl, numberOfSeats);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, genre, day, showTime, imageUrl, numberOfSeats);
 
   @JsonKey(ignore: true)
   @override
@@ -269,8 +234,6 @@ class _$WatchlistMovieImpl extends _WatchlistMovie {
 abstract class _WatchlistMovie extends WatchlistMovie {
   const factory _WatchlistMovie(
       {required final int id,
-      required final String username,
-      required final String email,
       required final String title,
       required final String genre,
       required final String day,
@@ -281,10 +244,6 @@ abstract class _WatchlistMovie extends WatchlistMovie {
 
   @override
   int get id;
-  @override
-  String get username;
-  @override
-  String get email;
   @override
   String get title;
   @override

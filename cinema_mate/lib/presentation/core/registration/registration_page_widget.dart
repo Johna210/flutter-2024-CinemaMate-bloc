@@ -8,6 +8,7 @@ import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 var newColor = AppColor();
 
@@ -41,11 +42,35 @@ class RegistrationPageWidget extends StatelessWidget {
                       height: 30,
                     ),
                     Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            context.go('/admin/login');
+                          },
+                          child: const Text(
+                            'Admin',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         AppButton(
                           title: "As a user",
-                          width: 180,
+                          width: 150,
+                          buttonColor: state == const RoleState.user() ||
+                                  state == const RoleState.initial()
+                              ? newColor.primary
+                              : newColor.bg,
                           onPressed: () {
                             context
                                 .read<RoleBloc>()
@@ -54,7 +79,10 @@ class RegistrationPageWidget extends StatelessWidget {
                         ),
                         AppButton(
                           title: "As a cinema",
-                          width: 180,
+                          width: 170,
+                          buttonColor: state == const RoleState.cinema()
+                              ? newColor.primary
+                              : newColor.bg,
                           onPressed: () {
                             context
                                 .read<RoleBloc>()

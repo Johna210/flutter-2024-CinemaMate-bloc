@@ -25,41 +25,54 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
     emit(const WatchlistState.loading());
     watchListRepository.getWatchlist().listen(
       (watchlistMoviesOrFailure) {
-        watchlistMoviesOrFailure.fold(
-          (failure) => emit(WatchlistState.loadFailure(failure)),
-          (watchlistMovies) =>
-              emit(WatchlistState.loadSuccess(watchlistMovies)),
+        add(
+          WatchlistEvent.watchlistRecieved(watchlistMoviesOrFailure),
         );
+      },
+      onError: (error) {
+        print('An error occurred: $error');
+      },
+      onDone: () {
+        print('Stream is done emitting data');
       },
     );
   }
 
   void _onWatchlistRecieved(
       WatchlistRecieved event, Emitter<WatchlistState> emit) {
-    event.failureOrNotes.fold(
+    event.failureOrWatchlistMovies.fold(
       (failure) => emit(WatchlistState.loadFailure(failure)),
       (watchlistMovies) => emit(WatchlistState.loadSuccess(watchlistMovies)),
     );
   }
 
-  void _onWatchlistAdded(WatchlistAdded event, Emitter<WatchlistState> emit) {
-    watchListRepository.addWatchlist(event.watchlistMovie.id).then(
+  void _onWatchlistAdded(
+      WatchlistAdded event, Emitter<WatchlistState> emit) async {
+    await watchListRepository.addWatchlist(event.addMovieId).then(
       (failureOrSuccess) {
         failureOrSuccess.fold(
-          (failure) => emit(WatchlistState.loadFailure(failure)),
-          (_) => emit(const WatchlistState.addSuccess()),
+          (failure) {
+            if (failure == const WatchlistFailure.movieAlreadyInWatchlist()) {
+              emit(const WatchlistState.movieAlreadyInWatchlist());
+            } else {
+              emit(WatchlistState.loadFailure(failure));
+            }
+          },
+          (_) {
+            return emit(const WatchlistState.addSuccess());
+          },
         );
       },
     );
   }
 
   void _onWatchlistRemoved(
-      WatchlistRemoved event, Emitter<WatchlistState> emit) {
-    watchListRepository.removeWatchlist(event.watchlistMovie.id).then(
+      WatchlistRemoved event, Emitter<WatchlistState> emit) async {
+    await watchListRepository.removeWatchlist(event.removeMovieId).then(
       (failureOrSuccess) {
         failureOrSuccess.fold(
           (failure) => emit(WatchlistState.loadFailure(failure)),
-          (_) => emit(const WatchlistState.removeSuccess()),
+          (_) => add(const WatchlistEvent.watchlistStarted()),
         );
       },
     );

@@ -1,5 +1,6 @@
 // ignore_for_file: invalid_annotation_target
 
+import 'package:cinema_mate/domain/user/cinema/cinema.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cinema_dtos.freezed.dart';
@@ -23,6 +24,15 @@ abstract class CinemaDto implements _$CinemaDto {
   // TODO: Implement From Domain
 
   // TODO: Implement to Domain
+  CinemaInfo toDomain() {
+    return CinemaInfo(
+      id: id ?? 0,
+      cinemaName: cinemaName,
+      imagePath: imageUrl,
+      description: description,
+      email: email,
+    );
+  }
 
   // TODO: Implement to Json
 }

@@ -177,6 +177,29 @@ class UserRegistrationForm extends StatelessWidget {
                                 ),
                             (r) => null),
                   ),
+                  const SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Already have an account? ',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/user/login');
+                        },
+                        child: const Text(
+                          'Sign in',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 50),
                   AppButton(
                     title: "Sign Up",

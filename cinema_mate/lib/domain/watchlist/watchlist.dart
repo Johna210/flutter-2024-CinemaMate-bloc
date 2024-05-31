@@ -8,8 +8,6 @@ abstract class WatchlistMovie with _$WatchlistMovie {
 
   const factory WatchlistMovie({
     required int id,
-    required String username,
-    required String email,
     required String title,
     required String genre,
     required String day,

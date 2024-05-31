@@ -21,7 +21,6 @@ class CinemaHomeWidget extends StatelessWidget {
         ),
         BlocListener<MovieActorBloc, MovieActorState>(
           listener: (context, state) {
-            print(state);
             state.maybeMap(
                 deleteSuccess: (value) {
                   context.read<MovieWatcherBloc>().add(

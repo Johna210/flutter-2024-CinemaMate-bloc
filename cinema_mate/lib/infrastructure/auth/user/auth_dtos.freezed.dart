@@ -552,6 +552,165 @@ abstract class _UserSignInDto extends UserSignInDto {
       throw _privateConstructorUsedError;
 }
 
+AdminSigninDto _$AdminSigninDtoFromJson(Map<String, dynamic> json) {
+  return _AdminSignInDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AdminSigninDto {
+  String get username => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AdminSigninDtoCopyWith<AdminSigninDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AdminSigninDtoCopyWith<$Res> {
+  factory $AdminSigninDtoCopyWith(
+          AdminSigninDto value, $Res Function(AdminSigninDto) then) =
+      _$AdminSigninDtoCopyWithImpl<$Res, AdminSigninDto>;
+  @useResult
+  $Res call({String username, String password});
+}
+
+/// @nodoc
+class _$AdminSigninDtoCopyWithImpl<$Res, $Val extends AdminSigninDto>
+    implements $AdminSigninDtoCopyWith<$Res> {
+  _$AdminSigninDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? username = null,
+    Object? password = null,
+  }) {
+    return _then(_value.copyWith(
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AdminSignInDtoImplCopyWith<$Res>
+    implements $AdminSigninDtoCopyWith<$Res> {
+  factory _$$AdminSignInDtoImplCopyWith(_$AdminSignInDtoImpl value,
+          $Res Function(_$AdminSignInDtoImpl) then) =
+      __$$AdminSignInDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String username, String password});
+}
+
+/// @nodoc
+class __$$AdminSignInDtoImplCopyWithImpl<$Res>
+    extends _$AdminSigninDtoCopyWithImpl<$Res, _$AdminSignInDtoImpl>
+    implements _$$AdminSignInDtoImplCopyWith<$Res> {
+  __$$AdminSignInDtoImplCopyWithImpl(
+      _$AdminSignInDtoImpl _value, $Res Function(_$AdminSignInDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? username = null,
+    Object? password = null,
+  }) {
+    return _then(_$AdminSignInDtoImpl(
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AdminSignInDtoImpl extends _AdminSignInDto {
+  const _$AdminSignInDtoImpl({required this.username, required this.password})
+      : super._();
+
+  factory _$AdminSignInDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AdminSignInDtoImplFromJson(json);
+
+  @override
+  final String username;
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AdminSigninDto(username: $username, password: $password)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AdminSignInDtoImpl &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, username, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AdminSignInDtoImplCopyWith<_$AdminSignInDtoImpl> get copyWith =>
+      __$$AdminSignInDtoImplCopyWithImpl<_$AdminSignInDtoImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AdminSignInDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AdminSignInDto extends AdminSigninDto {
+  const factory _AdminSignInDto(
+      {required final String username,
+      required final String password}) = _$AdminSignInDtoImpl;
+  const _AdminSignInDto._() : super._();
+
+  factory _AdminSignInDto.fromJson(Map<String, dynamic> json) =
+      _$AdminSignInDtoImpl.fromJson;
+
+  @override
+  String get username;
+  @override
+  String get password;
+  @override
+  @JsonKey(ignore: true)
+  _$$AdminSignInDtoImplCopyWith<_$AdminSignInDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 UserTokenDto _$UserTokenDtoFromJson(Map<String, dynamic> json) {
   return _UserTokenDto.fromJson(json);
 }

@@ -5,6 +5,7 @@ import 'package:cinema_mate/domain/crudMovie/add_movie/add_failure.dart';
 import 'package:cinema_mate/domain/crudMovie/update_movie/update_failure.dart';
 import 'package:cinema_mate/domain/movie/movieFailure.dart';
 import 'package:cinema_mate/infrastructure/movie/movie_dtos.dart';
+import 'package:cinema_mate/infrastructure/user/watchlist/data_source/watchlist_api.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
@@ -14,8 +15,10 @@ import 'package:injectable/injectable.dart';
 class MovieApiImplementaions {
   final http.Client client;
   final String baseUrl = dotenv.get('BASE_URL');
+  final WatchlistApiImplementations watchlistApiImplementations;
 
-  MovieApiImplementaions({required this.client});
+  MovieApiImplementaions(
+      {required this.client, required this.watchlistApiImplementations});
 
   /// http://localhost:3000/movies/addmovie -> For adding a new Movie.
   // Add movie api implementation here
@@ -41,8 +44,6 @@ class MovieApiImplementaions {
     // Send the request
     try {
       var response = await request.send();
-
-      print(response);
 
       if (response.statusCode == 201) {
         return right(unit);
@@ -97,8 +98,6 @@ class MovieApiImplementaions {
           'Authorization': 'Bearer ${cinemaToken.token}',
         },
       );
-      print(response.statusCode);
-      print(response.body);
       if (response.statusCode == 200) {
         return right(unit);
       } else {
@@ -110,7 +109,7 @@ class MovieApiImplementaions {
   }
 
   // Get cinema Movies with ID
-  Stream<Either<MovieFailure, List<MovieInfoDto>>> getCinemaMoviesById(
+  Stream<Either<MovieFailure, List<UserMovieInfoDto>>> getCinemaMoviesById(
       int cinemaId, UserToken userToken) async* {
     final getCinemaMoviesUrl = Uri.parse('$baseUrl/movies/cinema/$cinemaId');
     try {
@@ -121,11 +120,21 @@ class MovieApiImplementaions {
         },
       );
 
-      print(response);
       if (response.statusCode == 200) {
         final List<dynamic> jsonResponse = json.decode(response.body);
-        final movies =
-            jsonResponse.map((json) => MovieInfoDto.fromJson(json)).toList();
+        final movies = jsonResponse.map((json) {
+          final movie = UserMovieInfoDto(
+              id: json["id"],
+              title: json["title"],
+              genre: json["genre"],
+              day: json["day"],
+              time: json["showTime"],
+              imagePath: json["imageUrl"],
+              numberOfSeats: json["numberOfSeats"],
+              isFavorited: false);
+          return movie;
+        }).toList();
+
         yield right(movies);
       } else {
         yield left(const MovieFailure.unexpectedFailure());

@@ -18,7 +18,6 @@ class CinemaDetail extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        // margin: EdgeInsets.all(60),
         color: newColor.white,
         child: Center(
           child: Column(
@@ -45,13 +44,21 @@ class CinemaDetail extends StatelessWidget {
               SizedBox(
                 height: 170,
                 width: 300,
-                child: GridView.builder(
-                  itemCount: movie.genre.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Genre(genre: movie.genre[index]);
+                child: Builder(
+                  builder: (BuildContext context) {
+                    List<String> allGenres = movie.genre
+                        .expand((genreStr) => genreStr.split(','))
+                        .toList();
+                    return GridView.builder(
+                      itemCount: allGenres.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                      ),
+                      itemBuilder: (BuildContext context, int index) {
+                        return Genre(genre: allGenres[index].trim());
+                      },
+                    );
                   },
                 ),
               ),

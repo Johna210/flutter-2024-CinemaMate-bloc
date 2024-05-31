@@ -1,3 +1,4 @@
+import 'package:cinema_mate/application/auth/cinema/cinema_auth_bloc.dart';
 import 'package:cinema_mate/application/auth/cinema/sign_in_form/cinema_signin_bloc.dart';
 import 'package:cinema_mate/injection.dart';
 import 'package:cinema_mate/presentation/auth/cinema/signin/cinema_signin_form.dart';
@@ -27,8 +28,13 @@ class CinemaSign extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: BlocProvider(
-          create: (context) => getIt<CinemaSigninBloc>(),
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<CinemaSigninBloc>(),
+            ),
+            BlocProvider(create: (context) => getIt<CinemaAuthBloc>())
+          ],
           child: const CinemaSignInForm(),
         ),
       ),

@@ -8,14 +8,20 @@ part of 'watch_list_dtos.dart';
 
 _$WatchlistDtoImpl _$$WatchlistDtoImplFromJson(Map<String, dynamic> json) =>
     _$WatchlistDtoImpl(
-      userName: json['userName'] as String,
-      email: json['email'] as String,
-      movie: MovieDto.fromJson(json['movie'] as Map<String, dynamic>),
+      title: json['title'] as String,
+      genre: json['genre'] as String,
+      day: json['day'] as String,
+      showTime: json['showTime'] as String,
+      imageUrl: json['imageUrl'] as String,
+      numberOfSeats: (json['numberOfSeats'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$WatchlistDtoImplToJson(_$WatchlistDtoImpl instance) =>
     <String, dynamic>{
-      'userName': instance.userName,
-      'email': instance.email,
-      'movie': instance.movie,
+      'title': instance.title,
+      'genre': instance.genre,
+      'day': instance.day,
+      'showTime': instance.showTime,
+      'imageUrl': instance.imageUrl,
+      'numberOfSeats': instance.numberOfSeats,
     };

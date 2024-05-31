@@ -3,6 +3,7 @@ import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 var appColor = AppColor();
@@ -33,7 +34,7 @@ class SignInForm extends StatelessWidget {
               ),
             );
           }, (right) {
-            print("It worked");
+            context.go('/user/home');
           });
         });
       },
@@ -125,6 +126,30 @@ class SignInForm extends StatelessWidget {
                                           orElse: () => null,
                                         ),
                                     (right) => null),
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Don't have an account? ",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  context.go('/registration');
+                                },
+                                child: const Text(
+                                  'Register',
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 30),
                           AppButton(

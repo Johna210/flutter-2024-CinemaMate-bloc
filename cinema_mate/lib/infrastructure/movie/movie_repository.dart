@@ -20,7 +20,6 @@ class MovieRepository implements IMovieRepository {
   @override
   Future<Either<UpdateFailure, Unit>> editMovie(EditMovie movie) async {
     final currentCinemaToken = await secureStorage.read(key: "cinematoken");
-
     if (currentCinemaToken != null) {
       return movieApiImplementations.editMovie(UpdateMovieDto.fromDomain(movie),
           UserToken(token: currentCinemaToken));

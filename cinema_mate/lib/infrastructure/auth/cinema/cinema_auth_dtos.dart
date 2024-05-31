@@ -18,7 +18,7 @@ abstract class CinemaAuthDto implements _$CinemaAuthDto {
     required String email,
   }) = _CinemaAuthDto;
 
-  factory CinemaAuthDto.fromDomain(Cinema user) {
+  factory CinemaAuthDto.fromDomain(CinemaAuth user) {
     return CinemaAuthDto(
       id: user.id,
       username: user.cinemaName.getOrCrash(),
@@ -26,8 +26,8 @@ abstract class CinemaAuthDto implements _$CinemaAuthDto {
     );
   }
 
-  Cinema toDomain() {
-    return Cinema(
+  CinemaAuth toDomain() {
+    return CinemaAuth(
       id: id!,
       cinemaName: CinemaName(username),
       email: EmailAddress(email),

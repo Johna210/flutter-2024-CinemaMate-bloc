@@ -32,7 +32,6 @@ class CinemaProfileRepository implements ICinemaProfileRepository {
 
     final result = await cinemaApiImplementations
         .checkCinemaDetail(UserToken(token: currentCinemaToken));
-    print(result);
 
     return result.fold((failure) {
       return left(const CinemaProfileFailure.serverError());
@@ -58,7 +57,6 @@ class CinemaProfileRepository implements ICinemaProfileRepository {
     }
     final result = await cinemaApiImplementations.uploadImage(
         image.path, UserToken(token: currentCinemaToken));
-    print(result);
     return result.fold((failure) {
       return left(const CinemaProfileFailure.serverError());
     }, (cinemaDto) {

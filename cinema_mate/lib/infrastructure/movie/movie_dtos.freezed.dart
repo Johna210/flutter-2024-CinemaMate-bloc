@@ -285,6 +285,299 @@ abstract class _MovieInfoDto extends MovieInfoDto {
       throw _privateConstructorUsedError;
 }
 
+UserMovieInfoDto _$UserMovieInfoDtoFromJson(Map<String, dynamic> json) {
+  return _UserMovieInfoDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserMovieInfoDto {
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get genre => throw _privateConstructorUsedError;
+  String get day => throw _privateConstructorUsedError;
+  @JsonKey(name: 'showTime')
+  String get time => throw _privateConstructorUsedError;
+  @JsonKey(name: 'imageUrl')
+  String get imagePath => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
+  bool get isFavorited => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UserMovieInfoDtoCopyWith<UserMovieInfoDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserMovieInfoDtoCopyWith<$Res> {
+  factory $UserMovieInfoDtoCopyWith(
+          UserMovieInfoDto value, $Res Function(UserMovieInfoDto) then) =
+      _$UserMovieInfoDtoCopyWithImpl<$Res, UserMovieInfoDto>;
+  @useResult
+  $Res call(
+      {int id,
+      String title,
+      String genre,
+      String day,
+      @JsonKey(name: 'showTime') String time,
+      @JsonKey(name: 'imageUrl') String imagePath,
+      int numberOfSeats,
+      bool isFavorited});
+}
+
+/// @nodoc
+class _$UserMovieInfoDtoCopyWithImpl<$Res, $Val extends UserMovieInfoDto>
+    implements $UserMovieInfoDtoCopyWith<$Res> {
+  _$UserMovieInfoDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? genre = null,
+    Object? day = null,
+    Object? time = null,
+    Object? imagePath = null,
+    Object? numberOfSeats = null,
+    Object? isFavorited = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as String,
+      day: null == day
+          ? _value.day
+          : day // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      isFavorited: null == isFavorited
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserMovieInfoDtoImplCopyWith<$Res>
+    implements $UserMovieInfoDtoCopyWith<$Res> {
+  factory _$$UserMovieInfoDtoImplCopyWith(_$UserMovieInfoDtoImpl value,
+          $Res Function(_$UserMovieInfoDtoImpl) then) =
+      __$$UserMovieInfoDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String title,
+      String genre,
+      String day,
+      @JsonKey(name: 'showTime') String time,
+      @JsonKey(name: 'imageUrl') String imagePath,
+      int numberOfSeats,
+      bool isFavorited});
+}
+
+/// @nodoc
+class __$$UserMovieInfoDtoImplCopyWithImpl<$Res>
+    extends _$UserMovieInfoDtoCopyWithImpl<$Res, _$UserMovieInfoDtoImpl>
+    implements _$$UserMovieInfoDtoImplCopyWith<$Res> {
+  __$$UserMovieInfoDtoImplCopyWithImpl(_$UserMovieInfoDtoImpl _value,
+      $Res Function(_$UserMovieInfoDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? genre = null,
+    Object? day = null,
+    Object? time = null,
+    Object? imagePath = null,
+    Object? numberOfSeats = null,
+    Object? isFavorited = null,
+  }) {
+    return _then(_$UserMovieInfoDtoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as String,
+      day: null == day
+          ? _value.day
+          : day // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      isFavorited: null == isFavorited
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserMovieInfoDtoImpl extends _UserMovieInfoDto {
+  const _$UserMovieInfoDtoImpl(
+      {required this.id,
+      required this.title,
+      required this.genre,
+      required this.day,
+      @JsonKey(name: 'showTime') required this.time,
+      @JsonKey(name: 'imageUrl') required this.imagePath,
+      required this.numberOfSeats,
+      required this.isFavorited})
+      : super._();
+
+  factory _$UserMovieInfoDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserMovieInfoDtoImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String title;
+  @override
+  final String genre;
+  @override
+  final String day;
+  @override
+  @JsonKey(name: 'showTime')
+  final String time;
+  @override
+  @JsonKey(name: 'imageUrl')
+  final String imagePath;
+  @override
+  final int numberOfSeats;
+  @override
+  final bool isFavorited;
+
+  @override
+  String toString() {
+    return 'UserMovieInfoDto(id: $id, title: $title, genre: $genre, day: $day, time: $time, imagePath: $imagePath, numberOfSeats: $numberOfSeats, isFavorited: $isFavorited)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserMovieInfoDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.day, day) || other.day == day) &&
+            (identical(other.time, time) || other.time == time) &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath) &&
+            (identical(other.numberOfSeats, numberOfSeats) ||
+                other.numberOfSeats == numberOfSeats) &&
+            (identical(other.isFavorited, isFavorited) ||
+                other.isFavorited == isFavorited));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title, genre, day, time,
+      imagePath, numberOfSeats, isFavorited);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserMovieInfoDtoImplCopyWith<_$UserMovieInfoDtoImpl> get copyWith =>
+      __$$UserMovieInfoDtoImplCopyWithImpl<_$UserMovieInfoDtoImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserMovieInfoDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserMovieInfoDto extends UserMovieInfoDto {
+  const factory _UserMovieInfoDto(
+      {required final int id,
+      required final String title,
+      required final String genre,
+      required final String day,
+      @JsonKey(name: 'showTime') required final String time,
+      @JsonKey(name: 'imageUrl') required final String imagePath,
+      required final int numberOfSeats,
+      required final bool isFavorited}) = _$UserMovieInfoDtoImpl;
+  const _UserMovieInfoDto._() : super._();
+
+  factory _UserMovieInfoDto.fromJson(Map<String, dynamic> json) =
+      _$UserMovieInfoDtoImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get title;
+  @override
+  String get genre;
+  @override
+  String get day;
+  @override
+  @JsonKey(name: 'showTime')
+  String get time;
+  @override
+  @JsonKey(name: 'imageUrl')
+  String get imagePath;
+  @override
+  int get numberOfSeats;
+  @override
+  bool get isFavorited;
+  @override
+  @JsonKey(ignore: true)
+  _$$UserMovieInfoDtoImplCopyWith<_$UserMovieInfoDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 MovieDto _$MovieDtoFromJson(Map<String, dynamic> json) {
   return _MovieDto.fromJson(json);
 }

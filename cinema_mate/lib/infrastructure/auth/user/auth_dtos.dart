@@ -106,6 +106,33 @@ abstract class UserSignInDto implements _$UserSignInDto {
 }
 
 @freezed
+abstract class AdminSigninDto implements _$AdminSigninDto {
+  const AdminSigninDto._();
+
+  const factory AdminSigninDto({
+    required String username,
+    required String password,
+  }) = _AdminSignInDto;
+
+  factory AdminSigninDto.fromDomain(AdminSignIn admin) {
+    return AdminSigninDto(
+      username: admin.username.getOrCrash(),
+      password: admin.password.getOrCrash(),
+    );
+  }
+
+  AdminSignIn toDomain() {
+    return AdminSignIn(
+      username: Username(username),
+      password: Password(password),
+    );
+  }
+
+  factory AdminSigninDto.fromJson(Map<String, dynamic> json) =>
+      _$AdminSigninDtoFromJson(json);
+}
+
+@freezed
 abstract class UserTokenDto implements _$UserTokenDto {
   const UserTokenDto._();
 

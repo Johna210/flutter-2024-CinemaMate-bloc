@@ -31,9 +31,7 @@ class CinemaRegistrationForm extends StatelessWidget {
               );
             },
             (right) {
-              print('Hello world');
-              print('Hello world');
-              print('Hello world');
+              context.go('/cinema/login');
             },
           ),
         );

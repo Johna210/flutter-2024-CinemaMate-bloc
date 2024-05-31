@@ -33,14 +33,9 @@ class CinemaProfileCheckerBloc
     );
   }
 
-  // void _onUploadImage(UploadImage event, Emitter emit) async {
-  //   emit(const CinemaProfileCheckerState.hasImage());
-  // }
-
   void _onUploadImage(UploadImage event, Emitter emit) async {
     emit(const CinemaProfileCheckerState.loading());
     final uploadResult = await iCinemaProfileRepository.uploadImage(event.file);
-    print(uploadResult);
     emit(
       uploadResult.fold(
         (failure) => CinemaProfileCheckerState.loadFailure(failure),

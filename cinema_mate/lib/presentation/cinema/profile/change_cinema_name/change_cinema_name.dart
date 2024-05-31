@@ -1,3 +1,4 @@
+import 'package:cinema_mate/application/cinema/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:cinema_mate/application/cinema/cinema_profile/change_cinema_name/change_cinema_name_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,10 @@ class ChangeCinemaName extends StatelessWidget {
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
               context.go('/cinema/home');
+
+              context.read<BottomNavBarBloc>().add(
+                    const BottomNavBarEvent.cinemaProfileClicked(),
+                  );
             },
           )),
       body: BlocConsumer<ChangeCinemaNameBloc, ChangeCinemaNameState>(
@@ -101,6 +106,9 @@ class ChangeCinemaName extends StatelessWidget {
                 );
               }, (unit) {
                 context.go('/cinema/home');
+                context.read<BottomNavBarBloc>().add(
+                      const BottomNavBarEvent.cinemaProfileClicked(),
+                    );
                 return ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text('Cinema Name Changed Successfully'),

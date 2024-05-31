@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cinema_mate/application/cinema/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:cinema_mate/application/cinema/cinema_movie/add_movie/add_movie_bloc.dart';
 import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
@@ -25,9 +26,12 @@ class AddMovieWidget extends StatelessWidget {
             context.read<AddMovieBloc>().add(
                   const AddMovieEvent.initialized(),
                 );
-            return const ScaffoldMessenger(
-              child: SnackBar(
-                content: Text('Movie Added SuccessFully'),
+            context.read<BottomNavBarBloc>().add(
+                  const BottomNavBarEvent.homeClicked(),
+                );
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('New Movie Posted'),
               ),
             );
           },

@@ -20,18 +20,21 @@ mixin _$WatchlistFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() watchlistNotFound,
+    required TResult Function() movieAlreadyInWatchlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? serverError,
     TResult? Function()? watchlistNotFound,
+    TResult? Function()? movieAlreadyInWatchlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? watchlistNotFound,
+    TResult Function()? movieAlreadyInWatchlist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,22 @@ mixin _$WatchlistFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(ServerError value) serverError,
     required TResult Function(WatchlistNotFound value) watchlistNotFound,
+    required TResult Function(MovieAlreadyInWatchlist value)
+        movieAlreadyInWatchlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerError value)? serverError,
     TResult? Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult? Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +121,7 @@ class _$ServerErrorImpl implements ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() watchlistNotFound,
+    required TResult Function() movieAlreadyInWatchlist,
   }) {
     return serverError();
   }
@@ -123,6 +131,7 @@ class _$ServerErrorImpl implements ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? serverError,
     TResult? Function()? watchlistNotFound,
+    TResult? Function()? movieAlreadyInWatchlist,
   }) {
     return serverError?.call();
   }
@@ -132,6 +141,7 @@ class _$ServerErrorImpl implements ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? watchlistNotFound,
+    TResult Function()? movieAlreadyInWatchlist,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -145,6 +155,8 @@ class _$ServerErrorImpl implements ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(ServerError value) serverError,
     required TResult Function(WatchlistNotFound value) watchlistNotFound,
+    required TResult Function(MovieAlreadyInWatchlist value)
+        movieAlreadyInWatchlist,
   }) {
     return serverError(this);
   }
@@ -154,6 +166,7 @@ class _$ServerErrorImpl implements ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerError value)? serverError,
     TResult? Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult? Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
   }) {
     return serverError?.call(this);
   }
@@ -163,6 +176,7 @@ class _$ServerErrorImpl implements ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -216,6 +230,7 @@ class _$WatchlistNotFoundImpl implements WatchlistNotFound {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() watchlistNotFound,
+    required TResult Function() movieAlreadyInWatchlist,
   }) {
     return watchlistNotFound();
   }
@@ -225,6 +240,7 @@ class _$WatchlistNotFoundImpl implements WatchlistNotFound {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? serverError,
     TResult? Function()? watchlistNotFound,
+    TResult? Function()? movieAlreadyInWatchlist,
   }) {
     return watchlistNotFound?.call();
   }
@@ -234,6 +250,7 @@ class _$WatchlistNotFoundImpl implements WatchlistNotFound {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? watchlistNotFound,
+    TResult Function()? movieAlreadyInWatchlist,
     required TResult orElse(),
   }) {
     if (watchlistNotFound != null) {
@@ -247,6 +264,8 @@ class _$WatchlistNotFoundImpl implements WatchlistNotFound {
   TResult map<TResult extends Object?>({
     required TResult Function(ServerError value) serverError,
     required TResult Function(WatchlistNotFound value) watchlistNotFound,
+    required TResult Function(MovieAlreadyInWatchlist value)
+        movieAlreadyInWatchlist,
   }) {
     return watchlistNotFound(this);
   }
@@ -256,6 +275,7 @@ class _$WatchlistNotFoundImpl implements WatchlistNotFound {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerError value)? serverError,
     TResult? Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult? Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
   }) {
     return watchlistNotFound?.call(this);
   }
@@ -265,6 +285,7 @@ class _$WatchlistNotFoundImpl implements WatchlistNotFound {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
     required TResult orElse(),
   }) {
     if (watchlistNotFound != null) {
@@ -276,4 +297,116 @@ class _$WatchlistNotFoundImpl implements WatchlistNotFound {
 
 abstract class WatchlistNotFound implements WatchlistFailure {
   const factory WatchlistNotFound() = _$WatchlistNotFoundImpl;
+}
+
+/// @nodoc
+abstract class _$$MovieAlreadyInWatchlistImplCopyWith<$Res> {
+  factory _$$MovieAlreadyInWatchlistImplCopyWith(
+          _$MovieAlreadyInWatchlistImpl value,
+          $Res Function(_$MovieAlreadyInWatchlistImpl) then) =
+      __$$MovieAlreadyInWatchlistImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MovieAlreadyInWatchlistImplCopyWithImpl<$Res>
+    extends _$WatchlistFailureCopyWithImpl<$Res, _$MovieAlreadyInWatchlistImpl>
+    implements _$$MovieAlreadyInWatchlistImplCopyWith<$Res> {
+  __$$MovieAlreadyInWatchlistImplCopyWithImpl(
+      _$MovieAlreadyInWatchlistImpl _value,
+      $Res Function(_$MovieAlreadyInWatchlistImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MovieAlreadyInWatchlistImpl implements MovieAlreadyInWatchlist {
+  const _$MovieAlreadyInWatchlistImpl();
+
+  @override
+  String toString() {
+    return 'WatchlistFailure.movieAlreadyInWatchlist()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieAlreadyInWatchlistImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() watchlistNotFound,
+    required TResult Function() movieAlreadyInWatchlist,
+  }) {
+    return movieAlreadyInWatchlist();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? watchlistNotFound,
+    TResult? Function()? movieAlreadyInWatchlist,
+  }) {
+    return movieAlreadyInWatchlist?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? watchlistNotFound,
+    TResult Function()? movieAlreadyInWatchlist,
+    required TResult orElse(),
+  }) {
+    if (movieAlreadyInWatchlist != null) {
+      return movieAlreadyInWatchlist();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(WatchlistNotFound value) watchlistNotFound,
+    required TResult Function(MovieAlreadyInWatchlist value)
+        movieAlreadyInWatchlist,
+  }) {
+    return movieAlreadyInWatchlist(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult? Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
+  }) {
+    return movieAlreadyInWatchlist?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(WatchlistNotFound value)? watchlistNotFound,
+    TResult Function(MovieAlreadyInWatchlist value)? movieAlreadyInWatchlist,
+    required TResult orElse(),
+  }) {
+    if (movieAlreadyInWatchlist != null) {
+      return movieAlreadyInWatchlist(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MovieAlreadyInWatchlist implements WatchlistFailure {
+  const factory MovieAlreadyInWatchlist() = _$MovieAlreadyInWatchlistImpl;
 }

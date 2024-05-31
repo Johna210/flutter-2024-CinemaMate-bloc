@@ -5,14 +5,14 @@ class WatchlistEvent with _$WatchlistEvent {
   const factory WatchlistEvent.watchlistStarted() = WatchlistStarted;
 
   const factory WatchlistEvent.watchlistRecieved(
-    Either<WatchlistFailure, List<WatchlistMovie>> failureOrNotes,
+    Either<WatchlistFailure, List<WatchlistMovie>> failureOrWatchlistMovies,
   ) = WatchlistRecieved;
 
   const factory WatchlistEvent.watchlistAdded(
-    WatchlistMovie watchlistMovie,
+    int addMovieId,
   ) = WatchlistAdded;
 
   const factory WatchlistEvent.watchlistRemoved(
-    WatchlistMovie watchlistMovie,
+    int removeMovieId,
   ) = WatchlistRemoved;
 }

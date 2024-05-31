@@ -5,7 +5,7 @@ import 'package:cinema_mate/domain/auth/user/user_token.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class ICinemaAuthRepository {
-  Future<Option<Cinema>> getSignedInUser();
+  Future<Option<CinemaAuth>> getSignedInUser();
 
   Future<Either<CinemaAuthFailure, Unit>> registerWithEmailAndPassword({
     required EmailAddress email,

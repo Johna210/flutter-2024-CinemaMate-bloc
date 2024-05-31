@@ -48,6 +48,19 @@ Map<String, dynamic> _$$UserSignInDtoImplToJson(_$UserSignInDtoImpl instance) =>
       'password': instance.password,
     };
 
+_$AdminSignInDtoImpl _$$AdminSignInDtoImplFromJson(Map<String, dynamic> json) =>
+    _$AdminSignInDtoImpl(
+      username: json['username'] as String,
+      password: json['password'] as String,
+    );
+
+Map<String, dynamic> _$$AdminSignInDtoImplToJson(
+        _$AdminSignInDtoImpl instance) =>
+    <String, dynamic>{
+      'username': instance.username,
+      'password': instance.password,
+    };
+
 _$UserTokenDtoImpl _$$UserTokenDtoImplFromJson(Map<String, dynamic> json) =>
     _$UserTokenDtoImpl(
       token: json['token'] as String,

@@ -6,4 +6,6 @@ part 'watchlist_failure.freezed.dart';
 abstract class WatchlistFailure implements _$WatchlistFailure {
   const factory WatchlistFailure.serverError() = ServerError;
   const factory WatchlistFailure.watchlistNotFound() = WatchlistNotFound;
+  const factory WatchlistFailure.movieAlreadyInWatchlist() =
+      MovieAlreadyInWatchlist;
 }

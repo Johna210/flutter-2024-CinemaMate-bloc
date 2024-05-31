@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
 import 'package:cinema_mate/domain/auth/user/user_token.dart';
 import 'package:cinema_mate/domain/crudMovie/cinema_profile/cinema_profile_failure.dart';
+import 'package:cinema_mate/domain/user/cinema/cinemaFailure.dart';
 import 'package:cinema_mate/infrastructure/cinema/cinema_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -17,28 +18,33 @@ class CinemaApiImplementations {
   CinemaApiImplementations({required this.client});
 
   // List Cinemas
-  Stream<Either<AuthFailure, List<CinemaDto>>> fetchAllCinemas(
+  Stream<Either<CinemaFailure, List<CinemaDto>>> fetchAllCinemas(
       UserToken userToken) async* {
-    final getCinemaMoviesUrl = Uri.parse('$baseUrl/cinemas/findCinemas');
+    final getCinemaUrl = Uri.parse('$baseUrl/cinemas/findCinemas');
     try {
       final http.Response response = await client.get(
-        getCinemaMoviesUrl,
+        getCinemaUrl,
         headers: <String, String>{
           'Authorization': 'Bearer ${userToken.token}',
         },
       );
 
-      print(response);
       if (response.statusCode == 200) {
         List<dynamic> jsonList = jsonDecode(response.body);
-        List<CinemaDto> cinemas =
-            jsonList.map((json) => CinemaDto.fromJson(json)).toList();
+        List<CinemaDto> cinemas = jsonList
+            .map((json) => CinemaDto(
+                  cinemaName: json['cinemaName'],
+                  description: json['description'],
+                  email: json['email'],
+                  imageUrl: json['imagePath'],
+                ))
+            .toList();
         yield right(cinemas);
       } else {
-        yield left(const AuthFailure.serverError());
+        yield left(const CinemaFailure.unexpectedFailure());
       }
     } catch (e) {
-      yield left(const AuthFailure.serverError());
+      yield left(const CinemaFailure.unexpectedFailure());
     }
   }
 
@@ -109,8 +115,6 @@ class CinemaApiImplementations {
 
     try {
       final response = await request.send();
-      print(response.statusCode);
-      print(response);
 
       if (response.statusCode == 200) {
         return right(

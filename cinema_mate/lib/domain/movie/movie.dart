@@ -1,6 +1,5 @@
 import 'package:cinema_mate/domain/movie/value_object.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
 part 'movie.freezed.dart';
@@ -42,6 +41,22 @@ abstract class MovieInfo implements _$MovieInfo {
     required int numberOfSeats,
     required String image,
   }) = _MovieInfo;
+}
+
+@freezed
+abstract class UserMovieInfo implements _$UserMovieInfo {
+  const UserMovieInfo._();
+
+  const factory UserMovieInfo({
+    required int id,
+    required String name,
+    required String date,
+    required String time,
+    required List<String> genre,
+    required int numberOfSeats,
+    required String image,
+    required bool isFavorited,
+  }) = _UserMovieInfo;
 }
 
 @freezed

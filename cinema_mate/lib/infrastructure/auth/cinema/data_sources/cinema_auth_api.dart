@@ -100,16 +100,24 @@ class CinemaAuthApiImplementations {
     final signInUrl = Uri.parse('$baseUrl/cinemas/current');
 
     try {
-      final http.Response response = await client.post(
+      final http.Response response = await client.get(
         signInUrl,
         headers: <String, String>{
           'Authorization': 'Bearer ${cinemaToken.token}',
         },
       );
 
+      print(response.statusCode);
+
       if (response.statusCode == 200) {
         Map<String, dynamic> responseBody = jsonDecode(response.body);
-        return some(CinemaAuthDto.fromJson(responseBody));
+        return some(
+          CinemaAuthDto(
+            id: responseBody["sub"],
+            username: responseBody["cinemaName"],
+            email: responseBody["email"],
+          ),
+        );
       } else {
         return none();
       }

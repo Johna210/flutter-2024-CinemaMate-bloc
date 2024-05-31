@@ -53,6 +53,9 @@ dependencies:
     transparent_image: ^2.0.1
     image_picker: ^1.1.1
     intl: ^0.19.0
+    mocktail: ^1.0.3
+    mockito: ^5.4.4
+    carousel_slider: ^4.2.1
 
 dev_dependencies:
     flutter_test:

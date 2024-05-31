@@ -27,13 +27,18 @@ class WatchListRepository implements IWatchListRepository {
 
   @override
   Stream<Either<WatchlistFailure, List<WatchlistMovie>>> getWatchlist() async* {
-    final currentUserToken = await secureStorage.read(key: "usertoken");
-    yield* watchlistApiImplementations
-        .getWatchlist(UserTokenDto(token: currentUserToken!))
-        .map((watchlistDtoList) =>
-            right<WatchlistFailure, List<WatchlistMovie>>(
-                watchlistDtoList.map((dto) => dto.toDomain()).toList()))
-        .handleError((e) => left(const WatchlistFailure.serverError()));
+    try {
+      final currentUserToken = await secureStorage.read(key: "usertoken");
+      yield* watchlistApiImplementations
+          .getWatchlist(UserTokenDto(token: currentUserToken!))
+          .map((watchlistDtoList) =>
+              right<WatchlistFailure, List<WatchlistMovie>>(
+                  watchlistDtoList.map((dto) => dto.toDomain()).toList()))
+          .handleError((e) => left(const WatchlistFailure.serverError()));
+    } catch (e) {
+      print('An exception occurred: $e');
+      yield left(const WatchlistFailure.serverError());
+    }
   }
 
   @override

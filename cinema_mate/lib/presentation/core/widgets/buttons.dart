@@ -15,6 +15,7 @@ class AppButton extends StatelessWidget {
     this.rightIcon,
     this.textSize,
     this.buttonColor = const Color.fromARGB(255, 255, 67, 67),
+    this.textColor = Colors.white,
   });
 
   final String title;
@@ -25,6 +26,7 @@ class AppButton extends StatelessWidget {
   final double width;
   final double? textSize;
   final Color? buttonColor;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +55,11 @@ class AppButton extends StatelessWidget {
           backgroundColor: buttonColor,
           foregroundColor: newColor.white,
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(7),
-            ),
-          ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(7),
+              ),
+              side: BorderSide(color: Colors.red) // Set border color here
+              ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,9 +69,9 @@ class AppButton extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                fontSize: textsSize,
-                fontWeight: FontWeight.bold,
-              ),
+                  fontSize: textsSize,
+                  fontWeight: FontWeight.bold,
+                  color: textColor),
             ),
             const SizedBox(width: 10),
             isRight ? rightIcon! : Container(),

@@ -6,63 +6,44 @@ part 'watch_list_dtos.freezed.dart';
 part 'watch_list_dtos.g.dart';
 
 @freezed
+@freezed
 abstract class WatchlistDto implements _$WatchlistDto {
   const WatchlistDto._();
 
   const factory WatchlistDto({
     @JsonKey(includeFromJson: false, includeToJson: false) int? id,
-    required String userName,
-    required String email,
-    required MovieDto movie,
+    required String title,
+    required String genre,
+    required String day,
+    required String showTime,
+    required String imageUrl,
+    required int numberOfSeats,
   }) = _WatchlistDto;
 
   factory WatchlistDto.fromJson(Map<String, dynamic> json) =>
       _$WatchlistDtoFromJson(json);
 
-  // TODO: Implement From Domain
-  factory WatchlistDto.fromDomain(WatchlistMovie user) {
+  factory WatchlistDto.fromDomain(WatchlistMovie movie) {
     return WatchlistDto(
-      id: user.id,
-      userName: user.username,
-      email: user.email,
-      movie: MovieDto(
-        id: user.id,
-        title: user.title,
-        genre: user.genre,
-        day: user.day,
-        time: user.showTime,
-        imagePath: user.imageUrl,
-        numberOfSeats: user.numberOfSeats,
-      ),
+      id: movie.id,
+      title: movie.title,
+      genre: movie.genre,
+      day: movie.day,
+      showTime: movie.showTime,
+      imageUrl: movie.imageUrl,
+      numberOfSeats: movie.numberOfSeats,
     );
   }
 
   WatchlistMovie toDomain() {
     return WatchlistMovie(
       id: id!,
-      username: userName,
-      email: email,
-      title: movie.title,
-      genre: movie.genre,
-      day: movie.day,
-      showTime: movie.time,
-      imageUrl: movie.imagePath,
-      numberOfSeats: movie.numberOfSeats,
+      title: title,
+      genre: genre,
+      day: day,
+      showTime: showTime,
+      imageUrl: imageUrl,
+      numberOfSeats: numberOfSeats,
     );
   }
 }
-
-// {
-//   "id": 50,
-//   "userName": "test12",
-//   "email": "test12@test.com",
-//   "movie": {
-//     "id": 21,
-//     "title": "Avengers",
-//     "genre": "action",
-//     "day": "today",
-//     "showTime": "10:00",
-//     "imageUrl": "src/images/movieImages/porsche.jpg",
-//     "numberOfSeats": 100
-//   }
-// }

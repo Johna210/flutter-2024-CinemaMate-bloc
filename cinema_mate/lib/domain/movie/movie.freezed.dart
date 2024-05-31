@@ -487,6 +487,287 @@ abstract class _MovieInfo extends MovieInfo {
       throw _privateConstructorUsedError;
 }
 
+/// @nodoc
+mixin _$UserMovieInfo {
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
+  List<String> get genre => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  bool get isFavorited => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserMovieInfoCopyWith<UserMovieInfo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserMovieInfoCopyWith<$Res> {
+  factory $UserMovieInfoCopyWith(
+          UserMovieInfo value, $Res Function(UserMovieInfo) then) =
+      _$UserMovieInfoCopyWithImpl<$Res, UserMovieInfo>;
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String date,
+      String time,
+      List<String> genre,
+      int numberOfSeats,
+      String image,
+      bool isFavorited});
+}
+
+/// @nodoc
+class _$UserMovieInfoCopyWithImpl<$Res, $Val extends UserMovieInfo>
+    implements $UserMovieInfoCopyWith<$Res> {
+  _$UserMovieInfoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? date = null,
+    Object? time = null,
+    Object? genre = null,
+    Object? numberOfSeats = null,
+    Object? image = null,
+    Object? isFavorited = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      isFavorited: null == isFavorited
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserMovieInfoImplCopyWith<$Res>
+    implements $UserMovieInfoCopyWith<$Res> {
+  factory _$$UserMovieInfoImplCopyWith(
+          _$UserMovieInfoImpl value, $Res Function(_$UserMovieInfoImpl) then) =
+      __$$UserMovieInfoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String date,
+      String time,
+      List<String> genre,
+      int numberOfSeats,
+      String image,
+      bool isFavorited});
+}
+
+/// @nodoc
+class __$$UserMovieInfoImplCopyWithImpl<$Res>
+    extends _$UserMovieInfoCopyWithImpl<$Res, _$UserMovieInfoImpl>
+    implements _$$UserMovieInfoImplCopyWith<$Res> {
+  __$$UserMovieInfoImplCopyWithImpl(
+      _$UserMovieInfoImpl _value, $Res Function(_$UserMovieInfoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? date = null,
+    Object? time = null,
+    Object? genre = null,
+    Object? numberOfSeats = null,
+    Object? image = null,
+    Object? isFavorited = null,
+  }) {
+    return _then(_$UserMovieInfoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value._genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      isFavorited: null == isFavorited
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UserMovieInfoImpl extends _UserMovieInfo {
+  const _$UserMovieInfoImpl(
+      {required this.id,
+      required this.name,
+      required this.date,
+      required this.time,
+      required final List<String> genre,
+      required this.numberOfSeats,
+      required this.image,
+      required this.isFavorited})
+      : _genre = genre,
+        super._();
+
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String date;
+  @override
+  final String time;
+  final List<String> _genre;
+  @override
+  List<String> get genre {
+    if (_genre is EqualUnmodifiableListView) return _genre;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genre);
+  }
+
+  @override
+  final int numberOfSeats;
+  @override
+  final String image;
+  @override
+  final bool isFavorited;
+
+  @override
+  String toString() {
+    return 'UserMovieInfo(id: $id, name: $name, date: $date, time: $time, genre: $genre, numberOfSeats: $numberOfSeats, image: $image, isFavorited: $isFavorited)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserMovieInfoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other._genre, _genre) &&
+            (identical(other.numberOfSeats, numberOfSeats) ||
+                other.numberOfSeats == numberOfSeats) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.isFavorited, isFavorited) ||
+                other.isFavorited == isFavorited));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      date,
+      time,
+      const DeepCollectionEquality().hash(_genre),
+      numberOfSeats,
+      image,
+      isFavorited);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserMovieInfoImplCopyWith<_$UserMovieInfoImpl> get copyWith =>
+      __$$UserMovieInfoImplCopyWithImpl<_$UserMovieInfoImpl>(this, _$identity);
+}
+
+abstract class _UserMovieInfo extends UserMovieInfo {
+  const factory _UserMovieInfo(
+      {required final int id,
+      required final String name,
+      required final String date,
+      required final String time,
+      required final List<String> genre,
+      required final int numberOfSeats,
+      required final String image,
+      required final bool isFavorited}) = _$UserMovieInfoImpl;
+  const _UserMovieInfo._() : super._();
+
+  @override
+  int get id;
+  @override
+  String get name;
+  @override
+  String get date;
+  @override
+  String get time;
+  @override
+  List<String> get genre;
+  @override
+  int get numberOfSeats;
+  @override
+  String get image;
+  @override
+  bool get isFavorited;
+  @override
+  @JsonKey(ignore: true)
+  _$$UserMovieInfoImplCopyWith<_$UserMovieInfoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 EditMovie _$EditMovieFromJson(Map<String, dynamic> json) {
   return _EditMovie.fromJson(json);
 }

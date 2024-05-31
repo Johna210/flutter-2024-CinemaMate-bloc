@@ -32,8 +32,7 @@ class CinemaBottomNavbarWidget extends StatelessWidget {
         ),
         backgroundColor: newColor.bg,
         body: state.when(
-          initial: () =>
-              const CinemaHomePage(), // replace with your initial page
+          initial: () => const CinemaHomePage(),
           homePage: () => const CinemaHomePage(),
           addMoviePage: () => const AddMoviePage(),
           cinemaProfilePage: () => const CinemaProfilePage(),

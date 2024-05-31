@@ -22,9 +22,12 @@ WatchlistDto _$WatchlistDtoFromJson(Map<String, dynamic> json) {
 mixin _$WatchlistDto {
   @JsonKey(includeFromJson: false, includeToJson: false)
   int? get id => throw _privateConstructorUsedError;
-  String get userName => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  MovieDto get movie => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get genre => throw _privateConstructorUsedError;
+  String get day => throw _privateConstructorUsedError;
+  String get showTime => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,11 +43,12 @@ abstract class $WatchlistDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(includeFromJson: false, includeToJson: false) int? id,
-      String userName,
-      String email,
-      MovieDto movie});
-
-  $MovieDtoCopyWith<$Res> get movie;
+      String title,
+      String genre,
+      String day,
+      String showTime,
+      String imageUrl,
+      int numberOfSeats});
 }
 
 /// @nodoc
@@ -61,36 +65,43 @@ class _$WatchlistDtoCopyWithImpl<$Res, $Val extends WatchlistDto>
   @override
   $Res call({
     Object? id = freezed,
-    Object? userName = null,
-    Object? email = null,
-    Object? movie = null,
+    Object? title = null,
+    Object? genre = null,
+    Object? day = null,
+    Object? showTime = null,
+    Object? imageUrl = null,
+    Object? numberOfSeats = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
               as String,
-      movie: null == movie
-          ? _value.movie
-          : movie // ignore: cast_nullable_to_non_nullable
-              as MovieDto,
+      day: null == day
+          ? _value.day
+          : day // ignore: cast_nullable_to_non_nullable
+              as String,
+      showTime: null == showTime
+          ? _value.showTime
+          : showTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MovieDtoCopyWith<$Res> get movie {
-    return $MovieDtoCopyWith<$Res>(_value.movie, (value) {
-      return _then(_value.copyWith(movie: value) as $Val);
-    });
   }
 }
 
@@ -104,12 +115,12 @@ abstract class _$$WatchlistDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(includeFromJson: false, includeToJson: false) int? id,
-      String userName,
-      String email,
-      MovieDto movie});
-
-  @override
-  $MovieDtoCopyWith<$Res> get movie;
+      String title,
+      String genre,
+      String day,
+      String showTime,
+      String imageUrl,
+      int numberOfSeats});
 }
 
 /// @nodoc
@@ -124,27 +135,42 @@ class __$$WatchlistDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? userName = null,
-    Object? email = null,
-    Object? movie = null,
+    Object? title = null,
+    Object? genre = null,
+    Object? day = null,
+    Object? showTime = null,
+    Object? imageUrl = null,
+    Object? numberOfSeats = null,
   }) {
     return _then(_$WatchlistDtoImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
               as String,
-      movie: null == movie
-          ? _value.movie
-          : movie // ignore: cast_nullable_to_non_nullable
-              as MovieDto,
+      day: null == day
+          ? _value.day
+          : day // ignore: cast_nullable_to_non_nullable
+              as String,
+      showTime: null == showTime
+          ? _value.showTime
+          : showTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -154,9 +180,12 @@ class __$$WatchlistDtoImplCopyWithImpl<$Res>
 class _$WatchlistDtoImpl extends _WatchlistDto {
   const _$WatchlistDtoImpl(
       {@JsonKey(includeFromJson: false, includeToJson: false) this.id,
-      required this.userName,
-      required this.email,
-      required this.movie})
+      required this.title,
+      required this.genre,
+      required this.day,
+      required this.showTime,
+      required this.imageUrl,
+      required this.numberOfSeats})
       : super._();
 
   factory _$WatchlistDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -166,15 +195,21 @@ class _$WatchlistDtoImpl extends _WatchlistDto {
   @JsonKey(includeFromJson: false, includeToJson: false)
   final int? id;
   @override
-  final String userName;
+  final String title;
   @override
-  final String email;
+  final String genre;
   @override
-  final MovieDto movie;
+  final String day;
+  @override
+  final String showTime;
+  @override
+  final String imageUrl;
+  @override
+  final int numberOfSeats;
 
   @override
   String toString() {
-    return 'WatchlistDto(id: $id, userName: $userName, email: $email, movie: $movie)';
+    return 'WatchlistDto(id: $id, title: $title, genre: $genre, day: $day, showTime: $showTime, imageUrl: $imageUrl, numberOfSeats: $numberOfSeats)';
   }
 
   @override
@@ -183,15 +218,21 @@ class _$WatchlistDtoImpl extends _WatchlistDto {
         (other.runtimeType == runtimeType &&
             other is _$WatchlistDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.userName, userName) ||
-                other.userName == userName) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.movie, movie) || other.movie == movie));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.day, day) || other.day == day) &&
+            (identical(other.showTime, showTime) ||
+                other.showTime == showTime) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.numberOfSeats, numberOfSeats) ||
+                other.numberOfSeats == numberOfSeats));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userName, email, movie);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, genre, day, showTime, imageUrl, numberOfSeats);
 
   @JsonKey(ignore: true)
   @override
@@ -210,9 +251,12 @@ class _$WatchlistDtoImpl extends _WatchlistDto {
 abstract class _WatchlistDto extends WatchlistDto {
   const factory _WatchlistDto(
       {@JsonKey(includeFromJson: false, includeToJson: false) final int? id,
-      required final String userName,
-      required final String email,
-      required final MovieDto movie}) = _$WatchlistDtoImpl;
+      required final String title,
+      required final String genre,
+      required final String day,
+      required final String showTime,
+      required final String imageUrl,
+      required final int numberOfSeats}) = _$WatchlistDtoImpl;
   const _WatchlistDto._() : super._();
 
   factory _WatchlistDto.fromJson(Map<String, dynamic> json) =
@@ -222,11 +266,17 @@ abstract class _WatchlistDto extends WatchlistDto {
   @JsonKey(includeFromJson: false, includeToJson: false)
   int? get id;
   @override
-  String get userName;
+  String get title;
   @override
-  String get email;
+  String get genre;
   @override
-  MovieDto get movie;
+  String get day;
+  @override
+  String get showTime;
+  @override
+  String get imageUrl;
+  @override
+  int get numberOfSeats;
   @override
   @JsonKey(ignore: true)
   _$$WatchlistDtoImplCopyWith<_$WatchlistDtoImpl> get copyWith =>

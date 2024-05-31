@@ -1,3 +1,4 @@
+import 'package:cinema_mate/application/auth/cinema/cinema_auth_bloc.dart';
 import 'package:cinema_mate/application/auth/cinema/sign_in_form/cinema_signin_bloc.dart';
 import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:cinema_mate/presentation/core/widgets/buttons.dart';
@@ -36,6 +37,9 @@ class CinemaSignInForm extends StatelessWidget {
             );
           }, (right) {
             context.go('/cinema/home');
+            context.read<CinemaAuthBloc>().add(
+                  const CinemaAuthEvent.authCheckRequested(),
+                );
           });
         });
       },
@@ -142,7 +146,30 @@ class CinemaSignInForm extends StatelessWidget {
                           ),
                           const SizedBox(
                             height: 70,
-                          )
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Don't have an account? ",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  context.go('/registration');
+                                },
+                                child: const Text(
+                                  'Register',
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),

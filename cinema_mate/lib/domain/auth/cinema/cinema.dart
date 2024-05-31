@@ -4,14 +4,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'cinema.freezed.dart';
 
 @freezed
-abstract class Cinema with _$Cinema {
-  const Cinema._();
+abstract class CinemaAuth with _$CinemaAuth {
+  const CinemaAuth._();
 
-  const factory Cinema({
+  const factory CinemaAuth({
     required int id,
     required CinemaName cinemaName,
     required EmailAddress email,
-  }) = _Cinema;
+  }) = _CinemaAuth;
+}
+
+@freezed
+abstract class CinemaDetail with _$CinemaDetail {
+  const CinemaDetail._();
+
+  const factory CinemaDetail({
+    required int id,
+    required CinemaName cinemaName,
+    required EmailAddress email,
+    required CinemaDescription description,
+    required bool isSuspended,
+  }) = _CinemaDetail;
 }
 
 @freezed
@@ -34,4 +47,17 @@ abstract class CinemaSignIn with _$CinemaSignIn {
     required EmailAddress email,
     required Password password,
   }) = _CinemaSignIn;
+}
+
+@freezed
+abstract class CinemaInfo with _$CinemaInfo {
+  const CinemaInfo._();
+
+  const factory CinemaInfo({
+    required int id,
+    required CinemaName cinemaName,
+    required EmailAddress email,
+    required CinemaDescription description,
+    required String imageUrl,
+  }) = _CinemaInfo;
 }

@@ -20,7 +20,6 @@ abstract class IAuthRepository {
   });
 
   Future<Either<AuthFailure, Unit>> changeUsername({
-    required Username currentUsername,
     required Username newUsername,
   });
 

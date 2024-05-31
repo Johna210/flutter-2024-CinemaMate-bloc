@@ -1,38 +1,43 @@
-import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
+import 'package:cinema_mate/domain/auth/admin/admin_auth_failure.dart';
+import 'package:cinema_mate/domain/auth/cinema/cinema.dart';
 import 'package:cinema_mate/domain/auth/user/user.dart';
 import 'package:cinema_mate/domain/auth/user/user_token.dart';
 import 'package:cinema_mate/domain/auth/user/value_objects.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IAuthAdminRepository {
-  Future<Either<AuthFailure, UserToken>> signInWithEmailAndPassword({
-    required EmailAddress email,
+  Future<Either<AdminAuthFailure, UserToken>> signInWithEmailAndPassword({
+    required Username username,
     required Password password,
   });
 
-  Future<Either<AuthFailure, Unit>> signOut();
+  Future<Either<AdminAuthFailure, Unit>> signOut();
 
-  Stream<Either<AuthFailure, List<User>>> watchAllUsers();
+  Stream<Either<AdminAuthFailure, List<UserDetail>>> watchAllUsers();
 
-  Stream<Either<AuthFailure, List<User>>> watchAllCinemas();
+  Stream<Either<AdminAuthFailure, List<CinemaDetail>>> watchAllCinemas();
 
-  Future<Either<AuthFailure, Unit>> suspendUser({
-    required User user,
+  Future<Either<AdminAuthFailure, Unit>> suspendUser({
+    required String userId,
   });
 
-  Future<Either<AuthFailure, Unit>> unSuspendUser({
-    required User user,
+  Future<Either<AdminAuthFailure, Unit>> unSuspendUser({
+    required String userId,
   });
 
-  Future<Either<AuthFailure, Unit>> deleteUser({
-    required User user,
+  Future<Either<AdminAuthFailure, Unit>> deleteUser({
+    required String userId,
   });
 
-  Future<Either<AuthFailure, Unit>> suspendCinema({
-    required User user,
+  Future<Either<AdminAuthFailure, Unit>> suspendCinema({
+    required String cinemaId,
   });
 
-  Future<Either<AuthFailure, Unit>> unSuspendCinema({
-    required User user,
+  Future<Either<AdminAuthFailure, Unit>> unSuspendCinema({
+    required String cinemaId,
+  });
+
+  Future<Either<AdminAuthFailure, Unit>> deleteCinema({
+    required String cinemaId,
   });
 }

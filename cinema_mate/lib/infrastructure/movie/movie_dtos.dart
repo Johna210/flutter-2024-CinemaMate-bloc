@@ -59,6 +59,61 @@ abstract class MovieInfoDto implements _$MovieInfoDto {
 }
 
 @freezed
+abstract class UserMovieInfoDto implements _$UserMovieInfoDto {
+  const UserMovieInfoDto._();
+
+  const factory UserMovieInfoDto({
+    required int id,
+    required String title,
+    required String genre,
+    required String day,
+    @JsonKey(name: 'showTime') required String time,
+    @JsonKey(name: 'imageUrl') required String imagePath,
+    required int numberOfSeats,
+    required bool isFavorited,
+  }) = _UserMovieInfoDto;
+
+  factory UserMovieInfoDto.fromJson(Map<String, dynamic> json) =>
+      _$UserMovieInfoDtoFromJson(json);
+
+  factory UserMovieInfoDto.fromDomain(MovieInfo movie) {
+    return UserMovieInfoDto(
+      id: movie.id,
+      title: movie.name,
+      genre: movie.genre.join(', '), // convert list of genres to string
+      day: movie.date,
+      time: movie.time,
+      imagePath: movie.image,
+      numberOfSeats: movie.numberOfSeats,
+      isFavorited: false,
+    );
+  }
+
+  UserMovieInfo toDomain() {
+    return UserMovieInfo(
+      id: id,
+      name: title,
+      genre: genre.split(', ').toList(), // convert string of genres to list
+      date: day,
+      time: time,
+      image: imagePath,
+      numberOfSeats: numberOfSeats,
+      isFavorited: isFavorited,
+    );
+  }
+
+  // Helper method to convert list of genres to string
+  static String _genresListToString(List<String> genres) {
+    return genres.join(', ');
+  }
+
+  // Helper method to convert string of genres to list
+  static List<String> _genresStringToList(String genres) {
+    return genres.split(', ');
+  }
+}
+
+@freezed
 abstract class MovieDto implements _$MovieDto {
   const MovieDto._();
 

@@ -51,14 +51,12 @@ class CinemaAuthRepository implements ICinemaAuthRepository {
   }
 
   @override
-  Future<Option<Cinema>> getSignedInUser() async {
+  Future<Option<CinemaAuth>> getSignedInUser() async {
     final currentUserToken = await secureStorage.read(key: "cinematoken");
-
     if (currentUserToken != null) {
       final result = await _apiImplementations.currentCinema(
         UserTokenDto(token: currentUserToken),
       );
-
       return (result.map(
         (cinemaDto) => (cinemaDto.toDomain()),
       ));

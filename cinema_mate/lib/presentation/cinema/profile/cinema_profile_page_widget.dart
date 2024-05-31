@@ -164,7 +164,6 @@ class CinemaProfilePageWidget extends StatelessWidget {
                                 // context.read<CinemaAuthBloc>().add(
                                 //       const CinemaAuthEvent.deleteAccount(),
                                 //     );
-
                                 context.go('/registration');
                               },
                             ),

@@ -101,15 +101,13 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> changeUsername(
-      {required Username currentUsername,
-      required Username newUsername}) async {
+      {required Username newUsername}) async {
     final userToken = await secureStorage.read(key: "usertoken");
     if (userToken == null) {
       return left(const AuthFailure.serverError());
     }
 
     final result = await _apiImplementations.changeUsername(
-      currentUsername: currentUsername.getOrCrash(),
       newUsername: newUsername.getOrCrash(),
       userToken: UserTokenDto(token: userToken),
     );
