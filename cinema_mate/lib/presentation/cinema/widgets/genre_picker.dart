@@ -80,8 +80,12 @@ class GenrePicker extends StatefulWidget {
 }
 
 class _GenrePickerState extends State<GenrePicker> {
-  List<String> _selectedGenres = [];
+  List<String> selectedGenres = [];
   String genreVal = '';
+
+  String getGenreVal() {
+    return genreVal;
+  }
 
   void _showMultiSelect() async {
     final List<String> genres = [
@@ -107,8 +111,8 @@ class _GenrePickerState extends State<GenrePicker> {
 
     if (result != null) {
       setState(() {
-        _selectedGenres = result;
-        genreVal = _selectedGenres.join(',');
+        selectedGenres = result;
+        genreVal = selectedGenres.join(',');
         // print(genreVal);
       });
     }
@@ -131,7 +135,7 @@ class _GenrePickerState extends State<GenrePicker> {
             child: SingleChildScrollView(
               child: Wrap(
                 spacing: 5,
-                children: _selectedGenres.map((genre) {
+                children: selectedGenres.map((genre) {
                   return Chip(
                     label: Text(genre),
                     labelStyle: TextStyle(color: newColor.bg),

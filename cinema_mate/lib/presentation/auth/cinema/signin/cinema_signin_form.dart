@@ -15,6 +15,7 @@ class CinemaSignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<CinemaSigninBloc, CinemaSigninState>(
       listener: (context, state) {
+        print(state);
         state.authFailureOrSuccessOption.fold(() {}, (either) {
           either.fold((failure) {
             return ScaffoldMessenger.of(context).showSnackBar(

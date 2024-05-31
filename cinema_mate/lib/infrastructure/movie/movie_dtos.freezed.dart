@@ -551,3 +551,248 @@ abstract class _MovieDto extends MovieDto {
   _$$MovieDtoImplCopyWith<_$MovieDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+UpdateMovieDto _$UpdateMovieDtoFromJson(Map<String, dynamic> json) {
+  return _UpdateMovieDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UpdateMovieDto {
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
+  String get genres => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateMovieDtoCopyWith<UpdateMovieDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateMovieDtoCopyWith<$Res> {
+  factory $UpdateMovieDtoCopyWith(
+          UpdateMovieDto value, $Res Function(UpdateMovieDto) then) =
+      _$UpdateMovieDtoCopyWithImpl<$Res, UpdateMovieDto>;
+  @useResult
+  $Res call(
+      {int id,
+      String title,
+      int numberOfSeats,
+      String genres,
+      String date,
+      String time});
+}
+
+/// @nodoc
+class _$UpdateMovieDtoCopyWithImpl<$Res, $Val extends UpdateMovieDto>
+    implements $UpdateMovieDtoCopyWith<$Res> {
+  _$UpdateMovieDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? numberOfSeats = null,
+    Object? genres = null,
+    Object? date = null,
+    Object? time = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      genres: null == genres
+          ? _value.genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UpdateMovieDtoImplCopyWith<$Res>
+    implements $UpdateMovieDtoCopyWith<$Res> {
+  factory _$$UpdateMovieDtoImplCopyWith(_$UpdateMovieDtoImpl value,
+          $Res Function(_$UpdateMovieDtoImpl) then) =
+      __$$UpdateMovieDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String title,
+      int numberOfSeats,
+      String genres,
+      String date,
+      String time});
+}
+
+/// @nodoc
+class __$$UpdateMovieDtoImplCopyWithImpl<$Res>
+    extends _$UpdateMovieDtoCopyWithImpl<$Res, _$UpdateMovieDtoImpl>
+    implements _$$UpdateMovieDtoImplCopyWith<$Res> {
+  __$$UpdateMovieDtoImplCopyWithImpl(
+      _$UpdateMovieDtoImpl _value, $Res Function(_$UpdateMovieDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? numberOfSeats = null,
+    Object? genres = null,
+    Object? date = null,
+    Object? time = null,
+  }) {
+    return _then(_$UpdateMovieDtoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfSeats: null == numberOfSeats
+          ? _value.numberOfSeats
+          : numberOfSeats // ignore: cast_nullable_to_non_nullable
+              as int,
+      genres: null == genres
+          ? _value.genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UpdateMovieDtoImpl extends _UpdateMovieDto {
+  const _$UpdateMovieDtoImpl(
+      {required this.id,
+      required this.title,
+      required this.numberOfSeats,
+      required this.genres,
+      required this.date,
+      required this.time})
+      : super._();
+
+  factory _$UpdateMovieDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateMovieDtoImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String title;
+  @override
+  final int numberOfSeats;
+  @override
+  final String genres;
+  @override
+  final String date;
+  @override
+  final String time;
+
+  @override
+  String toString() {
+    return 'UpdateMovieDto(id: $id, title: $title, numberOfSeats: $numberOfSeats, genres: $genres, date: $date, time: $time)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateMovieDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.numberOfSeats, numberOfSeats) ||
+                other.numberOfSeats == numberOfSeats) &&
+            (identical(other.genres, genres) || other.genres == genres) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.time, time) || other.time == time));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, numberOfSeats, genres, date, time);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateMovieDtoImplCopyWith<_$UpdateMovieDtoImpl> get copyWith =>
+      __$$UpdateMovieDtoImplCopyWithImpl<_$UpdateMovieDtoImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UpdateMovieDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UpdateMovieDto extends UpdateMovieDto {
+  const factory _UpdateMovieDto(
+      {required final int id,
+      required final String title,
+      required final int numberOfSeats,
+      required final String genres,
+      required final String date,
+      required final String time}) = _$UpdateMovieDtoImpl;
+  const _UpdateMovieDto._() : super._();
+
+  factory _UpdateMovieDto.fromJson(Map<String, dynamic> json) =
+      _$UpdateMovieDtoImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get title;
+  @override
+  int get numberOfSeats;
+  @override
+  String get genres;
+  @override
+  String get date;
+  @override
+  String get time;
+  @override
+  @JsonKey(ignore: true)
+  _$$UpdateMovieDtoImplCopyWith<_$UpdateMovieDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

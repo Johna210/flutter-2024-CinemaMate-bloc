@@ -1,5 +1,5 @@
+import 'package:cinema_mate/domain/crudMovie/delete_movie/delete_validator.dart';
 import 'package:dartz/dartz.dart';
-import 'package:cinema_mate/domain/cinema_movie/delete_movie/delete_validator.dart';
 
 abstract class ValueObject<T> {
   Either<ValueFailure<T>, T> get value;
@@ -22,4 +22,3 @@ class MovieId extends ValueObject<String> {
 
   const MovieId._(this.value);
 }
-                                                

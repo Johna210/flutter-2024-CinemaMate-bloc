@@ -20,7 +20,6 @@ abstract class ICinemaAuthRepository {
   });
 
   Future<Either<CinemaAuthFailure, Unit>> changeCinemaName({
-    required CinemaName currentUsername,
     required CinemaName newUsername,
   });
 

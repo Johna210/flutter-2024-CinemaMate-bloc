@@ -1,3 +1,4 @@
+import 'package:cinema_mate/application/cinema/movie_actor/movie_actor_bloc.dart';
 import 'package:cinema_mate/application/cinema/movie_watcher/movie_watcher_bloc.dart';
 import 'package:cinema_mate/injection.dart';
 import 'package:cinema_mate/presentation/cinema/home/cinema_home_widget.dart';
@@ -14,9 +15,14 @@ class CinemaHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: newColor.bg,
-      body: BlocProvider(
-        create: (context) => getIt<MovieWatcherBloc>()
-          ..add(const MovieWatcherEvent.watchAllMoviesStarted()),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<MovieWatcherBloc>()
+              ..add(const MovieWatcherEvent.watchAllMoviesStarted()),
+          ),
+          BlocProvider(create: (context) => getIt<MovieActorBloc>())
+        ],
         child: const CinemaHomeWidget(),
       ),
     );

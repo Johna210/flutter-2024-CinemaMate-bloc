@@ -11,3 +11,14 @@ abstract class Cinema with _$Cinema {
     required CinemaDescription description,
   }) = _Cinema;
 }
+
+@freezed
+abstract class CinemaInfo with _$CinemaInfo {
+  const factory CinemaInfo({
+    required int id,
+    required String cinemaName,
+    required String imagePath,
+    required String description,
+    required String email,
+  }) = _CinemaInfo;
+}

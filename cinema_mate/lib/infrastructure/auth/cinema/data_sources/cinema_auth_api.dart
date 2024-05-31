@@ -65,7 +65,7 @@ class CinemaAuthApiImplementations {
         },
         body: jsonEncode(cinema.toJson()),
       );
-
+      print(response.body);
       if (response.statusCode == 201) {
         Map<String, dynamic> responseBody = jsonDecode(response.body);
         String userToken = responseBody['cinematoken'];
@@ -91,6 +91,7 @@ class CinemaAuthApiImplementations {
         return left(const CinemaAuthFailure.serverError());
       }
     } catch (e) {
+      print('Exception caught: $e');
       return left(const CinemaAuthFailure.serverError());
     }
   }
@@ -178,11 +179,10 @@ class CinemaAuthApiImplementations {
   }
 
   Future<Either<CinemaAuthFailure, Unit>> changeCinemaName({
-    required String currentCinemaName,
     required String newCinemaName,
     required UserTokenDto cinemaToken,
   }) async {
-    final changeCinemaNameUrl = Uri.parse('$baseUrl/cinemas/edit');
+    final changeCinemaNameUrl = Uri.parse('$baseUrl/cinemas/changeName');
 
     try {
       final http.Response response = await client.patch(

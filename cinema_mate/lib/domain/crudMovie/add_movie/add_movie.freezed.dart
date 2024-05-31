@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddMovie {
-  Titles get title => throw _privateConstructorUsedError;
-  NumberOfSeats get numberOfSeats => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
   Date get date => throw _privateConstructorUsedError;
-  Images get image => throw _privateConstructorUsedError;
+  File get image => throw _privateConstructorUsedError;
   Time get time => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -33,11 +33,7 @@ abstract class $AddMovieCopyWith<$Res> {
       _$AddMovieCopyWithImpl<$Res, AddMovie>;
   @useResult
   $Res call(
-      {Titles title,
-      NumberOfSeats numberOfSeats,
-      Date date,
-      Images image,
-      Time time});
+      {String title, int numberOfSeats, Date date, File image, Time time});
 }
 
 /// @nodoc
@@ -63,11 +59,11 @@ class _$AddMovieCopyWithImpl<$Res, $Val extends AddMovie>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as Titles,
+              as String,
       numberOfSeats: null == numberOfSeats
           ? _value.numberOfSeats
           : numberOfSeats // ignore: cast_nullable_to_non_nullable
-              as NumberOfSeats,
+              as int,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -75,7 +71,7 @@ class _$AddMovieCopyWithImpl<$Res, $Val extends AddMovie>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Images,
+              as File,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -93,11 +89,7 @@ abstract class _$$AddMovieImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Titles title,
-      NumberOfSeats numberOfSeats,
-      Date date,
-      Images image,
-      Time time});
+      {String title, int numberOfSeats, Date date, File image, Time time});
 }
 
 /// @nodoc
@@ -121,11 +113,11 @@ class __$$AddMovieImplCopyWithImpl<$Res>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as Titles,
+              as String,
       numberOfSeats: null == numberOfSeats
           ? _value.numberOfSeats
           : numberOfSeats // ignore: cast_nullable_to_non_nullable
-              as NumberOfSeats,
+              as int,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -133,7 +125,7 @@ class __$$AddMovieImplCopyWithImpl<$Res>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Images,
+              as File,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -154,13 +146,13 @@ class _$AddMovieImpl extends _AddMovie {
       : super._();
 
   @override
-  final Titles title;
+  final String title;
   @override
-  final NumberOfSeats numberOfSeats;
+  final int numberOfSeats;
   @override
   final Date date;
   @override
-  final Images image;
+  final File image;
   @override
   final Time time;
 
@@ -195,21 +187,21 @@ class _$AddMovieImpl extends _AddMovie {
 
 abstract class _AddMovie extends AddMovie {
   const factory _AddMovie(
-      {required final Titles title,
-      required final NumberOfSeats numberOfSeats,
+      {required final String title,
+      required final int numberOfSeats,
       required final Date date,
-      required final Images image,
+      required final File image,
       required final Time time}) = _$AddMovieImpl;
   const _AddMovie._() : super._();
 
   @override
-  Titles get title;
+  String get title;
   @override
-  NumberOfSeats get numberOfSeats;
+  int get numberOfSeats;
   @override
   Date get date;
   @override
-  Images get image;
+  File get image;
   @override
   Time get time;
   @override

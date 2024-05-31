@@ -1,8 +1,10 @@
 import 'package:cinema_mate/domain/auth/user/user_token.dart';
+import 'package:cinema_mate/domain/crudMovie/update_movie/update_failure.dart';
 import 'package:cinema_mate/domain/movie/i_movieRepository.dart';
 import 'package:cinema_mate/domain/movie/movie.dart';
 import 'package:cinema_mate/domain/movie/movieFailure.dart';
 import 'package:cinema_mate/infrastructure/movie/data_sources/movie_api.dart';
+import 'package:cinema_mate/infrastructure/movie/movie_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
@@ -16,14 +18,14 @@ class MovieRepository implements IMovieRepository {
   MovieRepository(this.movieApiImplementations, this.secureStorage);
 
   @override
-  Future<Either<MovieFailure, Unit>> editMovie(EditMovie movie) async {
+  Future<Either<UpdateFailure, Unit>> editMovie(EditMovie movie) async {
     final currentCinemaToken = await secureStorage.read(key: "cinematoken");
 
     if (currentCinemaToken != null) {
-      return movieApiImplementations.editMovie(
-          movie, UserToken(token: currentCinemaToken));
+      return movieApiImplementations.editMovie(UpdateMovieDto.fromDomain(movie),
+          UserToken(token: currentCinemaToken));
     } else {
-      return left(const MovieFailure.databaseFailure());
+      return left(const UpdateFailure.serverError());
     }
   }
 
@@ -32,7 +34,6 @@ class MovieRepository implements IMovieRepository {
     final currentCinemaToken = await secureStorage.read(key: 'cinematoken');
 
     if (currentCinemaToken == null) {
-      print('the token is null');
       yield left(const MovieFailure.databaseFailure());
       return;
     }
@@ -45,5 +46,16 @@ class MovieRepository implements IMovieRepository {
         .handleError((e) {
       return left(const MovieFailure.databaseFailure());
     });
+  }
+
+  @override
+  Future<Either<MovieFailure, Unit>> deleteMovie(MovieInfo movie) async {
+    final currentCinemaToken = await secureStorage.read(key: 'cinematoken');
+    if (currentCinemaToken != null) {
+      return await movieApiImplementations.deleteMovie(
+          movie.id, UserToken(token: currentCinemaToken));
+    }
+
+    return left(const MovieFailure.networkFailure());
   }
 }

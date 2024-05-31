@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cinema_mate/domain/auth/user/auth_failure.dart';
 import 'package:cinema_mate/domain/auth/user/user_token.dart';
+import 'package:cinema_mate/domain/crudMovie/cinema_profile/cinema_profile_failure.dart';
 import 'package:cinema_mate/infrastructure/cinema/cinema_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -63,10 +64,39 @@ class CinemaApiImplementations {
       return left(const AuthFailure.serverError());
     }
   }
+
   // get cinema details
+  Future<Either<CinemaProfileFailure, CinemaDto>> checkCinemaDetail(
+      UserToken cinemaToken) async {
+    final checkCinemaImageUrl = Uri.parse('$baseUrl/cinemas/getPath');
+    try {
+      final http.Response response = await client.get(
+        checkCinemaImageUrl,
+        headers: <String, String>{
+          'Authorization': 'Bearer ${cinemaToken.token}',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final cinemaInfo = jsonDecode(response.body);
+        return right(
+          CinemaDto(
+              id: cinemaInfo['id'],
+              cinemaName: cinemaInfo['cinemaName'],
+              imageUrl: cinemaInfo['imagePath'],
+              description: cinemaInfo['description'],
+              email: cinemaInfo['email']),
+        );
+      } else {
+        return left(const CinemaProfileFailure.serverError());
+      }
+    } catch (e) {
+      return left(const CinemaProfileFailure.serverError());
+    }
+  }
 
   // upload cinema image
-  Future<Either<AuthFailure, Unit>> uploadImage(
+  Future<Either<AuthFailure, CinemaDto>> uploadImage(
       String imagePath, UserToken cinemaToken) async {
     var uri = Uri.parse('$baseUrl/cinemas/image');
     var request = http.MultipartRequest('POST', uri);
@@ -79,8 +109,18 @@ class CinemaApiImplementations {
 
     try {
       final response = await request.send();
+      print(response.statusCode);
+      print(response);
+
       if (response.statusCode == 200) {
-        return right(unit);
+        return right(
+          CinemaDto(
+              id: 1,
+              cinemaName: 'cinemaName',
+              imageUrl: imagePath,
+              description: 'description',
+              email: 'email'),
+        );
       } else {
         return left(const AuthFailure.serverError());
       }

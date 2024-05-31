@@ -2,9 +2,9 @@ part of 'add_movie_bloc.dart';
 
 @freezed
 class AddMovieEvent with _$AddMovieEvent {
-  const factory AddMovieEvent.initialized(Title title) = Initialized;
-  const factory AddMovieEvent.titleChanged( title) = TitleChanged;
-  const factory AddMovieEvent.genreChanged( title) = GenreChanged;
+  const factory AddMovieEvent.initialized() = Initialized;
+  const factory AddMovieEvent.titleChanged(title) = TitleChanged;
+  const factory AddMovieEvent.genreChanged(genre) = GenreChanged;
   const factory AddMovieEvent.numberOfSeatsChanged(int numberOfSeats) =
       NumberOfSeatsChanged;
   const factory AddMovieEvent.timeChanged(time) = TimeChanged;

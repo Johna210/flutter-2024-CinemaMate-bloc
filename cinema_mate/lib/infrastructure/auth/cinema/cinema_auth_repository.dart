@@ -81,15 +81,13 @@ class CinemaAuthRepository implements ICinemaAuthRepository {
 
   @override
   Future<Either<CinemaAuthFailure, Unit>> changeCinemaName(
-      {required CinemaName currentUsername,
-      required CinemaName newUsername}) async {
+      {required CinemaName newUsername}) async {
     final cinemaToken = await secureStorage.read(key: "cinematoken");
     if (cinemaToken == null) {
       return left(const CinemaAuthFailure.serverError());
     }
 
     final result = await _apiImplementations.changeCinemaName(
-      currentCinemaName: currentUsername.getOrCrash(),
       newCinemaName: newUsername.getOrCrash(),
       cinemaToken: UserTokenDto(token: cinemaToken),
     );

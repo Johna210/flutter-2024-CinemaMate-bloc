@@ -1,4 +1,4 @@
-import 'package:cinema_mate/domain/cinema_movie/delete_movie/value_objects.dart';
+import 'package:cinema_mate/domain/crudMovie/delete_movie/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'delete.freezed.dart';

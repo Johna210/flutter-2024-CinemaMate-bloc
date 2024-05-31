@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:cinema_mate/domain/auth/user/user_token.dart';
-import 'package:cinema_mate/domain/movie/movie.dart';
+import 'package:cinema_mate/domain/crudMovie/add_movie/add_failure.dart';
+import 'package:cinema_mate/domain/crudMovie/update_movie/update_failure.dart';
 import 'package:cinema_mate/domain/movie/movieFailure.dart';
 import 'package:cinema_mate/infrastructure/movie/movie_dtos.dart';
 import 'package:dartz/dartz.dart';
@@ -18,7 +19,7 @@ class MovieApiImplementaions {
 
   /// http://localhost:3000/movies/addmovie -> For adding a new Movie.
   // Add movie api implementation here
-  Future<Either<MovieFailure, Unit>> addMovie(
+  Future<Either<AddFailure, Unit>> addMovie(
       MovieDto movie, UserToken cinemaToken) async {
     var uri = Uri.parse('$baseUrl/movies/addmovie');
     var request = http.MultipartRequest('POST', uri);
@@ -46,36 +47,41 @@ class MovieApiImplementaions {
       if (response.statusCode == 201) {
         return right(unit);
       } else {
-        return left(const MovieFailure.unexpectedFailure());
+        return left(const AddFailure.serverError());
       }
     } catch (e) {
-      return left(const MovieFailure.databaseFailure());
+      return left(const AddFailure.serverError());
     }
   }
 
   /// http://localhost:3000/movies/update/movieId -> To update an exisiting movies details
   // edit movie api implementation here
-  Future<Either<MovieFailure, Unit>> editMovie(
-      EditMovie movie, UserToken cinemaToken) async {
-    final updateMovieUrl = Uri.parse('$baseUrl/movies/udate/${movie.id}');
+  Future<Either<UpdateFailure, Unit>> editMovie(
+      UpdateMovieDto movie, UserToken cinemaToken) async {
+    final updateMovieUrl = Uri.parse('$baseUrl/movies/update/${movie.id}');
     try {
       final http.Response response = await client.patch(
         updateMovieUrl,
         headers: <String, String>{
           'Authorization': 'Bearer ${cinemaToken.token}',
         },
-        body: jsonEncode(movie.toJson()),
+        body: {
+          'id': movie.id.toString(),
+          'title': movie.title,
+          'genre': movie.genres,
+          'day': movie.date,
+          'showTime': movie.time,
+          'numberOfSeats': movie.numberOfSeats.toString(),
+        },
       );
-
-      print(response);
 
       if (response.statusCode == 200) {
         return right(unit);
       } else {
-        return left(const MovieFailure.unexpectedFailure());
+        return left(const UpdateFailure.serverError());
       }
     } catch (e) {
-      return left(const MovieFailure.databaseFailure());
+      return left(const UpdateFailure.serverError());
     }
   }
 
@@ -91,8 +97,8 @@ class MovieApiImplementaions {
           'Authorization': 'Bearer ${cinemaToken.token}',
         },
       );
-
-      print(response);
+      print(response.statusCode);
+      print(response.body);
       if (response.statusCode == 200) {
         return right(unit);
       } else {
@@ -143,7 +149,6 @@ class MovieApiImplementaions {
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonResponse = json.decode(response.body);
-
         final movies = jsonResponse.map((json) {
           return MovieInfoDto.fromJson(json);
         }).toList();

@@ -89,3 +89,31 @@ abstract class MovieDto implements _$MovieDto {
     );
   }
 }
+
+@freezed
+abstract class UpdateMovieDto implements _$UpdateMovieDto {
+  const UpdateMovieDto._();
+
+  const factory UpdateMovieDto({
+    required int id,
+    required String title,
+    required int numberOfSeats,
+    required String genres,
+    required String date,
+    required String time,
+  }) = _UpdateMovieDto;
+
+  factory UpdateMovieDto.fromDomain(EditMovie movie) {
+    return UpdateMovieDto(
+      id: movie.id,
+      title: movie.name,
+      numberOfSeats: movie.numberOfSeats,
+      genres: movie.genre.join(', '),
+      date: movie.date,
+      time: movie.time,
+    );
+  }
+
+  factory UpdateMovieDto.fromJson(Map<String, dynamic> json) =>
+      _$UpdateMovieDtoFromJson(json);
+}

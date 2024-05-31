@@ -1,3 +1,4 @@
+import 'package:cinema_mate/application/cinema/movie_actor/movie_actor_bloc.dart';
 import 'package:cinema_mate/application/cinema/movie_watcher/movie_watcher_bloc.dart';
 import 'package:cinema_mate/domain/movie/movie.dart';
 import 'package:cinema_mate/presentation/cinema/widgets/cinema_details.dart';
@@ -13,11 +14,40 @@ class CinemaHomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MovieWatcherBloc, MovieWatcherState>(
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<MovieWatcherBloc, MovieWatcherState>(
+          listener: (context, state) {},
+        ),
+        BlocListener<MovieActorBloc, MovieActorState>(
+          listener: (context, state) {
+            print(state);
+            state.maybeMap(
+                deleteSuccess: (value) {
+                  context.read<MovieWatcherBloc>().add(
+                        const MovieWatcherEvent.watchAllMoviesStarted(),
+                      );
+                },
+                deleteFailure: (state) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      duration: const Duration(seconds: 5),
+                      content: state.maybeMap(
+                        deleteFailure: (_) => const Text('Unable to delete'),
+                        orElse: () => const Text('Error'),
+                      ),
+                    ),
+                  );
+                },
+                orElse: () {});
+          },
+        )
+      ],
+      child: BlocBuilder<MovieWatcherBloc, MovieWatcherState>(
         builder: (context, state) {
           return state.map(
-              initial: (_) => const CircularProgressIndicator(),
-              loading: (_) => const CircularProgressIndicator(),
+              initial: (_) => const Center(child: CircularProgressIndicator()),
+              loading: (_) => const Center(child: CircularProgressIndicator()),
               loadSuccess: (state) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -30,6 +60,33 @@ class CinemaHomeWidget extends StatelessWidget {
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
+                        onLongPress: () {
+                          final movieActorBloc =
+                              BlocProvider.of<MovieActorBloc>(context);
+                          showDialog(
+                              context: context,
+                              builder: (dialogContext) {
+                                return AlertDialog(
+                                  title: const Text('Delete Movie'),
+                                  content: const Text(
+                                      'Are you sure you want to delete movie?'),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () =>
+                                            Navigator.of(dialogContext).pop(),
+                                        child: const Text('Cancel')),
+                                    TextButton(
+                                        onPressed: () {
+                                          movieActorBloc.add(
+                                              MovieActorEvent.deleted(
+                                                  state.movies[index]));
+                                          Navigator.of(dialogContext).pop();
+                                        },
+                                        child: const Text('Remove'))
+                                  ],
+                                );
+                              });
+                        },
                         onTap: () {
                           return _dialogBuilder(context, state.movies[index]);
                         },
@@ -46,7 +103,8 @@ class CinemaHomeWidget extends StatelessWidget {
                 return const Center(child: Text('Failed to load movies'));
               });
         },
-        listener: (context, state) {});
+      ),
+    );
   }
 }
 

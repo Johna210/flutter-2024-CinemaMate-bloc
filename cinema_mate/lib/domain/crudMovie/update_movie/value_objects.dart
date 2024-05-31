@@ -1,7 +1,7 @@
 import 'dart:io';
+import 'package:cinema_mate/domain/crudMovie/add_movie/add_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:dartz/dartz.dart';
-import 'package:cinema_mate/domain/cinema_movie/update_movie/update_validator.dart';
 import 'package:cinema_mate/domain/core/value_validators.dart';
 
 abstract class ValueObject<T> {
@@ -33,9 +33,9 @@ class Titles extends ValueObject<String> {
   static const maxLength = 100;
 
   factory Titles(String input) {
-    return Titles._(
-      validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty) as Either<ValueFailure<String>, String>
-    );
+    return Titles._(validateMaxStringLength(input, maxLength)
+            .flatMap(validateStringNotEmpty)
+        as Either<ValueFailure<String>, String>);
   }
 
   const Titles._(this.value);

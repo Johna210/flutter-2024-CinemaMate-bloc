@@ -3,6 +3,8 @@ import 'package:cinema_mate/presentation/core/widgets/app_color.dart';
 import 'package:cinema_mate/presentation/core/widgets/genre.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 var newColor = AppColor();
 final String baseUrl = dotenv.get('BASE_URL');
@@ -55,13 +57,23 @@ class CinemaDetail extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                movie.date,
+                DateFormat('dd/MM/yyyy').format(
+                    DateTime.parse(movie.date)), // Change the format as needed
                 textAlign: TextAlign.center,
                 style: const TextStyle(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 10),
               Text(
-                movie.time,
+                TimeOfDay(
+                        hour: int.parse(movie.time
+                            .substring(movie.time.indexOf('(') + 1,
+                                movie.time.indexOf(')'))
+                            .split(':')[0]),
+                        minute: int.parse(movie.time
+                            .substring(movie.time.indexOf('(') + 1,
+                                movie.time.indexOf(')'))
+                            .split(':')[1]))
+                    .format(context),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
@@ -71,7 +83,10 @@ class CinemaDetail extends StatelessWidget {
                   Text(movie.numberOfSeats.toString()),
                   const SizedBox(width: 30),
                   IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.edit_square))
+                      onPressed: () {
+                        context.pushNamed('editMovie', extra: movie);
+                      },
+                      icon: const Icon(Icons.edit_square))
                 ],
               )
             ],

@@ -1,16 +1,22 @@
 import 'dart:io';
+import 'package:cinema_mate/domain/crudMovie/add_movie/add_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:dartz/dartz.dart';
-import 'package:cinema_mate/domain/cinema_movie/add_movie/add_validator.dart';
 // import 'package:cinema_mate/domain/core/failures.dart';
 import 'package:cinema_mate/domain/core/value_validators.dart';
 
 abstract class ValueObject<T> {
+  const ValueObject();
   Either<ValueFailure<T>, T> get value;
 
-  const ValueObject();
-
   bool isValid() => value.isRight();
+
+  T getOrCrash() {
+    return value.fold(
+      (failure) => throw Error(),
+      id,
+    );
+  }
 
   @override
   String toString() => 'Value($value)';
@@ -25,9 +31,8 @@ class NumberOfSeats extends ValueObject<int> {
   }
 
   const NumberOfSeats._(this.value);
- 
 }
-  
+
 class Titles extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -35,12 +40,12 @@ class Titles extends ValueObject<String> {
   static const maxLength = 100;
 
   factory Titles(String input) {
-    return Titles._(
-      validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty) as Either<ValueFailure<String>, String>
-    );}
+    return Titles._(validateMaxStringLength(input, maxLength)
+            .flatMap(validateStringNotEmpty)
+        as Either<ValueFailure<String>, String>);
+  }
 
-    const Titles._(this.value);
-  
+  const Titles._(this.value);
 }
 
 class Images extends ValueObject<File> {
@@ -81,4 +86,3 @@ class Time extends ValueObject<TimeOfDay> {
 
   const Time._(this.value);
 }
-

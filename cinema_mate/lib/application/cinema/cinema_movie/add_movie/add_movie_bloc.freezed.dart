@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'update_movie_bloc.dart';
+part of 'add_movie_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,38 +15,41 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UpdateMovieEvent {
+mixin _$AddMovieEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,49 +57,52 @@ mixin _$UpdateMovieEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UpdateMovieEventCopyWith<$Res> {
-  factory $UpdateMovieEventCopyWith(
-          UpdateMovieEvent value, $Res Function(UpdateMovieEvent) then) =
-      _$UpdateMovieEventCopyWithImpl<$Res, UpdateMovieEvent>;
+abstract class $AddMovieEventCopyWith<$Res> {
+  factory $AddMovieEventCopyWith(
+          AddMovieEvent value, $Res Function(AddMovieEvent) then) =
+      _$AddMovieEventCopyWithImpl<$Res, AddMovieEvent>;
 }
 
 /// @nodoc
-class _$UpdateMovieEventCopyWithImpl<$Res, $Val extends UpdateMovieEvent>
-    implements $UpdateMovieEventCopyWith<$Res> {
-  _$UpdateMovieEventCopyWithImpl(this._value, this._then);
+class _$AddMovieEventCopyWithImpl<$Res, $Val extends AddMovieEvent>
+    implements $AddMovieEventCopyWith<$Res> {
+  _$AddMovieEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -109,102 +115,81 @@ abstract class _$$InitializedImplCopyWith<$Res> {
   factory _$$InitializedImplCopyWith(
           _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
       __$$InitializedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({dynamic title});
 }
 
 /// @nodoc
 class __$$InitializedImplCopyWithImpl<$Res>
-    extends _$UpdateMovieEventCopyWithImpl<$Res, _$InitializedImpl>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$InitializedImpl>
     implements _$$InitializedImplCopyWith<$Res> {
   __$$InitializedImplCopyWithImpl(
       _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = freezed,
-  }) {
-    return _then(_$InitializedImpl(
-      freezed == title ? _value.title! : title,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$InitializedImpl implements Initialized {
-  const _$InitializedImpl(this.title);
-
-  @override
-  final dynamic title;
+  const _$InitializedImpl();
 
   @override
   String toString() {
-    return 'UpdateMovieEvent.initialized(title: $title)';
+    return 'AddMovieEvent.initialized()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InitializedImpl &&
-            const DeepCollectionEquality().equals(other.title, title));
+        (other.runtimeType == runtimeType && other is _$InitializedImpl);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
-      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) {
-    return initialized(title);
+    return initialized();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) {
-    return initialized?.call(title);
+    return initialized?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(title);
+      return initialized();
     }
     return orElse();
   }
@@ -214,11 +199,12 @@ class _$InitializedImpl implements Initialized {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) {
     return initialized(this);
   }
@@ -228,11 +214,12 @@ class _$InitializedImpl implements Initialized {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) {
     return initialized?.call(this);
   }
@@ -242,11 +229,12 @@ class _$InitializedImpl implements Initialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -256,13 +244,8 @@ class _$InitializedImpl implements Initialized {
   }
 }
 
-abstract class Initialized implements UpdateMovieEvent {
-  const factory Initialized(final dynamic title) = _$InitializedImpl;
-
-  dynamic get title;
-  @JsonKey(ignore: true)
-  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class Initialized implements AddMovieEvent {
+  const factory Initialized() = _$InitializedImpl;
 }
 
 /// @nodoc
@@ -276,7 +259,7 @@ abstract class _$$TitleChangedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$TitleChangedImplCopyWithImpl<$Res>
-    extends _$UpdateMovieEventCopyWithImpl<$Res, _$TitleChangedImpl>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$TitleChangedImpl>
     implements _$$TitleChangedImplCopyWith<$Res> {
   __$$TitleChangedImplCopyWithImpl(
       _$TitleChangedImpl _value, $Res Function(_$TitleChangedImpl) _then)
@@ -303,7 +286,7 @@ class _$TitleChangedImpl implements TitleChanged {
 
   @override
   String toString() {
-    return 'UpdateMovieEvent.titleChanged(title: $title)';
+    return 'AddMovieEvent.titleChanged(title: $title)';
   }
 
   @override
@@ -327,13 +310,14 @@ class _$TitleChangedImpl implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) {
     return titleChanged(title);
   }
@@ -341,13 +325,14 @@ class _$TitleChangedImpl implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) {
     return titleChanged?.call(title);
   }
@@ -355,13 +340,14 @@ class _$TitleChangedImpl implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) {
     if (titleChanged != null) {
@@ -375,11 +361,12 @@ class _$TitleChangedImpl implements TitleChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) {
     return titleChanged(this);
   }
@@ -389,11 +376,12 @@ class _$TitleChangedImpl implements TitleChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) {
     return titleChanged?.call(this);
   }
@@ -403,11 +391,12 @@ class _$TitleChangedImpl implements TitleChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) {
     if (titleChanged != null) {
@@ -417,12 +406,179 @@ class _$TitleChangedImpl implements TitleChanged {
   }
 }
 
-abstract class TitleChanged implements UpdateMovieEvent {
+abstract class TitleChanged implements AddMovieEvent {
   const factory TitleChanged(final dynamic title) = _$TitleChangedImpl;
 
   dynamic get title;
   @JsonKey(ignore: true)
   _$$TitleChangedImplCopyWith<_$TitleChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GenreChangedImplCopyWith<$Res> {
+  factory _$$GenreChangedImplCopyWith(
+          _$GenreChangedImpl value, $Res Function(_$GenreChangedImpl) then) =
+      __$$GenreChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({dynamic genre});
+}
+
+/// @nodoc
+class __$$GenreChangedImplCopyWithImpl<$Res>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$GenreChangedImpl>
+    implements _$$GenreChangedImplCopyWith<$Res> {
+  __$$GenreChangedImplCopyWithImpl(
+      _$GenreChangedImpl _value, $Res Function(_$GenreChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? genre = freezed,
+  }) {
+    return _then(_$GenreChangedImpl(
+      freezed == genre ? _value.genre! : genre,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GenreChangedImpl implements GenreChanged {
+  const _$GenreChangedImpl(this.genre);
+
+  @override
+  final dynamic genre;
+
+  @override
+  String toString() {
+    return 'AddMovieEvent.genreChanged(genre: $genre)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GenreChangedImpl &&
+            const DeepCollectionEquality().equals(other.genre, genre));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(genre));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GenreChangedImplCopyWith<_$GenreChangedImpl> get copyWith =>
+      __$$GenreChangedImplCopyWithImpl<_$GenreChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
+    required TResult Function(int numberOfSeats) numberOfSeatsChanged,
+    required TResult Function(dynamic time) timeChanged,
+    required TResult Function(DateTime date) dateChanged,
+    required TResult Function(File imagePath) imageChanged,
+    required TResult Function() addMoviePressed,
+  }) {
+    return genreChanged(genre);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialized,
+    TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
+    TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
+    TResult? Function(dynamic time)? timeChanged,
+    TResult? Function(DateTime date)? dateChanged,
+    TResult? Function(File imagePath)? imageChanged,
+    TResult? Function()? addMoviePressed,
+  }) {
+    return genreChanged?.call(genre);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
+    TResult Function(int numberOfSeats)? numberOfSeatsChanged,
+    TResult Function(dynamic time)? timeChanged,
+    TResult Function(DateTime date)? dateChanged,
+    TResult Function(File imagePath)? imageChanged,
+    TResult Function()? addMoviePressed,
+    required TResult orElse(),
+  }) {
+    if (genreChanged != null) {
+      return genreChanged(genre);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
+    required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
+    required TResult Function(TimeChanged value) timeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(ImageChanged value) imageChanged,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
+  }) {
+    return genreChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
+    TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
+    TResult? Function(TimeChanged value)? timeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(ImageChanged value)? imageChanged,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
+  }) {
+    return genreChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
+    TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
+    TResult Function(TimeChanged value)? timeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(ImageChanged value)? imageChanged,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
+    required TResult orElse(),
+  }) {
+    if (genreChanged != null) {
+      return genreChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GenreChanged implements AddMovieEvent {
+  const factory GenreChanged(final dynamic genre) = _$GenreChangedImpl;
+
+  dynamic get genre;
+  @JsonKey(ignore: true)
+  _$$GenreChangedImplCopyWith<_$GenreChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -437,7 +593,7 @@ abstract class _$$NumberOfSeatsChangedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$NumberOfSeatsChangedImplCopyWithImpl<$Res>
-    extends _$UpdateMovieEventCopyWithImpl<$Res, _$NumberOfSeatsChangedImpl>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$NumberOfSeatsChangedImpl>
     implements _$$NumberOfSeatsChangedImplCopyWith<$Res> {
   __$$NumberOfSeatsChangedImplCopyWithImpl(_$NumberOfSeatsChangedImpl _value,
       $Res Function(_$NumberOfSeatsChangedImpl) _then)
@@ -467,7 +623,7 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
 
   @override
   String toString() {
-    return 'UpdateMovieEvent.numberOfSeatsChanged(numberOfSeats: $numberOfSeats)';
+    return 'AddMovieEvent.numberOfSeatsChanged(numberOfSeats: $numberOfSeats)';
   }
 
   @override
@@ -493,13 +649,14 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) {
     return numberOfSeatsChanged(numberOfSeats);
   }
@@ -507,13 +664,14 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) {
     return numberOfSeatsChanged?.call(numberOfSeats);
   }
@@ -521,13 +679,14 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) {
     if (numberOfSeatsChanged != null) {
@@ -541,11 +700,12 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) {
     return numberOfSeatsChanged(this);
   }
@@ -555,11 +715,12 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) {
     return numberOfSeatsChanged?.call(this);
   }
@@ -569,11 +730,12 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) {
     if (numberOfSeatsChanged != null) {
@@ -583,7 +745,7 @@ class _$NumberOfSeatsChangedImpl implements NumberOfSeatsChanged {
   }
 }
 
-abstract class NumberOfSeatsChanged implements UpdateMovieEvent {
+abstract class NumberOfSeatsChanged implements AddMovieEvent {
   const factory NumberOfSeatsChanged(final int numberOfSeats) =
       _$NumberOfSeatsChangedImpl;
 
@@ -604,7 +766,7 @@ abstract class _$$TimeChangedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$TimeChangedImplCopyWithImpl<$Res>
-    extends _$UpdateMovieEventCopyWithImpl<$Res, _$TimeChangedImpl>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$TimeChangedImpl>
     implements _$$TimeChangedImplCopyWith<$Res> {
   __$$TimeChangedImplCopyWithImpl(
       _$TimeChangedImpl _value, $Res Function(_$TimeChangedImpl) _then)
@@ -631,7 +793,7 @@ class _$TimeChangedImpl implements TimeChanged {
 
   @override
   String toString() {
-    return 'UpdateMovieEvent.timeChanged(time: $time)';
+    return 'AddMovieEvent.timeChanged(time: $time)';
   }
 
   @override
@@ -655,13 +817,14 @@ class _$TimeChangedImpl implements TimeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) {
     return timeChanged(time);
   }
@@ -669,13 +832,14 @@ class _$TimeChangedImpl implements TimeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) {
     return timeChanged?.call(time);
   }
@@ -683,13 +847,14 @@ class _$TimeChangedImpl implements TimeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) {
     if (timeChanged != null) {
@@ -703,11 +868,12 @@ class _$TimeChangedImpl implements TimeChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) {
     return timeChanged(this);
   }
@@ -717,11 +883,12 @@ class _$TimeChangedImpl implements TimeChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) {
     return timeChanged?.call(this);
   }
@@ -731,11 +898,12 @@ class _$TimeChangedImpl implements TimeChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) {
     if (timeChanged != null) {
@@ -745,7 +913,7 @@ class _$TimeChangedImpl implements TimeChanged {
   }
 }
 
-abstract class TimeChanged implements UpdateMovieEvent {
+abstract class TimeChanged implements AddMovieEvent {
   const factory TimeChanged(final dynamic time) = _$TimeChangedImpl;
 
   dynamic get time;
@@ -765,7 +933,7 @@ abstract class _$$DateChangedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$DateChangedImplCopyWithImpl<$Res>
-    extends _$UpdateMovieEventCopyWithImpl<$Res, _$DateChangedImpl>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$DateChangedImpl>
     implements _$$DateChangedImplCopyWith<$Res> {
   __$$DateChangedImplCopyWithImpl(
       _$DateChangedImpl _value, $Res Function(_$DateChangedImpl) _then)
@@ -795,7 +963,7 @@ class _$DateChangedImpl implements DateChanged {
 
   @override
   String toString() {
-    return 'UpdateMovieEvent.dateChanged(date: $date)';
+    return 'AddMovieEvent.dateChanged(date: $date)';
   }
 
   @override
@@ -818,13 +986,14 @@ class _$DateChangedImpl implements DateChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) {
     return dateChanged(date);
   }
@@ -832,13 +1001,14 @@ class _$DateChangedImpl implements DateChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) {
     return dateChanged?.call(date);
   }
@@ -846,13 +1016,14 @@ class _$DateChangedImpl implements DateChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) {
     if (dateChanged != null) {
@@ -866,11 +1037,12 @@ class _$DateChangedImpl implements DateChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) {
     return dateChanged(this);
   }
@@ -880,11 +1052,12 @@ class _$DateChangedImpl implements DateChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) {
     return dateChanged?.call(this);
   }
@@ -894,11 +1067,12 @@ class _$DateChangedImpl implements DateChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) {
     if (dateChanged != null) {
@@ -908,7 +1082,7 @@ class _$DateChangedImpl implements DateChanged {
   }
 }
 
-abstract class DateChanged implements UpdateMovieEvent {
+abstract class DateChanged implements AddMovieEvent {
   const factory DateChanged(final DateTime date) = _$DateChangedImpl;
 
   DateTime get date;
@@ -928,7 +1102,7 @@ abstract class _$$ImageChangedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ImageChangedImplCopyWithImpl<$Res>
-    extends _$UpdateMovieEventCopyWithImpl<$Res, _$ImageChangedImpl>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$ImageChangedImpl>
     implements _$$ImageChangedImplCopyWith<$Res> {
   __$$ImageChangedImplCopyWithImpl(
       _$ImageChangedImpl _value, $Res Function(_$ImageChangedImpl) _then)
@@ -958,7 +1132,7 @@ class _$ImageChangedImpl implements ImageChanged {
 
   @override
   String toString() {
-    return 'UpdateMovieEvent.imageChanged(imagePath: $imagePath)';
+    return 'AddMovieEvent.imageChanged(imagePath: $imagePath)';
   }
 
   @override
@@ -982,13 +1156,14 @@ class _$ImageChangedImpl implements ImageChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) {
     return imageChanged(imagePath);
   }
@@ -996,13 +1171,14 @@ class _$ImageChangedImpl implements ImageChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) {
     return imageChanged?.call(imagePath);
   }
@@ -1010,13 +1186,14 @@ class _$ImageChangedImpl implements ImageChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) {
     if (imageChanged != null) {
@@ -1030,11 +1207,12 @@ class _$ImageChangedImpl implements ImageChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) {
     return imageChanged(this);
   }
@@ -1044,11 +1222,12 @@ class _$ImageChangedImpl implements ImageChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) {
     return imageChanged?.call(this);
   }
@@ -1058,11 +1237,12 @@ class _$ImageChangedImpl implements ImageChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) {
     if (imageChanged != null) {
@@ -1072,7 +1252,7 @@ class _$ImageChangedImpl implements ImageChanged {
   }
 }
 
-abstract class ImageChanged implements UpdateMovieEvent {
+abstract class ImageChanged implements AddMovieEvent {
   const factory ImageChanged(final File imagePath) = _$ImageChangedImpl;
 
   File get imagePath;
@@ -1082,35 +1262,35 @@ abstract class ImageChanged implements UpdateMovieEvent {
 }
 
 /// @nodoc
-abstract class _$$UpdateMoviePressedImplCopyWith<$Res> {
-  factory _$$UpdateMoviePressedImplCopyWith(_$UpdateMoviePressedImpl value,
-          $Res Function(_$UpdateMoviePressedImpl) then) =
-      __$$UpdateMoviePressedImplCopyWithImpl<$Res>;
+abstract class _$$AddMoviePressedImplCopyWith<$Res> {
+  factory _$$AddMoviePressedImplCopyWith(_$AddMoviePressedImpl value,
+          $Res Function(_$AddMoviePressedImpl) then) =
+      __$$AddMoviePressedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UpdateMoviePressedImplCopyWithImpl<$Res>
-    extends _$UpdateMovieEventCopyWithImpl<$Res, _$UpdateMoviePressedImpl>
-    implements _$$UpdateMoviePressedImplCopyWith<$Res> {
-  __$$UpdateMoviePressedImplCopyWithImpl(_$UpdateMoviePressedImpl _value,
-      $Res Function(_$UpdateMoviePressedImpl) _then)
+class __$$AddMoviePressedImplCopyWithImpl<$Res>
+    extends _$AddMovieEventCopyWithImpl<$Res, _$AddMoviePressedImpl>
+    implements _$$AddMoviePressedImplCopyWith<$Res> {
+  __$$AddMoviePressedImplCopyWithImpl(
+      _$AddMoviePressedImpl _value, $Res Function(_$AddMoviePressedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UpdateMoviePressedImpl implements UpdateMoviePressed {
-  const _$UpdateMoviePressedImpl();
+class _$AddMoviePressedImpl implements AddMoviePressed {
+  const _$AddMoviePressedImpl();
 
   @override
   String toString() {
-    return 'UpdateMovieEvent.updateMoviePressed()';
+    return 'AddMovieEvent.addMoviePressed()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UpdateMoviePressedImpl);
+        (other.runtimeType == runtimeType && other is _$AddMoviePressedImpl);
   }
 
   @override
@@ -1119,45 +1299,48 @@ class _$UpdateMoviePressedImpl implements UpdateMoviePressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic title) initialized,
+    required TResult Function() initialized,
     required TResult Function(dynamic title) titleChanged,
+    required TResult Function(dynamic genre) genreChanged,
     required TResult Function(int numberOfSeats) numberOfSeatsChanged,
     required TResult Function(dynamic time) timeChanged,
     required TResult Function(DateTime date) dateChanged,
     required TResult Function(File imagePath) imageChanged,
-    required TResult Function() updateMoviePressed,
+    required TResult Function() addMoviePressed,
   }) {
-    return updateMoviePressed();
+    return addMoviePressed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic title)? initialized,
+    TResult? Function()? initialized,
     TResult? Function(dynamic title)? titleChanged,
+    TResult? Function(dynamic genre)? genreChanged,
     TResult? Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult? Function(dynamic time)? timeChanged,
     TResult? Function(DateTime date)? dateChanged,
     TResult? Function(File imagePath)? imageChanged,
-    TResult? Function()? updateMoviePressed,
+    TResult? Function()? addMoviePressed,
   }) {
-    return updateMoviePressed?.call();
+    return addMoviePressed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic title)? initialized,
+    TResult Function()? initialized,
     TResult Function(dynamic title)? titleChanged,
+    TResult Function(dynamic genre)? genreChanged,
     TResult Function(int numberOfSeats)? numberOfSeatsChanged,
     TResult Function(dynamic time)? timeChanged,
     TResult Function(DateTime date)? dateChanged,
     TResult Function(File imagePath)? imageChanged,
-    TResult Function()? updateMoviePressed,
+    TResult Function()? addMoviePressed,
     required TResult orElse(),
   }) {
-    if (updateMoviePressed != null) {
-      return updateMoviePressed();
+    if (addMoviePressed != null) {
+      return addMoviePressed();
     }
     return orElse();
   }
@@ -1167,13 +1350,14 @@ class _$UpdateMoviePressedImpl implements UpdateMoviePressed {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(GenreChanged value) genreChanged,
     required TResult Function(NumberOfSeatsChanged value) numberOfSeatsChanged,
     required TResult Function(TimeChanged value) timeChanged,
     required TResult Function(DateChanged value) dateChanged,
     required TResult Function(ImageChanged value) imageChanged,
-    required TResult Function(UpdateMoviePressed value) updateMoviePressed,
+    required TResult Function(AddMoviePressed value) addMoviePressed,
   }) {
-    return updateMoviePressed(this);
+    return addMoviePressed(this);
   }
 
   @override
@@ -1181,13 +1365,14 @@ class _$UpdateMoviePressedImpl implements UpdateMoviePressed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initialized value)? initialized,
     TResult? Function(TitleChanged value)? titleChanged,
+    TResult? Function(GenreChanged value)? genreChanged,
     TResult? Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult? Function(TimeChanged value)? timeChanged,
     TResult? Function(DateChanged value)? dateChanged,
     TResult? Function(ImageChanged value)? imageChanged,
-    TResult? Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult? Function(AddMoviePressed value)? addMoviePressed,
   }) {
-    return updateMoviePressed?.call(this);
+    return addMoviePressed?.call(this);
   }
 
   @override
@@ -1195,60 +1380,63 @@ class _$UpdateMoviePressedImpl implements UpdateMoviePressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(GenreChanged value)? genreChanged,
     TResult Function(NumberOfSeatsChanged value)? numberOfSeatsChanged,
     TResult Function(TimeChanged value)? timeChanged,
     TResult Function(DateChanged value)? dateChanged,
     TResult Function(ImageChanged value)? imageChanged,
-    TResult Function(UpdateMoviePressed value)? updateMoviePressed,
+    TResult Function(AddMoviePressed value)? addMoviePressed,
     required TResult orElse(),
   }) {
-    if (updateMoviePressed != null) {
-      return updateMoviePressed(this);
+    if (addMoviePressed != null) {
+      return addMoviePressed(this);
     }
     return orElse();
   }
 }
 
-abstract class UpdateMoviePressed implements UpdateMovieEvent {
-  const factory UpdateMoviePressed() = _$UpdateMoviePressedImpl;
+abstract class AddMoviePressed implements AddMovieEvent {
+  const factory AddMoviePressed() = _$AddMoviePressedImpl;
 }
 
 /// @nodoc
-mixin _$UpdateMovieState {
-  Titles get title => throw _privateConstructorUsedError;
-  NumberOfSeats get numberOfSeats => throw _privateConstructorUsedError;
+mixin _$AddMovieState {
+  String get title => throw _privateConstructorUsedError;
+  int get numberOfSeats => throw _privateConstructorUsedError;
   Date get date => throw _privateConstructorUsedError;
   Time get time => throw _privateConstructorUsedError;
-  Images get image => throw _privateConstructorUsedError;
+  File? get image => throw _privateConstructorUsedError;
+  String get genre => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
-  Option<Either<UpdateFailure, Unit>> get updateFailureOrSuccessOption =>
+  Option<Either<AddFailure, Unit>> get addFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UpdateMovieStateCopyWith<UpdateMovieState> get copyWith =>
+  $AddMovieStateCopyWith<AddMovieState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UpdateMovieStateCopyWith<$Res> {
-  factory $UpdateMovieStateCopyWith(
-          UpdateMovieState value, $Res Function(UpdateMovieState) then) =
-      _$UpdateMovieStateCopyWithImpl<$Res, UpdateMovieState>;
+abstract class $AddMovieStateCopyWith<$Res> {
+  factory $AddMovieStateCopyWith(
+          AddMovieState value, $Res Function(AddMovieState) then) =
+      _$AddMovieStateCopyWithImpl<$Res, AddMovieState>;
   @useResult
   $Res call(
-      {Titles title,
-      NumberOfSeats numberOfSeats,
+      {String title,
+      int numberOfSeats,
       Date date,
       Time time,
-      Images image,
+      File? image,
+      String genre,
       bool showErrorMessages,
-      Option<Either<UpdateFailure, Unit>> updateFailureOrSuccessOption});
+      Option<Either<AddFailure, Unit>> addFailureOrSuccessOption});
 }
 
 /// @nodoc
-class _$UpdateMovieStateCopyWithImpl<$Res, $Val extends UpdateMovieState>
-    implements $UpdateMovieStateCopyWith<$Res> {
-  _$UpdateMovieStateCopyWithImpl(this._value, this._then);
+class _$AddMovieStateCopyWithImpl<$Res, $Val extends AddMovieState>
+    implements $AddMovieStateCopyWith<$Res> {
+  _$AddMovieStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -1262,19 +1450,20 @@ class _$UpdateMovieStateCopyWithImpl<$Res, $Val extends UpdateMovieState>
     Object? numberOfSeats = null,
     Object? date = null,
     Object? time = null,
-    Object? image = null,
+    Object? image = freezed,
+    Object? genre = null,
     Object? showErrorMessages = null,
-    Object? updateFailureOrSuccessOption = null,
+    Object? addFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as Titles,
+              as String,
       numberOfSeats: null == numberOfSeats
           ? _value.numberOfSeats
           : numberOfSeats // ignore: cast_nullable_to_non_nullable
-              as NumberOfSeats,
+              as int,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1283,46 +1472,51 @@ class _$UpdateMovieStateCopyWithImpl<$Res, $Val extends UpdateMovieState>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as Time,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Images,
+              as File?,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as String,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      updateFailureOrSuccessOption: null == updateFailureOrSuccessOption
-          ? _value.updateFailureOrSuccessOption
-          : updateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<UpdateFailure, Unit>>,
+      addFailureOrSuccessOption: null == addFailureOrSuccessOption
+          ? _value.addFailureOrSuccessOption
+          : addFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AddFailure, Unit>>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$UpdateMovieStateImplCopyWith<$Res>
-    implements $UpdateMovieStateCopyWith<$Res> {
-  factory _$$UpdateMovieStateImplCopyWith(_$UpdateMovieStateImpl value,
-          $Res Function(_$UpdateMovieStateImpl) then) =
-      __$$UpdateMovieStateImplCopyWithImpl<$Res>;
+abstract class _$$AddMovieStateImplCopyWith<$Res>
+    implements $AddMovieStateCopyWith<$Res> {
+  factory _$$AddMovieStateImplCopyWith(
+          _$AddMovieStateImpl value, $Res Function(_$AddMovieStateImpl) then) =
+      __$$AddMovieStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {Titles title,
-      NumberOfSeats numberOfSeats,
+      {String title,
+      int numberOfSeats,
       Date date,
       Time time,
-      Images image,
+      File? image,
+      String genre,
       bool showErrorMessages,
-      Option<Either<UpdateFailure, Unit>> updateFailureOrSuccessOption});
+      Option<Either<AddFailure, Unit>> addFailureOrSuccessOption});
 }
 
 /// @nodoc
-class __$$UpdateMovieStateImplCopyWithImpl<$Res>
-    extends _$UpdateMovieStateCopyWithImpl<$Res, _$UpdateMovieStateImpl>
-    implements _$$UpdateMovieStateImplCopyWith<$Res> {
-  __$$UpdateMovieStateImplCopyWithImpl(_$UpdateMovieStateImpl _value,
-      $Res Function(_$UpdateMovieStateImpl) _then)
+class __$$AddMovieStateImplCopyWithImpl<$Res>
+    extends _$AddMovieStateCopyWithImpl<$Res, _$AddMovieStateImpl>
+    implements _$$AddMovieStateImplCopyWith<$Res> {
+  __$$AddMovieStateImplCopyWithImpl(
+      _$AddMovieStateImpl _value, $Res Function(_$AddMovieStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1332,19 +1526,20 @@ class __$$UpdateMovieStateImplCopyWithImpl<$Res>
     Object? numberOfSeats = null,
     Object? date = null,
     Object? time = null,
-    Object? image = null,
+    Object? image = freezed,
+    Object? genre = null,
     Object? showErrorMessages = null,
-    Object? updateFailureOrSuccessOption = null,
+    Object? addFailureOrSuccessOption = null,
   }) {
-    return _then(_$UpdateMovieStateImpl(
+    return _then(_$AddMovieStateImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as Titles,
+              as String,
       numberOfSeats: null == numberOfSeats
           ? _value.numberOfSeats
           : numberOfSeats // ignore: cast_nullable_to_non_nullable
-              as NumberOfSeats,
+              as int,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1353,112 +1548,121 @@ class __$$UpdateMovieStateImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as Time,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Images,
+              as File?,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as String,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      updateFailureOrSuccessOption: null == updateFailureOrSuccessOption
-          ? _value.updateFailureOrSuccessOption
-          : updateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<UpdateFailure, Unit>>,
+      addFailureOrSuccessOption: null == addFailureOrSuccessOption
+          ? _value.addFailureOrSuccessOption
+          : addFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AddFailure, Unit>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UpdateMovieStateImpl implements _UpdateMovieState {
-  const _$UpdateMovieStateImpl(
+class _$AddMovieStateImpl implements _AddMovieState {
+  const _$AddMovieStateImpl(
       {required this.title,
       required this.numberOfSeats,
       required this.date,
       required this.time,
       required this.image,
+      required this.genre,
       required this.showErrorMessages,
-      required this.updateFailureOrSuccessOption});
+      required this.addFailureOrSuccessOption});
 
   @override
-  final Titles title;
+  final String title;
   @override
-  final NumberOfSeats numberOfSeats;
+  final int numberOfSeats;
   @override
   final Date date;
   @override
   final Time time;
   @override
-  final Images image;
+  final File? image;
+  @override
+  final String genre;
   @override
   final bool showErrorMessages;
   @override
-  final Option<Either<UpdateFailure, Unit>> updateFailureOrSuccessOption;
+  final Option<Either<AddFailure, Unit>> addFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateMovieState(title: $title, numberOfSeats: $numberOfSeats, date: $date, time: $time, image: $image, showErrorMessages: $showErrorMessages, updateFailureOrSuccessOption: $updateFailureOrSuccessOption)';
+    return 'AddMovieState(title: $title, numberOfSeats: $numberOfSeats, date: $date, time: $time, image: $image, genre: $genre, showErrorMessages: $showErrorMessages, addFailureOrSuccessOption: $addFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateMovieStateImpl &&
+            other is _$AddMovieStateImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.numberOfSeats, numberOfSeats) ||
                 other.numberOfSeats == numberOfSeats) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.time, time) || other.time == time) &&
             (identical(other.image, image) || other.image == image) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 other.showErrorMessages == showErrorMessages) &&
-            (identical(other.updateFailureOrSuccessOption,
-                    updateFailureOrSuccessOption) ||
-                other.updateFailureOrSuccessOption ==
-                    updateFailureOrSuccessOption));
+            (identical(other.addFailureOrSuccessOption,
+                    addFailureOrSuccessOption) ||
+                other.addFailureOrSuccessOption == addFailureOrSuccessOption));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, title, numberOfSeats, date, time,
-      image, showErrorMessages, updateFailureOrSuccessOption);
+      image, genre, showErrorMessages, addFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdateMovieStateImplCopyWith<_$UpdateMovieStateImpl> get copyWith =>
-      __$$UpdateMovieStateImplCopyWithImpl<_$UpdateMovieStateImpl>(
-          this, _$identity);
+  _$$AddMovieStateImplCopyWith<_$AddMovieStateImpl> get copyWith =>
+      __$$AddMovieStateImplCopyWithImpl<_$AddMovieStateImpl>(this, _$identity);
 }
 
-abstract class _UpdateMovieState implements UpdateMovieState {
-  const factory _UpdateMovieState(
-      {required final Titles title,
-      required final NumberOfSeats numberOfSeats,
+abstract class _AddMovieState implements AddMovieState {
+  const factory _AddMovieState(
+      {required final String title,
+      required final int numberOfSeats,
       required final Date date,
       required final Time time,
-      required final Images image,
+      required final File? image,
+      required final String genre,
       required final bool showErrorMessages,
-      required final Option<Either<UpdateFailure, Unit>>
-          updateFailureOrSuccessOption}) = _$UpdateMovieStateImpl;
+      required final Option<Either<AddFailure, Unit>>
+          addFailureOrSuccessOption}) = _$AddMovieStateImpl;
 
   @override
-  Titles get title;
+  String get title;
   @override
-  NumberOfSeats get numberOfSeats;
+  int get numberOfSeats;
   @override
   Date get date;
   @override
   Time get time;
   @override
-  Images get image;
+  File? get image;
+  @override
+  String get genre;
   @override
   bool get showErrorMessages;
   @override
-  Option<Either<UpdateFailure, Unit>> get updateFailureOrSuccessOption;
+  Option<Either<AddFailure, Unit>> get addFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$UpdateMovieStateImplCopyWith<_$UpdateMovieStateImpl> get copyWith =>
+  _$$AddMovieStateImplCopyWith<_$AddMovieStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

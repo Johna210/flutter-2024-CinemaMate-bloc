@@ -13,7 +13,7 @@ abstract class ValueFailure<T> with _$ValueFailure {
   const factory ValueFailure.emptyImage({
     required T failedValue,
   }) = EmptyImage<T>;
-   const factory ValueFailure.emptyDate({
+  const factory ValueFailure.emptyDate({
     required T failedValue,
   }) = EmptyDate<T>;
 
@@ -30,7 +30,6 @@ Either<ValueFailure<int>, int> validateInteger(value) {
   }
 }
 
-
 Either<ValueFailure<File>, File> validateImagePresence(File image) {
   if (image != null && image.existsSync()) {
     return Right(image);
@@ -38,6 +37,7 @@ Either<ValueFailure<File>, File> validateImagePresence(File image) {
     return Left(ValueFailure.emptyImage(failedValue: image));
   }
 }
+
 Either<ValueFailure<TimeOfDay>, TimeOfDay> validateTime(TimeOfDay time) {
   if (time != null) {
     return Right(time);
@@ -53,4 +53,3 @@ Either<ValueFailure<DateTime>, DateTime> validateDate(DateTime date) {
     return Left(ValueFailure.emptyDate(failedValue: date));
   }
 }
-

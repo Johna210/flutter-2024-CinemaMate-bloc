@@ -47,3 +47,24 @@ Map<String, dynamic> _$$MovieDtoImplToJson(_$MovieDtoImpl instance) =>
       'imagePath': instance.imagePath,
       'numberOfSeats': instance.numberOfSeats,
     };
+
+_$UpdateMovieDtoImpl _$$UpdateMovieDtoImplFromJson(Map<String, dynamic> json) =>
+    _$UpdateMovieDtoImpl(
+      id: (json['id'] as num).toInt(),
+      title: json['title'] as String,
+      numberOfSeats: (json['numberOfSeats'] as num).toInt(),
+      genres: json['genres'] as String,
+      date: json['date'] as String,
+      time: json['time'] as String,
+    );
+
+Map<String, dynamic> _$$UpdateMovieDtoImplToJson(
+        _$UpdateMovieDtoImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'numberOfSeats': instance.numberOfSeats,
+      'genres': instance.genres,
+      'date': instance.date,
+      'time': instance.time,
+    };
