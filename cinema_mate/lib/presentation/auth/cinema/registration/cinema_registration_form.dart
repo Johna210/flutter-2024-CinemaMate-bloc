@@ -50,6 +50,7 @@ class CinemaRegistrationForm extends StatelessWidget {
                     height: 30,
                   ),
                   TextFormField(
+                    key: const Key('cinemaNamefield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
@@ -83,6 +84,7 @@ class CinemaRegistrationForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
+                    key: const Key('emailfield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
@@ -115,6 +117,7 @@ class CinemaRegistrationForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
+                    key: const Key('passwordfield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
@@ -149,6 +152,7 @@ class CinemaRegistrationForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
+                    key: const Key('cinemaDescriptionfield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(

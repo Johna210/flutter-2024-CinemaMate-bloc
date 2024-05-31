@@ -50,6 +50,7 @@ class UserRegistrationForm extends StatelessWidget {
                     height: 30,
                   ),
                   TextFormField(
+                    key: const Key('fullnamefield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
@@ -82,6 +83,7 @@ class UserRegistrationForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
+                    key: const Key('usernamefield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
@@ -114,6 +116,7 @@ class UserRegistrationForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
+                    key: const Key('emailfield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
@@ -146,6 +149,7 @@ class UserRegistrationForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
+                    key: const Key('passwordfield'),
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(

@@ -16,7 +16,6 @@ class CinemaSignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<CinemaSigninBloc, CinemaSigninState>(
       listener: (context, state) {
-        print(state);
         state.authFailureOrSuccessOption.fold(() {}, (either) {
           either.fold((failure) {
             return ScaffoldMessenger.of(context).showSnackBar(
@@ -78,6 +77,7 @@ class CinemaSignInForm extends StatelessWidget {
                       child: Column(
                         children: [
                           TextFormField(
+                            key: const Key('emailField'),
                             style: const TextStyle(color: Colors.white),
                             decoration: const InputDecoration(
                               prefixIcon: Icon(
@@ -105,6 +105,7 @@ class CinemaSignInForm extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           TextFormField(
+                            key: const Key('passwordField'),
                             style: const TextStyle(color: Colors.white),
                             decoration: const InputDecoration(
                               prefixIcon: Icon(

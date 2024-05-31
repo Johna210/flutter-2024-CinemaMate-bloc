@@ -73,6 +73,7 @@ class SignInForm extends StatelessWidget {
                       child: Column(
                         children: [
                           TextFormField(
+                            key: const Key('emailField'),
                             style: const TextStyle(color: Colors.white),
                             decoration: const InputDecoration(
                               prefixIcon: Icon(
@@ -100,6 +101,7 @@ class SignInForm extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           TextFormField(
+                            key: const Key('passwordField'),
                             style: const TextStyle(color: Colors.white),
                             decoration: const InputDecoration(
                               prefixIcon: Icon(
